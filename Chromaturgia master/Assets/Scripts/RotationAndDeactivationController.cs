@@ -26,8 +26,12 @@ public class RotationAndDeactivationController : MonoBehaviour {
 		// caching
 		containsWall = gameObject.name.Contains ("Wall");
         gameObject.GetComponent<BoxCollider2D>().enabled = isWallActive;
-        animator = gameObject.GetComponent<Animator>();
-        animator.SetBool("On", isWallActive);
+
+        if (containsWall)
+        {
+            animator = gameObject.GetComponent<Animator>();
+            animator.SetBool("On", isWallActive);
+        }
     }
 
     public void OrbLeverSignal()

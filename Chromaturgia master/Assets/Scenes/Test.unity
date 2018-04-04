@@ -1857,6 +1857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b3d652abe9e412459081e4c03e0861d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  turretColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!1001 &735501564
 Prefab:
   m_ObjectHideFlags: 0
@@ -9203,6 +9204,21 @@ Prefab:
     - target: {fileID: 4025090933970008, guid: 0ed6dd166b949e243ac1fdaee5af0998, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 212666119441428436, guid: 0ed6dd166b949e243ac1fdaee5af0998,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 212666119441428436, guid: 0ed6dd166b949e243ac1fdaee5af0998,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212666119441428436, guid: 0ed6dd166b949e243ac1fdaee5af0998,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ed6dd166b949e243ac1fdaee5af0998, type: 2}

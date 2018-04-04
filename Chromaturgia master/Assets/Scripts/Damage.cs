@@ -6,6 +6,9 @@ public class Damage : MonoBehaviour {
 
 	SpriteRenderer renderer;
 
+    [HideInInspector]
+    public Color turretColor = Color.red;
+
 	void Start () 
 	{
 		renderer = gameObject.GetComponent<SpriteRenderer> ();
@@ -13,7 +16,7 @@ public class Damage : MonoBehaviour {
 
 	public void Flash()
 	{
-		renderer.color = Color.red;
+        renderer.color = turretColor;
 		Invoke ("NormalColor", 0.25f);
 	}
 

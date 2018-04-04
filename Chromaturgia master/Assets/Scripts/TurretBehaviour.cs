@@ -39,6 +39,19 @@ public class TurretBehaviour : MonoBehaviour
 		clon = Instantiate (varPrefab, gun.transform.position ,gameObject.transform.rotation);
 
 		clon.speed = laserSpeed;
+        if (turretColor == Color.red)
+        {
+            clon.turretColor = GameManager.Option.Red;
+        }
+        else if (turretColor == Color.blue)
+        {
+            clon.turretColor = GameManager.Option.Blue;
+        }
+        else
+        {
+            clon.turretColor = GameManager.Option.Green;
+        }
+        
 
 		animator.SetTrigger ("Shoot");
 	}

@@ -29,13 +29,25 @@ public class EnemyLaserLogic : MonoBehaviour {
 
 		if (coll.gameObject.tag == "Player")
 		{
-			coll.gameObject.GetComponent<Damage> ().Flash();
-			GameManager.instance.DecreaseColor (turretColor);
+            if (turretColor == GameManager.Option.Red)
+            {
+                coll.gameObject.GetComponent<Damage>().turretColor = Color.red;
+            }
+            else if (turretColor == GameManager.Option.Green)
+            {
+                coll.gameObject.GetComponent<Damage>().turretColor = Color.green;
+            }
+            else
+            {
+                coll.gameObject.GetComponent<Damage>().turretColor = Color.blue;
+            }
+            coll.gameObject.GetComponent<Damage>().Flash();
+            GameManager.instance.DecreaseColor (turretColor);
 		}
         if (coll.gameObject.tag != "Transparent")
         {
 			rb2d.velocity = Vector2.zero;
-			animator.SetBool ("Destroyed",true);
+			animator.SetBool ("Destroyed", true);
 			Destroy (gameObject, 0.35f);
         }
 	}
