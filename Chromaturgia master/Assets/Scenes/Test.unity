@@ -351,11 +351,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4685050791838072, guid: 0d4ff8851d691f645b4c541ac43f9b3b, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 2.04
       objectReference: {fileID: 0}
     - target: {fileID: 4685050791838072, guid: 0d4ff8851d691f645b4c541ac43f9b3b, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.52
       objectReference: {fileID: 0}
     - target: {fileID: 4685050791838072, guid: 0d4ff8851d691f645b4c541ac43f9b3b, type: 2}
       propertyPath: m_LocalPosition.z
@@ -397,7 +397,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4342119457504652, guid: 6d76c5ce98ca2bd4986a557f37cef4b4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.56
+      value: 1.32
       objectReference: {fileID: 0}
     - target: {fileID: 4342119457504652, guid: 6d76c5ce98ca2bd4986a557f37cef4b4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1115,7 +1115,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4928882365562952, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 2.04
+      value: 1.56
       objectReference: {fileID: 0}
     - target: {fileID: 4928882365562952, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1492,7 +1492,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.007352948, g: 0.007352948, b: 0.007352948, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1777,11 +1777,11 @@ BoxCollider2D:
   m_GameObject: {fileID: 700834971}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 34eb350424c65a64d86ac87040e08098, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.00007605553}
+  m_Offset: {x: 0, y: -0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.24}
@@ -1792,8 +1792,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1688385, y: 0.112734556}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.15, y: 0.1}
+  m_EdgeRadius: 0.01
 --- !u!50 &700834977
 Rigidbody2D:
   serializedVersion: 4
@@ -2112,7 +2112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.007352948, g: 0.007352948, b: 0.007352948, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -9383,7 +9383,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.007352948, g: 0.007352948, b: 0.007352948, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -10060,7 +10060,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4862706180655516, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.6
+      value: 0.84
       objectReference: {fileID: 0}
     - target: {fileID: 4862706180655516, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_LocalPosition.z
