@@ -25,6 +25,12 @@ TagManager:
   - Lever
   - NPCBody
   - LevelInfo
+  - ThinkMenu
+  - StartMenu
+  - MainMenu
+  - TitleMenu
+  - ExitMenu
+  - OptionsMenu
   layers:
   - Default
   - TransparentFX

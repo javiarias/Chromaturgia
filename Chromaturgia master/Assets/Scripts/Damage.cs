@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Damage : MonoBehaviour {
 
-	SpriteRenderer renderer;
+	new SpriteRenderer renderer;
 
     [HideInInspector]
     public Color turretColor = Color.red;
