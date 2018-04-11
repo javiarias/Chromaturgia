@@ -9,8 +9,9 @@ public class PlayerInputs : MonoBehaviour {
 
 	[HideInInspector]
 	public NPCBehaviour npc;
+    [HideInInspector]
     public OrbLeverBehaviour orbLever;
-	Animator animator;
+    Animator animator;
 
 	Image currentSprite;
 	GunController playerGun;
@@ -70,6 +71,9 @@ public class PlayerInputs : MonoBehaviour {
 	void Update () 
 	{
 		ChangeSprite (GameManager.instance.currentAction);
-		CheckInput ();
+        if (!PauseMenu.GameIsPaused)
+        {
+            CheckInput();
+        }
 	}
 }

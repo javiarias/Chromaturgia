@@ -46,6 +46,9 @@ public class HUDController : MonoBehaviour {
 
 	void Update () 
 	{
-		CheckInput ();
+        if (!PauseMenu.GameIsPaused)
+        {
+            CheckInput();
+        }
 	}
 }

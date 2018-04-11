@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class OrbLeverBehaviour : MonoBehaviour {
 
-
 	public int masterIdentifier = 0;
-    RotationAndDeactivationController[] objectList;
+    static RotationAndDeactivationController[] objectList = null;
 
     private void Awake()
     {
-        objectList = Object.FindObjectsOfType<RotationAndDeactivationController>();
+        if (objectList == null)
+        {
+            objectList = Object.FindObjectsOfType<RotationAndDeactivationController>();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D coll)
