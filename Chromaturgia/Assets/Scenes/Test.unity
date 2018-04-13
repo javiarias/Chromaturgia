@@ -1223,6 +1223,11 @@ Prefab:
       propertyPath: m_Name
       value: Turret (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114819865448144422, guid: 0ed6dd166b949e243ac1fdaee5af0998,
+        type: 2}
+      propertyPath: RotateLeft
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0ed6dd166b949e243ac1fdaee5af0998, type: 2}
   m_IsPrefabParent: 0
@@ -3232,6 +3237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifierList: 0000000000000000000000000000000000000000
+  RotateLeft: 0
   isWallActive: 1
 --- !u!1001 &1231837585
 Prefab:

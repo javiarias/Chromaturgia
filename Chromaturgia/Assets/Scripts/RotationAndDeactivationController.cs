@@ -7,6 +7,7 @@ public class RotationAndDeactivationController : MonoBehaviour {
 	Animator animator;
 
 	public int[] identifierList = new int[5];
+    public bool RotateLeft = false;
 
     [HideInInspector]
     public bool isWallActive = true;
@@ -46,7 +47,12 @@ public class RotationAndDeactivationController : MonoBehaviour {
         }
         else
         {
-            gameObject.transform.Rotate(Vector3.forward * 90);
+            int rotationModifier = -1;
+            if (RotateLeft)
+            {
+                rotationModifier = 1;
+            }
+            gameObject.transform.Rotate(Vector3.forward * rotationModifier * 90);
         }
     }
 
