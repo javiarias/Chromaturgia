@@ -78,7 +78,7 @@ public class LaserLogic : MonoBehaviour {
         }
     }
 
-	public void CrearShards()
+    public void CrearShards()
 	{
 		shardClone = Instantiate(shardPrefab, gameObject.transform.position, Quaternion.identity);
 		shardClone.GetComponent<SpriteRenderer> ().color = laserColor;

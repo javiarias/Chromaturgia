@@ -7,7 +7,9 @@ public class PlayerInputs : MonoBehaviour {
 
 	public Sprite Shoot, Act, Talk;
 
-	[HideInInspector]
+    [HideInInspector]
+    public bool gunEnabled = true;
+    [HideInInspector]
 	public NPCBehaviour npc;
     [HideInInspector]
     public OrbLeverBehaviour orbLever;
@@ -42,7 +44,7 @@ public class PlayerInputs : MonoBehaviour {
 	{
 		if (Input.GetKeyUp (KeyCode.Space))
 		{
-			if (GameManager.instance.currentAction == GameManager.Action.Shoot) 
+			if (GameManager.instance.currentAction == GameManager.Action.Shoot && gunEnabled) 
 			{
 				playerGun.ShootLaser ();
 			} 
@@ -50,7 +52,7 @@ public class PlayerInputs : MonoBehaviour {
 			{
 				npc.DisplayText();
 			}
-			else if(GameManager.instance.currentAction == GameManager.Action.Interact)
+			else if (GameManager.instance.currentAction == GameManager.Action.Interact)
 			{
 				animator = orbLever.gameObject.GetComponent<Animator> ();
 
