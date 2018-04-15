@@ -10,10 +10,17 @@ public class MainMenu : MonoBehaviour {
 	float bright;
 	float soundVolume;
 	float musicVolume;
+	float alphaBright;
+	float alphaDark;
 
 	public Text brightText;
 	public Text soundText;
 	public Text musicText;
+
+	public Image brightness;
+	public Image darkness;
+
+	public Button volverOptionsMenu;
 
 	GameObject mainMenu;
 
@@ -35,8 +42,14 @@ public class MainMenu : MonoBehaviour {
 		soundText.text = soundVolume + "%";
 		musicText.text = musicVolume + "%";
 
+		alphaBright = (bright - 50)/100;
+		alphaDark = (50 - bright)/100;
 
-		//RenderSettings.ambientLight = new Color (bright, bright, bright, 1.0f);
+		brightness.color = new Vector4 (1, 1, 1, alphaBright);
+		darkness.color = new Vector4 (0, 0, 0, alphaDark);
+
+		if (Input.GetKeyDown (KeyCode.Escape))
+			volverOptionsMenu.onClick.Invoke ();
 	}
 
 
