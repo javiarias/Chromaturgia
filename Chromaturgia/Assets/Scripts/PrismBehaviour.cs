@@ -17,9 +17,16 @@ public class PrismBehaviour : MonoBehaviour {
 	{
 		if (coll.gameObject.tag == "Laser") 
 		{
-			animator.SetTrigger ("Shoot");
+			Color laserColor = coll.GetComponent<SpriteRenderer> ().color;
 
-			mouth.ShootLaser (coll.GetComponent<SpriteRenderer>().color);
+			mouth.ShootLaser (laserColor);
+
+			if (laserColor == Color.red)
+				animator.SetTrigger ("ShootRed");
+			else if (laserColor == Color.green)
+				animator.SetTrigger ("ShootGreen");
+			else if (laserColor == Color.blue)
+				animator.SetTrigger ("ShootBlue");
 
 			Destroy (coll.gameObject);
 		}

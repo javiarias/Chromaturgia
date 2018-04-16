@@ -118,6 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   identifierList: 0200000000000000000000000000000000000000
+  RotateLeft: 0
   isWallActive: 1
 --- !u!212 &212237242489498056
 SpriteRenderer:
@@ -153,7 +154,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d8dfdb19221c66b468b8609dd51cb01c, type: 3}
+  m_Sprite: {fileID: 21300010, guid: 6368f34728db7444c93b413983710407, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
