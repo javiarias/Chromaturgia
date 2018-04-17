@@ -29,8 +29,10 @@ public class TurretBehaviour : MonoBehaviour
 				animator.SetBool ("Destroyed", true);
 				Destroy (gameObject,0.75f);
 			}
-			else 
-				Destroy (coll.gameObject);
+			else if (coll.gameObject.tag != "Gun")
+            {
+                Destroy(coll.gameObject);
+            }
 		}
 	}
 
@@ -51,7 +53,6 @@ public class TurretBehaviour : MonoBehaviour
         {
             clon.turretColor = GameManager.Option.Green;
         }
-        
 
 		animator.SetTrigger ("Shoot");
 	}

@@ -77,8 +77,7 @@ public class GunController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(coll.gameObject.tag);
-        if (coll.gameObject.tag == "Opaque")
+        if (coll.gameObject.name.Contains("Wall") && coll.gameObject.tag == "Opaque")
         {
             GetComponentInParent<PlayerInputs>().gunEnabled = false;
         }
@@ -86,8 +85,7 @@ public class GunController : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D coll)
     {
-        Debug.Log("Exit");
-        if (coll.gameObject.tag == "Opaque")
+        if (coll.gameObject.name.Contains("Wall") && coll.gameObject.tag == "Opaque")
         {
             GetComponentInParent<PlayerInputs>().gunEnabled = true;
         }
