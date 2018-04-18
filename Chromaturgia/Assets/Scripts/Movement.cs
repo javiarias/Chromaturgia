@@ -42,8 +42,8 @@ public class Movement : MonoBehaviour
 
 		upPosition = new Vector3 (0, gunPosUp, 0);
 		downPosition = new Vector3 (0, gunPosDown, 0);
-		leftPosition = new Vector3 (gunPosLeft, 0f, 0);
-		rightPosition = new Vector3 (gunPosRight, 0f, 0);
+		leftPosition = new Vector3 (gunPosLeft, 0.066f, 0);
+		rightPosition = new Vector3 (gunPosRight, 0.066f, 0);
 	}
 
 	// applies an impulse with a module of (direction*speed)
