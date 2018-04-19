@@ -13,7 +13,6 @@ public class PlayerInputs : MonoBehaviour {
 	public NPCBehaviour npc;
     [HideInInspector]
     public OrbLeverBehaviour orbLever;
-    Animator animator;
 
 	Image currentSprite;
 	GunController playerGun;
@@ -54,18 +53,7 @@ public class PlayerInputs : MonoBehaviour {
 			}
 			else if (GameManager.instance.currentAction == GameManager.Action.Interact)
 			{
-				animator = orbLever.gameObject.GetComponent<Animator> ();
-
-				if (animator.GetCurrentAnimatorStateInfo (0).IsName ("Off"))
-				{
-					orbLever.SendSignal();
-					animator.SetBool ("On", true);
-				} 
-				else if (animator.GetCurrentAnimatorStateInfo (0).IsName ("On")) 
-				{
-					orbLever.SendSignal();
-					animator.SetBool ("On", false);
-				}
+				orbLever.SendSignal();
 			}
 		}
     }

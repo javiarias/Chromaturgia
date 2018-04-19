@@ -6,21 +6,14 @@ public class OrbLeverBehaviour : MonoBehaviour {
 
 	public int masterIdentifier = 0;
     static RotationAndDeactivationController[] objectList = null;
+    Animator animator;
+    bool deactivate = false;
 
     private void Awake()
     {
         if (objectList == null)
         {
             objectList = Object.FindObjectsOfType<RotationAndDeactivationController>();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D coll)
-    {
-        if (coll.tag == "Player" && gameObject.tag == "Lever")
-        {
-            GameManager.instance.currentAction = GameManager.Action.Interact;
-            coll.GetComponent<PlayerInputs>().orbLever = this;
         }
     }
 
@@ -32,17 +25,45 @@ public class OrbLeverBehaviour : MonoBehaviour {
         }
     }
 
+    private void OnTriggerStay2D(Collider2D coll)
+    {
+        if (coll.tag == "Player" && gameObject.tag == "Lever")
+        {
+            GameManager.instance.currentAction = GameManager.Action.Interact;
+            coll.GetComponent<PlayerInputs>().orbLever = this;
+        }
+    }
+
     public void SendSignal()
     {
-        foreach (RotationAndDeactivationController objectInstance in objectList)
+        if (!deactivate)
         {
-            foreach (int objectIdentifier in objectInstance.identifierList)
+            deactivate = true;
+            animator = gameObject.GetComponent<Animator>();
+            bool orbLeverState = false;
+
+            if (animator.GetCurrentAnimatorStateInfo(0).IsName("Off"))
             {
-                if (objectIdentifier == masterIdentifier)
+                orbLeverState = true;
+            }
+
+            animator.SetBool("On", orbLeverState);
+            foreach (RotationAndDeactivationController objectInstance in objectList)
+            {
+                foreach (int objectIdentifier in objectInstance.identifierList)
                 {
-                    objectInstance.OrbLeverSignal();
+                    if (objectIdentifier == masterIdentifier)
+                    {
+                        objectInstance.OrbLeverSignal();
+                    }
                 }
             }
+            Invoke("Reactivation", 0.6f);
         }
+    }
+
+    void Reactivation()
+    {
+        deactivate = false;
     }
 }

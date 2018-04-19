@@ -12,7 +12,7 @@ public class RotationAndDeactivationController : MonoBehaviour {
     [HideInInspector]
     public bool isWallActive = true;
 
-	bool containsWall;
+    bool containsWall;
 
     private void Awake()
     {
@@ -41,7 +41,7 @@ public class RotationAndDeactivationController : MonoBehaviour {
         {
             isWallActive = !isWallActive;
 
-			animator = gameObject.GetComponent<Animator> ();
+            animator = gameObject.GetComponent<Animator> ();
 			animator.SetBool ("On", isWallActive);
 			Invoke ("OcultacionMuro", 0.5f);
         }
