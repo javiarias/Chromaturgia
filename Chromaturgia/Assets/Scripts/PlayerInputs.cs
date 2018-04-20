@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour {
 
@@ -17,8 +18,15 @@ public class PlayerInputs : MonoBehaviour {
 	Image currentSprite;
 	GunController playerGun;
 
-	void Start () 
+    Scene currentScene;
+
+    void Start () 
 	{
+        currentScene = SceneManager.GetActiveScene();
+        if (currentScene.name == "Hub")
+        {
+            gunEnabled = false;
+        }
 		currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
 	}

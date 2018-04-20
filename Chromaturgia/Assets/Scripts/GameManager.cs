@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 
 
@@ -48,7 +47,7 @@ public class GameManager : MonoBehaviour {
 		redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
 		greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
 		blueLevels = GameObject.FindGameObjectWithTag("BlueLevels").GetComponent<Text>();
-
+        
 		// initializing 
 		colors.x = 0.9f;
 		colors.y = 0.9f;
