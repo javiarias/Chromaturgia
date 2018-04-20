@@ -58,7 +58,7 @@ public class OrbLeverBehaviour : MonoBehaviour {
                     }
                 }
             }
-            Invoke("Reactivation", 0.6f);
+            Invoke("Reactivation", 0.5f);
         }
     }
 

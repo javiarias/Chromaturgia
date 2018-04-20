@@ -54,7 +54,6 @@ public class GameManager : MonoBehaviour {
 		colors.y = 0.9f;
 		colors.z = 0.9f;
 		colors.w = 1;
-        bulletAmount = 0.1f;
     }
 
     public void DecreaseColor(Option color)
