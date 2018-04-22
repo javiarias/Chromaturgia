@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class PlayerInputs : MonoBehaviour {
 
-	public Sprite Shoot, Act, Talk;
+	public Sprite Shoot, DisabledShoot, Act, Talk;
 
     [HideInInspector]
     public bool gunEnabled = true;
@@ -18,24 +17,28 @@ public class PlayerInputs : MonoBehaviour {
 	Image currentSprite;
 	GunController playerGun;
 
-    Scene currentScene;
-
     void Start () 
 	{
-        currentScene = SceneManager.GetActiveScene();
-        if (currentScene.name == "Hub")
+        currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
+        playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
+        if (GameManager.instance.inHub)
         {
             gunEnabled = false;
         }
-		currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
-        playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
-	}
+    }
 
 	public void ChangeSprite(GameManager.Action action)
 	{
 		if (action == GameManager.Action.Shoot) 
 		{
-			currentSprite.sprite = Shoot;
+            if (GameManager.instance.inHub)
+            {
+                currentSprite.sprite = DisabledShoot;
+            }
+            else
+            {
+                currentSprite.sprite = Shoot;
+            }
 		}
 		else if (action == GameManager.Action.Interact) 
 		{

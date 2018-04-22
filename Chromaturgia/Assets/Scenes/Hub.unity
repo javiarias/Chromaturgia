@@ -888,7 +888,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: '-'
 --- !u!222 &613900615
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1275,7 +1275,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: '-'
 --- !u!222 &825300777
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2186,6 +2186,26 @@ Prefab:
       propertyPath: m_TagString
       value: Spacebar
       objectReference: {fileID: 0}
+    - target: {fileID: 114134576227004002, guid: cb34c3e182804604596cf42e8656beb6,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114134576227004002, guid: cb34c3e182804604596cf42e8656beb6,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114134576227004002, guid: cb34c3e182804604596cf42e8656beb6,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114134576227004002, guid: cb34c3e182804604596cf42e8656beb6,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
   m_ParentPrefab: {fileID: 100100000, guid: cb34c3e182804604596cf42e8656beb6, type: 2}
@@ -2199,7 +2219,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1320376653}
   - component: {fileID: 1320376654}
-  - component: {fileID: 1320376655}
   m_Layer: 5
   m_Name: RedSlider
   m_TagString: RedSlider
@@ -2270,23 +2289,12 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1320376655
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1320376652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6746a5fa4a81549a10b93b33c28ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1356160873
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,7 +2646,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1516478784}
   - component: {fileID: 1516478785}
-  - component: {fileID: 1516478786}
   m_Layer: 5
   m_Name: GreenSlider
   m_TagString: GreenSlider
@@ -2709,23 +2716,12 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &1516478786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1516478783}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6746a5fa4a81549a10b93b33c28ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1529985809
 GameObject:
   m_ObjectHideFlags: 0
@@ -3719,7 +3715,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: '-'
 --- !u!222 &1845484481
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3988,6 +3984,7 @@ MonoBehaviour:
   redHUD: {fileID: 21300000, guid: f5e841c2aaac2e54c99b58e91295e4f6, type: 3}
   greenHUD: {fileID: 21300000, guid: 824491ddc3f581e4a9df6d2fcfbda5a9, type: 3}
   blueHUD: {fileID: 21300000, guid: 07e64aa0d6dcade41a5f95bb79bcead5, type: 3}
+  disabledHUD: {fileID: 21300000, guid: 49ee3fd85d23ff948bbe8de046c4bf0a, type: 3}
 --- !u!1 &2013596409
 GameObject:
   m_ObjectHideFlags: 0
@@ -4095,6 +4092,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114756992811583120, guid: 5bbc6b32db15cfc4c884eeb72640bb62,
+        type: 2}
+      propertyPath: DisabledShoot
+      value: 
+      objectReference: {fileID: 21300000, guid: b4ed92789cc3be84490a03e14adc28f9,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
   m_IsPrefabParent: 0
@@ -4107,7 +4110,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2133619190}
   - component: {fileID: 2133619191}
-  - component: {fileID: 2133619192}
   m_Layer: 5
   m_Name: BlueSlider
   m_TagString: BlueSlider
@@ -4178,20 +4180,9 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.Slider+SliderEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &2133619192
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2133619189}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cc6746a5fa4a81549a10b93b33c28ee5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
