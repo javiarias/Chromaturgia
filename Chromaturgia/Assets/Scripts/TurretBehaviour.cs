@@ -7,6 +7,7 @@ public class TurretBehaviour : MonoBehaviour
 	Color turretColor;
 	public float frecuency = 2f;
 	public float laserSpeed = 50f;
+	public float delay = 0f;
 	public Transform gun;
 	public EnemyLaserLogic varPrefab;
 	EnemyLaserLogic clon;
@@ -16,7 +17,7 @@ public class TurretBehaviour : MonoBehaviour
 	{
 		turretColor = gameObject.GetComponentInChildren <SpriteRenderer> ().color;
 		animator = gameObject.GetComponentInChildren<Animator> ();
-		InvokeRepeating ("Shoot", 0f, frecuency);
+		InvokeRepeating ("Shoot", delay, frecuency);
 	}
 		
 	void OnTriggerEnter2D (Collider2D coll)
