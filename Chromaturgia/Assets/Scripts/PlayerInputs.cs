@@ -15,11 +15,14 @@ public class PlayerInputs : MonoBehaviour {
     public OrbLeverBehaviour orbLever;
 
 	Image currentSprite;
+    Text spacebarText;
 	GunController playerGun;
 
     void Start () 
 	{
         currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
+        spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
+        spacebarText.text = "Spacebar";
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
         if (GameManager.instance.inHub)
         {
@@ -34,6 +37,7 @@ public class PlayerInputs : MonoBehaviour {
             if (GameManager.instance.inHub)
             {
                 currentSprite.sprite = DisabledShoot;
+                spacebarText.text = "----------";
             }
             else
             {
