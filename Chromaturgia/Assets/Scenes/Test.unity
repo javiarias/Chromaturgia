@@ -880,7 +880,8 @@ Prefab:
       propertyPath: posCamara
       value: 
       objectReference: {fileID: 1157816449}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114147188687038850, guid: 7cc6bc048cd7c144fbe6a54bb2bae134, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7cc6bc048cd7c144fbe6a54bb2bae134, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &318107971
@@ -2155,7 +2156,8 @@ Prefab:
       propertyPath: m_LocalPosition.y
       value: -0.609
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114147188687038850, guid: 7cc6bc048cd7c144fbe6a54bb2bae134, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 7cc6bc048cd7c144fbe6a54bb2bae134, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &877837379 stripped
@@ -6329,6 +6331,23 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 1256642328}
   m_GameObject: {fileID: 1412669031}
+--- !u!1 &1476356660 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1331277656545864, guid: 7cc6bc048cd7c144fbe6a54bb2bae134,
+    type: 2}
+  m_PrefabInternal: {fileID: 264298816}
+--- !u!114 &1476356662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1476356660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0377c8973d557e14c96fe46971985a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: Puzle 1
 --- !u!1 &1500872182
 GameObject:
   m_ObjectHideFlags: 0
@@ -10041,6 +10060,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4618434755140126, guid: a9284ce6aa6284f409dd097f013ba945,
     type: 2}
   m_PrefabInternal: {fileID: 1857153117}
+--- !u!1 &2032081545 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1331277656545864, guid: 7cc6bc048cd7c144fbe6a54bb2bae134,
+    type: 2}
+  m_PrefabInternal: {fileID: 877837378}
+--- !u!114 &2032081547
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2032081545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0377c8973d557e14c96fe46971985a0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Scene: MainMenu
 --- !u!1001 &2067642845
 Prefab:
   m_ObjectHideFlags: 0
@@ -10050,11 +10086,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 2.04
+      value: -0.48
       objectReference: {fileID: 0}
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 0.277
+      value: 0.24
       objectReference: {fileID: 0}
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.z
