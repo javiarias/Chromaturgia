@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 
@@ -27,6 +28,9 @@ public class GameManager : MonoBehaviour {
 
 	Text redLevels, greenLevels, blueLevels;
 
+    [HideInInspector]
+    public bool inHub = false;
+
     void Awake()
     {
 		if (instance == null) 
@@ -39,7 +43,12 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy (this.gameObject);
 		}
-	}
+
+        if (SceneManager.GetActiveScene().name == "Hub")
+        {
+            inHub = true;
+        }
+    }
 
     public void Start()
     {
@@ -101,10 +110,13 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-        redLevels.text = Mathf.Round(colors.x / bulletAmount).ToString();
-        greenLevels.text = Mathf.Round(colors.y / bulletAmount).ToString();
-        blueLevels.text = Mathf.Round(colors.z / bulletAmount).ToString();
-        CheckHealth();
+        if (!inHub)
+        {
+            redLevels.text = Mathf.Round(colors.x / bulletAmount).ToString();
+            greenLevels.text = Mathf.Round(colors.y / bulletAmount).ToString();
+            blueLevels.text = Mathf.Round(colors.z / bulletAmount).ToString();
+            CheckHealth();
+        }
     }
 
     void CheckHealth()
