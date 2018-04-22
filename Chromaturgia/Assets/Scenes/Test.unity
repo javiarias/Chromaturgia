@@ -6347,7 +6347,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0377c8973d557e14c96fe46971985a0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Scene: Puzle 1
+  Scene: Nivel 1
 --- !u!1 &1500872182
 GameObject:
   m_ObjectHideFlags: 0

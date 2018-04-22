@@ -52,6 +52,7 @@ public class GameManager : MonoBehaviour {
 
     public void Start()
     {
+		
 		// caching 
 		redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
 		greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();

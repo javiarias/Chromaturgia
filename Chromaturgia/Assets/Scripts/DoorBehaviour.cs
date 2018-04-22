@@ -19,7 +19,8 @@ public class DoorBehaviour : MonoBehaviour {
 	{
 		if (col.gameObject.tag == "Player") 
 		{
-			SceneManager.LoadScene (Scene);
+			SceneManager.SetActiveScene (SceneManager.GetSceneByName (Scene));
+			SceneManager.LoadScene (Scene, LoadSceneMode.Additive);
 		}
 	}
 }
