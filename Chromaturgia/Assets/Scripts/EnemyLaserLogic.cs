@@ -44,7 +44,7 @@ public class EnemyLaserLogic : MonoBehaviour {
             coll.gameObject.GetComponent<Damage>().Flash();
             GameManager.instance.DecreaseColor (turretColor);
 		}
-        if (coll.gameObject.tag != "Transparent" && coll.gameObject.tag != "Gun")
+        if (coll.gameObject.tag != "Transparent" && coll.gameObject.tag != "Gun" && !coll.gameObject.name.Contains("LaserBlack"))
         {
 			rb2d.velocity = Vector2.zero;
 			animator.SetBool ("Destroyed", true);

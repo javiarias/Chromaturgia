@@ -6650,6 +6650,7 @@ MonoBehaviour:
   bulletAmount: 0.001
   chosenColor: 0
   currentAction: 0
+  inHub: 0
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0
@@ -9966,6 +9967,7 @@ MonoBehaviour:
   redHUD: {fileID: 21300000, guid: f5e841c2aaac2e54c99b58e91295e4f6, type: 3}
   greenHUD: {fileID: 21300000, guid: 824491ddc3f581e4a9df6d2fcfbda5a9, type: 3}
   blueHUD: {fileID: 21300000, guid: 07e64aa0d6dcade41a5f95bb79bcead5, type: 3}
+  disabledHUD: {fileID: 0}
 --- !u!1 &2013596409
 GameObject:
   m_ObjectHideFlags: 0

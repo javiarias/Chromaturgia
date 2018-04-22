@@ -46,7 +46,7 @@ public class LaserLogic : MonoBehaviour {
             animOrb.SetBool("On", orbState);
         }
 
-        if (coll.gameObject.tag == "Turret" || coll.gameObject.tag == "Door" || coll.gameObject.tag == "Player" || coll.gameObject.tag == "NPCBody" || coll.gameObject.tag == "Orb")
+        if (coll.gameObject.tag == "Turret" || coll.gameObject.tag == "Door" || coll.gameObject.tag == "Player" || coll.gameObject.tag == "NPCBody" || coll.gameObject.tag == "Orb" || coll.gameObject.name.Contains("LaserBlack"))
 		{
 			rb2d.velocity = Vector2.zero;
 			animator.SetBool ("Destroyed",true);
