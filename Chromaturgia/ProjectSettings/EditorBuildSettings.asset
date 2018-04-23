@@ -9,5 +9,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Test.unity
     guid: ad9e705e835c2d24babd31cf1691cbd8
   - enabled: 1
-    path: Assets/Scenes/Nivel 1/Puzle 1.unity
-    guid: c39509cd7ac96a34a94b6a386b2aa62b
+    path: Assets/Scenes/Hub.unity
+    guid: 6b4cf80fa0f46374ea255137501f40fa
+  - enabled: 1
+    path: Assets/Scenes/Nivel 1/Puzle 1-1.unity
+    guid: 8e46ffcc682c6114a9ed1e75b1ae97fd
+  - enabled: 1
+    path: Assets/Scenes/Nivel 2/Puzle 2-1.unity
+    guid: 62319ad660cb58b448a5fb68580fb117
+  - enabled: 1
+    path: Assets/Scenes/Nivel 3/Puzle 3-1.unity
+    guid: af8499fe99d33c4479e2cf3ef7d8481a
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: f63a5022366826441b634ebbc5ca02ed

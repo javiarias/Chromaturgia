@@ -8,7 +8,7 @@ public class PlayerInputs : MonoBehaviour {
 	public Sprite Shoot, DisabledShoot, Act, Talk;
 
     [HideInInspector]
-    public bool gunEnabled = true;
+    public bool gunEnabled = false;
     [HideInInspector]
 	public NPCBehaviour npc;
     [HideInInspector]
@@ -24,10 +24,12 @@ public class PlayerInputs : MonoBehaviour {
         spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
         spacebarText.text = "Spacebar";
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
-        if (GameManager.instance.inHub)
+        if (!GameManager.instance.inHub)
         {
-            gunEnabled = false;
+            gunEnabled = true;
         }
+        gameObject.GetComponent<Movement>().canMove = true;
+        gameObject.transform.position = GameManager.instance.entryPosition;
     }
 
 	public void ChangeSprite(GameManager.Action action)

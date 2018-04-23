@@ -17,7 +17,7 @@ public class InfectedAnimalBehaviour : MonoBehaviour {
 	{
 		totalAnimals++;
 		levelText = GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>();
-	}
+    }
 
 	void Start () {
 		UpdateText ();
@@ -28,12 +28,15 @@ public class InfectedAnimalBehaviour : MonoBehaviour {
 		InvokeRepeating ("AnimacionIdle2", 0, 5f);
 	}
 		
-	void Update () {
-		if (!win && colors == Color.white) {
+	void Update ()
+    {
+		if (!win && colors == Color.white)
+        {
 			win = true;
 			curedAnimals++;
 			UpdateText ();
 		}
+        PuzzleComplete();
 	}
 
 	void UpdateText()
@@ -62,4 +65,12 @@ public class InfectedAnimalBehaviour : MonoBehaviour {
 	{
 		animator.SetTrigger ("Idle2");
 	}
+
+    static void PuzzleComplete()
+    {
+        if (curedAnimals == totalAnimals)
+        {
+            GameManager.instance.puzzleComplete = true;
+        }
+    }
 }

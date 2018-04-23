@@ -19,6 +19,9 @@ public class Movement : MonoBehaviour
 	// player speed
 	public float speed;
 
+    [HideInInspector]
+    public bool canMove = false;
+
 	void Start () 
 	{
 		// caching 
@@ -151,6 +154,7 @@ public class Movement : MonoBehaviour
 
 	// check input every frame
 	void Update () {
+
 		CheckInput ();
 	}
 
