@@ -68,16 +68,20 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy (this.gameObject);
 		}
-        
+
+        playerInitialRotation = 180;
+
+
         if (!puzzleComplete && SceneManager.GetActiveScene().name == "Hub")
         {
-            entryPosition = new Vector3(-46.6f, 1f, 0f);
+            entryPosition = new Vector3(-46.48f, -1.94f, 0f);
         }
     }
 
     public void Start()
     {
         inHub = SceneManager.GetActiveScene().name == "Hub";
+        Debug.Log(playerInitialRotation);
     }
 
     public void Caching()
