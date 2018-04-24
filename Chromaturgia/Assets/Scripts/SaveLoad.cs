@@ -15,8 +15,10 @@ public class SaveLoad : MonoBehaviour
     public float musicVolume;
     public float soundVolume;
 
+	Animator anim;
+
     void Awake()
-    {
+    { 
         if (instance == null)
         {
             instance = this;
@@ -29,9 +31,16 @@ public class SaveLoad : MonoBehaviour
         }
     }
 
+	void Start()
+	{
+		anim = GetComponent<Animator>();
+	}
+
     public void Save()
     {
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
+		anim.SetTrigger ("Saving");
+
+		BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file = File.Create(Application.persistentDataPath + "/saveData");
 
         SaveData data = new SaveData();

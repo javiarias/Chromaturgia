@@ -28,6 +28,11 @@ TagManager:
   - ThinkMenu
   - MainMenu
   - Puzzle
+  - ExitMenu
+  - TitleMenu
+  - OptionsMenu
+  - StartMenu
+  - CurrentGame
   layers:
   - Default
   - TransparentFX

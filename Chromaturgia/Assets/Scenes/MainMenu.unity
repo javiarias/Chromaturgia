@@ -2949,11 +2949,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 38.294613
+      value: 5.28
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 440.75992
+      value: 4.09
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalPosition.z
@@ -2961,15 +2961,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_LocalRotation.w
@@ -2977,7 +2977,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4349170361155454, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 22cf7ae3850b6504b9d011158429aa4e, type: 2}
@@ -4626,11 +4626,11 @@ GameObject:
   - component: {fileID: 1418110386}
   m_Layer: 5
   m_Name: CurrentGame
-  m_TagString: Untagged
+  m_TagString: CurrentGame
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1418110385
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4790,6 +4790,7 @@ MonoBehaviour:
   puzzleComplete: 0
   entryPosition: {x: 0, y: 0, z: 0}
   sceneToLoad: 
+  playerInitialRotation: 0
   completedLevels: 0000000000
   brightness: 0
   saturation: 0
@@ -4834,7 +4835,7 @@ Transform:
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1448060840
 SpriteRenderer:
@@ -5985,7 +5986,7 @@ GameObject:
   - component: {fileID: 1838042001}
   - component: {fileID: 1838042000}
   m_Layer: 5
-  m_Name: Mosaico
+  m_Name: MiniMosaico
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6028,7 +6029,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: bed9cb94a38bc004aad02784568f5935, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46aa2c48de812ca4bafa7dcab38553b6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

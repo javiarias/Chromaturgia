@@ -23,6 +23,7 @@ public class MainMenu : MonoBehaviour
     public Button volverOptionsMenu;
 
     GameObject mainMenu;
+	GameObject currentGame;
 
     void Awake()
     {
@@ -37,6 +38,8 @@ public class MainMenu : MonoBehaviour
     {
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
         mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+		currentGame = GameObject.FindGameObjectWithTag("CurrentGame");
+		currentGame.SetActive (false);
         mainMenu.SetActive(false);
 
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
@@ -58,6 +61,7 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.ChangeBrightness();
             needsBrightnessUpdate = false;
         }
+
         if (needsSaturationUpdate)
         {
             GameManager.instance.ChangeSaturation();
@@ -74,6 +78,7 @@ public class MainMenu : MonoBehaviour
 
     void activeMenu()
     {
+		currentGame.SetActive (true);
         mainMenu.SetActive(true);
     }
 
