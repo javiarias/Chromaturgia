@@ -27,6 +27,7 @@ TagManager:
   - LevelInfo
   - ThinkMenu
   - MainMenu
+  - Puzzle
   layers:
   - Default
   - TransparentFX

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-
-
+using UnityEngine.PostProcessing;
 
 public class GameManager : MonoBehaviour {
 
-	public static GameManager instance = null;
+    public const int MAX_LEVELS = 5;
+
+    public static GameManager instance = null;
 
 	//[Range(0, 1)] //esto hace que en el inspector se vea como un slider, para hacer más fácil la edición de valores y asegurar que no se sale de un mínimo y un máximo
 	public Vector4 colors; // x = R ,  y = G ,  z = B ,  w = ALPHA
@@ -36,6 +37,17 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public string sceneToLoad = "";
 
+    [HideInInspector]
+    public bool[] completedLevels = new bool[MAX_LEVELS];
+
+    [HideInInspector]
+    public float brightness;
+    [HideInInspector]
+    public float saturation;
+
+    PostProcessingBehaviour cam;
+    ColorGradingModel.Settings auxSettings;
+
     void Awake()
     {
 		if (instance == null) 
@@ -44,12 +56,17 @@ public class GameManager : MonoBehaviour {
 
 			DontDestroyOnLoad (this.gameObject);
 
-		}
+            // initializing goes in Awake since it doesn't depend on other gO
+            colors.x = 0.9f;
+            colors.y = 0.9f;
+            colors.z = 0.9f;
+            colors.w = 1;
+        }
         else 
 		{
 			Destroy (this.gameObject);
 		}
-        
+
         if (!puzzleComplete && SceneManager.GetActiveScene().name == "Hub")
         {
             inHub = true;
@@ -59,11 +76,39 @@ public class GameManager : MonoBehaviour {
 
     public void Start()
     {
-		// caching 
-		redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
-		greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
-		blueLevels = GameObject.FindGameObjectWithTag("BlueLevels").GetComponent<Text>();
-        
+        // removed caching to avoid wrong rgb levels
+        //Caching(); 
+    }
+
+    public void Caching()
+    {
+        redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
+        greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
+        blueLevels = GameObject.FindGameObjectWithTag("BlueLevels").GetComponent<Text>();
+    }
+
+    public void ChangeBrightness()
+    {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>();
+
+        // may seem redundant but it's the only way it compiles:
+        // copy current settings into the temporary variable
+        auxSettings = cam.profile.colorGrading.settings;
+
+        // make changes in auxSettings
+        auxSettings.basic.postExposure = brightness;
+
+        // move those settings to the actual profile
+        cam.profile.colorGrading.settings = auxSettings;
+    }
+
+    public void ChangeSaturation()
+    {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>();
+
+        auxSettings = cam.profile.colorGrading.settings;
+        auxSettings.basic.saturation = saturation + 1;
+        cam.profile.colorGrading.settings = auxSettings;
     }
 
     public void DecreaseColor(Option color)
@@ -110,9 +155,22 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    public void SetPuzzleAsCompleted()
+    {
+        // Transforms the text into an int
+        int index = (int)GameObject.FindGameObjectWithTag("Puzzle").GetComponent<Text>().text.ToCharArray()[0] - 48;
+
+        completedLevels[index] = true;
+
+        SaveLoad.instance.Save();
+        Debug.Log("Saved");
+    }
+
     void Update()
     {
-        if (!inHub)
+        inHub = SceneManager.GetActiveScene().name == "Hub";
+
+        if (SceneManager.GetActiveScene().name != "Hub")
         {
             redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
             greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
@@ -123,12 +181,11 @@ public class GameManager : MonoBehaviour {
             blueLevels.text = Mathf.Round(colors.z / bulletAmount).ToString();
             CheckHealth();
         }
-        inHub = SceneManager.GetActiveScene().name == "Hub";
     }
 
     void CheckHealth()
     {
-		if (colors.x == 0 && colors.y == 0 && colors.z == 0) //(FirstSmallerThanSecond(colors, deathThreshold))
+		if (colors.x == 0 && colors.y == 0 && colors.z == 0) 
         {
             Death();
         }
