@@ -227,7 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Shoot: {fileID: 21300000, guid: b7c282b5d543f5849989d0ee7c8bc391, type: 3}
-  DisabledShoot: {fileID: 0}
+  DisabledShoot: {fileID: 21300000, guid: b4ed92789cc3be84490a03e14adc28f9, type: 3}
   Act: {fileID: 21300000, guid: 754f8bf95d299c4429cefe8b388179c6, type: 3}
   Talk: {fileID: 21300000, guid: 0b0b092ef00ad624188b7bcb242c65e1, type: 3}
   gunEnabled: 1

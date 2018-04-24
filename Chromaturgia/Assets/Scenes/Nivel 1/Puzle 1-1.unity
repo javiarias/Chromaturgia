@@ -709,7 +709,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalRotation.y
@@ -717,11 +717,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.7071066
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.70710695
+      value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_RootOrder
@@ -729,7 +729,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90.00001
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_LocalScale.x
@@ -7033,6 +7033,7 @@ MonoBehaviour:
   puzzleComplete: 0
   entryPosition: {x: 0, y: 0, z: 0}
   sceneToLoad: 
+  playerInitialRotation: 0
   completedLevels: 0000000000
   brightness: 0
   saturation: 0

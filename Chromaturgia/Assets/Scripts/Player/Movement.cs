@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
     [HideInInspector]
     public bool canMove = false;
 
-	void Start () 
+	void Awake () 
 	{
 		// caching 
 		playerRB = gameObject.GetComponent<Rigidbody2D> ();
@@ -124,38 +124,49 @@ public class Movement : MonoBehaviour
 	// checks for input and if it's one of the direction keys, assigns the corresponding values to the Vector2 movementDirection and 
 	// sets the boolean move to true
 	void CheckInput() {
-		if (Input.GetKey ("up")) {
+        
+        if (Input.GetKey ("up"))
+        {
 			movementDirection.x = 0;
 			movementDirection.y = 1;
 			moves = true;
 			SetAnimatorBools ("Up");
-		} else if (Input.GetKey ("down")) {
+		}
+        else if (Input.GetKey ("down"))
+        {
 			movementDirection.x = 0;
 			movementDirection.y = -1;
 			moves = true;
 			SetAnimatorBools ("Down");
-		} else if (Input.GetKey ("right")) {
+		}
+        else if (Input.GetKey ("right"))
+        {
 			movementDirection.x = 1;
 			movementDirection.y = 0f;
 			moves = true;
 			SetAnimatorBools ("Right");
-		} else if (Input.GetKey ("left")) {
+		}
+        else if (Input.GetKey ("left"))
+        {
 			movementDirection.x = -1;
 			movementDirection.y = 0;
 			moves = true;
 			SetAnimatorBools ("Left");
 		}
-		else if (Input.GetKeyUp ("up") || Input.GetKeyUp("down") || Input.GetKeyUp("right") || Input.GetKeyUp("left")) {
-			moves = false;
+		else { //if (Input.GetKeyUp ("up") || Input.GetKeyUp("down") || Input.GetKeyUp("right") || Input.GetKeyUp("left")) {
+            moves = false;
 			SetAnimatorBools ("Idle");
 		}
 
 	}
 
 	// check input every frame
-	void Update () {
-
-		CheckInput ();
+	void Update ()
+    {
+        if (canMove)
+        {
+            CheckInput();
+        }
 	}
 
 	// if there's input, apply force (impulse)
@@ -166,6 +177,28 @@ public class Movement : MonoBehaviour
 
 			// reset inertia so it doesn't spin uncontrollably
 			playerRB.inertia = 0f;
-		}
+        }
 	}
+
+    public void UpdateOrientation(Vector2 fakeMovement)
+    {
+        if (fakeMovement == new Vector2(0, 1))
+        {
+            SetAnimatorBools("Up");
+        }
+        else if (fakeMovement == new Vector2(0, -1))
+        {
+            SetAnimatorBools("Down");
+        }
+        else if (fakeMovement == new Vector2(1, 0))
+        {
+            SetAnimatorBools("Right");
+        }
+        else if (fakeMovement == new Vector2(-1, 0))
+        {
+            SetAnimatorBools("Left");
+        }
+        SetGunOrientation(fakeMovement);
+        playerAnimator.SetBool("Move", false);
+    }
 }

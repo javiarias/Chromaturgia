@@ -19,11 +19,13 @@ public class SceneDoorScript : MonoBehaviour {
             child.SetActive(true);
             GameManager.instance.colors = colorAmounts;
             GameManager.instance.entryPosition = gameObject.transform.GetChild(1).position;
+            GameManager.instance.playerInitialRotation = gameObject.transform.eulerAngles.z;
         }
 
         else if (sceneName == "Hub" && GameManager.instance.sceneToLoad == sceneToLoad)
         {
             GameManager.instance.entryPosition = gameObject.transform.GetChild(1).position;
+            GameManager.instance.playerInitialRotation = gameObject.transform.eulerAngles.z;
 
             if (GameManager.instance.puzzleComplete)
             {

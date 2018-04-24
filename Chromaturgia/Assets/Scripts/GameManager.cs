@@ -32,10 +32,12 @@ public class GameManager : MonoBehaviour {
 
     [HideInInspector]
     public bool inHub, puzzleComplete = false;
-    //[HideInInspector]
+    [HideInInspector]
     public Vector3 entryPosition;
     [HideInInspector]
     public string sceneToLoad = "";
+    [HideInInspector]
+    public float playerInitialRotation;
 
     [HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
@@ -66,18 +68,16 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy (this.gameObject);
 		}
-
+        
         if (!puzzleComplete && SceneManager.GetActiveScene().name == "Hub")
         {
-            inHub = true;
             entryPosition = new Vector3(-46.6f, 1f, 0f);
         }
     }
 
     public void Start()
     {
-        // removed caching to avoid wrong rgb levels
-        //Caching(); 
+        inHub = SceneManager.GetActiveScene().name == "Hub";
     }
 
     public void Caching()

@@ -24,12 +24,13 @@ public class PlayerInputs : MonoBehaviour {
         spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
         spacebarText.text = "Spacebar";
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
-        if (!GameManager.instance.inHub)
-        {
-            gunEnabled = true;
-        }
+
         gameObject.GetComponent<Movement>().canMove = true;
+
         gameObject.transform.position = GameManager.instance.entryPosition;
+        float aux = (GameManager.instance.playerInitialRotation * Mathf.PI) / 180;
+        Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(aux)), -Mathf.Round(Mathf.Cos(aux)));
+        gameObject.GetComponent<Movement>().UpdateOrientation(auxVect);
     }
 
 	public void ChangeSprite(GameManager.Action action)
@@ -60,7 +61,7 @@ public class PlayerInputs : MonoBehaviour {
 	{
 		if (Input.GetKeyUp (KeyCode.Space))
 		{
-			if (GameManager.instance.currentAction == GameManager.Action.Shoot && gunEnabled) 
+			if (GameManager.instance.currentAction == GameManager.Action.Shoot && gunEnabled && !GameManager.instance.inHub) 
 			{
 				playerGun.ShootLaser ();
 			} 
