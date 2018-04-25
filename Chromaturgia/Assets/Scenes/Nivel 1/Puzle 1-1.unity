@@ -4185,6 +4185,16 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: resetLevel
       objectReference: {fileID: 0}
+    - target: {fileID: 114907447713644900, guid: 71c9f99c45d390a409938a8ecb142c3f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114907447713644900, guid: 71c9f99c45d390a409938a8ecb142c3f,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 71c9f99c45d390a409938a8ecb142c3f, type: 2}
   m_IsPrefabParent: 0
@@ -4515,6 +4525,9 @@ MonoBehaviour:
   completedLevels: 0000000000
   brightness: 0
   saturation: 0
+  PuzlesNVL1: 0
+  PuzlesNVL2: 0
+  PuzlesNVL3: 0
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0
