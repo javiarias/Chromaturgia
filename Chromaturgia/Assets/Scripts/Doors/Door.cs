@@ -13,8 +13,6 @@ public class Door : MonoBehaviour
 		if (coll.gameObject.tag == "Player")
 		{
 			coll.gameObject.transform.position = salida.position;
-            Vector3 cameraPos = new Vector3(posCamara.transform.position.x, posCamara.transform.position.y, -2.6f);
-			mainCamera.gameObject.transform.position = cameraPos;
 		}
 	}
 }

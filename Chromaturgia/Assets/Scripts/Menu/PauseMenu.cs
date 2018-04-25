@@ -25,6 +25,8 @@ public class PauseMenu : MonoBehaviour {
 	public Text soundText;
 	public Text musicText;
 
+    EventSystem eventsystem;
+
 	void Awake()
 	{
 		soundVolume = 50;
@@ -36,7 +38,7 @@ public class PauseMenu : MonoBehaviour {
 
 	void Start()
 	{
-		sliderBrightness = (GameManager.instance.brightness * 50) + 50;
+        sliderBrightness = (GameManager.instance.brightness * 50) + 50;
 		sliderSaturation = (GameManager.instance.saturation * 50) + 50;
 	}
 
@@ -47,7 +49,16 @@ public class PauseMenu : MonoBehaviour {
 		soundText.text = soundVolume + "%";
 		musicText.text = musicVolume + "%";
 
-		if (Input.GetKeyDown (KeyCode.Escape))
+        if (GameIsPaused)
+        {
+            eventsystem = EventSystem.current;
+            if (eventsystem.currentSelectedGameObject == null)
+            {
+                eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
+            }
+        }
+
+        if (Input.GetKeyDown (KeyCode.Escape))
 		{
 			if(eventSystemPauseMenu.enabled)
 			{

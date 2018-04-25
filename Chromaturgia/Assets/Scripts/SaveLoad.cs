@@ -71,15 +71,13 @@ public class SaveLoad : MonoBehaviour
 
             GameManager.instance.brightness = data.brightness;
             GameManager.instance.ChangeBrightness();
-            Debug.Log(data.brightness);
 
             GameManager.instance.saturation = data.saturation;
             GameManager.instance.ChangeSaturation();
-            Debug.Log(data.saturation);
 
             for (int i = 0; i < GameManager.MAX_LEVELS; ++i)
             {
-                Debug.Log(GameManager.instance.completedLevels[i]);
+                //Debug.Log(GameManager.instance.completedLevels[i]);
             }
         }
         else

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class MainMenu : MonoBehaviour
 
     GameObject mainMenu;
 	GameObject currentGame;
+
+    EventSystem eventsystem;
 
     void Awake()
     {
@@ -52,6 +55,12 @@ public class MainMenu : MonoBehaviour
         saturationText.text = sliderSaturation + "%";
         soundText.text = soundVolume + "%";
         musicText.text = musicVolume + "%";
+
+        eventsystem = EventSystem.current;
+        if (eventsystem.currentSelectedGameObject == null)
+        {
+            eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
+        }
 
         if (Input.GetKeyDown(KeyCode.Escape))
             volverOptionsMenu.onClick.Invoke();

@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour {
     public void Start()
     {
         inHub = SceneManager.GetActiveScene().name == "Hub";
-        Debug.Log(playerInitialRotation);
     }
 
     public void Caching()

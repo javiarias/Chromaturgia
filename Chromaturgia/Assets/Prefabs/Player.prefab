@@ -213,7 +213,7 @@ MonoBehaviour:
   gunPosDown: -0.15
   gunPosLeft: -0.2
   gunPosRight: 0.2
-  speed: 0.2
+  speed: 0.6
   canMove: 0
 --- !u!114 &114756992811583120
 MonoBehaviour:
