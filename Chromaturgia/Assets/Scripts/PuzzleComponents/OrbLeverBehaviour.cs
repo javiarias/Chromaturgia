@@ -13,7 +13,7 @@ public class OrbLeverBehaviour : MonoBehaviour {
     {
         if (objectList == null)
         {
-            objectList = Object.FindObjectsOfType<RotationAndDeactivationController>();
+            objectList = FindObjectsOfType<RotationAndDeactivationController>();
         }
     }
 

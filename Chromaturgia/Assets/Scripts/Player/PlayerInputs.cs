@@ -26,11 +26,6 @@ public class PlayerInputs : MonoBehaviour {
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
 
         gameObject.GetComponent<Movement>().canMove = true;
-
-        gameObject.transform.position = GameManager.instance.entryPosition;
-        float aux = (GameManager.instance.playerInitialRotation * Mathf.PI) / 180;
-        Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(aux)), -Mathf.Round(Mathf.Cos(aux)));
-        gameObject.GetComponent<Movement>().UpdateOrientation(auxVect);
     }
 
 	public void ChangeSprite(GameManager.Action action)

@@ -33,6 +33,7 @@ TagManager:
   - OptionsMenu
   - StartMenu
   - CurrentGame
+  - SceneDoor
   layers:
   - Default
   - TransparentFX

@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114136849375088690}
   m_Layer: 0
   m_Name: LevelDoor
-  m_TagString: Untagged
+  m_TagString: SceneDoor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -161,3 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5674fca4c4150034eac4125cba5e2eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sceneToLoad: 
+  colorAmounts: {x: 0, y: 0, z: 0, w: 0}

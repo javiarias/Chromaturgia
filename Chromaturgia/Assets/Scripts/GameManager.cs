@@ -8,7 +8,7 @@ using UnityEngine.PostProcessing;
 
 public class GameManager : MonoBehaviour {
 
-    public const int MAX_LEVELS = 5;
+    public const int MAX_LEVELS = 20;
 
     public static GameManager instance = null;
 
@@ -39,13 +39,16 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float playerInitialRotation;
 
-    [HideInInspector]
+    //[HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
 
     [HideInInspector]
     public float brightness;
     [HideInInspector]
     public float saturation;
+
+    public int PuzlesNVL1, PuzlesNVL2, PuzlesNVL3;
+    SceneDoorScript[] puzzleCalc = null;
 
     PostProcessingBehaviour cam;
     ColorGradingModel.Settings auxSettings;
@@ -68,19 +71,36 @@ public class GameManager : MonoBehaviour {
 		{
 			Destroy (this.gameObject);
 		}
-
-        playerInitialRotation = 180;
-
-
-        if (!puzzleComplete && SceneManager.GetActiveScene().name == "Hub")
-        {
-            entryPosition = new Vector3(-46.48f, -1.94f, 0f);
-        }
     }
 
     public void Start()
     {
         inHub = SceneManager.GetActiveScene().name == "Hub";
+        if (!inHub)
+        {
+            sceneToLoad = SceneManager.GetActiveScene().name;
+        }
+
+        if (inHub && puzzleCalc == null)
+        {
+            puzzleCalc = FindObjectsOfType<SceneDoorScript>();
+            PuzlesNVL1 = PuzlesNVL2 = PuzlesNVL3 = 0;
+            foreach (SceneDoorScript door in puzzleCalc)
+            {
+                if (door.sceneToLoad.Contains("Puzle 1"))
+                {
+                    PuzlesNVL1++;
+                }
+                else if (door.sceneToLoad.Contains("Puzle 2"))
+                {
+                    PuzlesNVL2++;
+                }
+                else if (door.sceneToLoad.Contains("Puzle 3"))
+                {
+                    PuzlesNVL3++;
+                }
+            }
+        }
     }
 
     public void Caching()
@@ -160,10 +180,26 @@ public class GameManager : MonoBehaviour {
 
     public void SetPuzzleAsCompleted()
     {
+        //CÓDIGO BELÉN ORIGINAL
         // Transforms the text into an int
-        int index = (int)GameObject.FindGameObjectWithTag("Puzzle").GetComponent<Text>().text.ToCharArray()[0] - 48;
+        //int index = (int)GameObject.FindGameObjectWithTag("Puzzle").GetComponent<Text>().text.ToCharArray()[0] - 48;
+
+        //CÓDIGO JAVI
+        //extrae del nombre de la escena el número del nivel y del puzle
+        char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
+
+        int index = int.Parse(tempArray[1].ToString()) - 1; //de base la posición en el array siempre tiene que ser una unidad menor que cualquier valor que empleemos para situarla, ya que empieza en 0
+        if (tempArray[0] == '2')
+        {
+            index += PuzlesNVL1;                            //cuando guardamos un puzle del nivel 2, hay que desplazarse en el array hasta pasar los puzles del nivel 1
+        }
+        if (tempArray[1] == '3')          
+        {
+            index += PuzlesNVL2 + PuzlesNVL1;               //cuando guardamos un puzle el nivel 3, hay que desplazarse hasta pasar los puzles del nivel 2 además de los del nivel 1
+        }
 
         completedLevels[index] = true;
+        puzzleComplete = true;
 
         SaveLoad.instance.Save();
         Debug.Log("Saved");
@@ -173,7 +209,7 @@ public class GameManager : MonoBehaviour {
     {
         inHub = SceneManager.GetActiveScene().name == "Hub";
 
-        if (SceneManager.GetActiveScene().name != "Hub")
+        if (SceneManager.GetActiveScene().name != "Hub" && SceneManager.GetActiveScene().name != "MainMenu")
         {
             redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
             greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();

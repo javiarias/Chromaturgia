@@ -4791,9 +4791,12 @@ MonoBehaviour:
   entryPosition: {x: 0, y: 0, z: 0}
   sceneToLoad: 
   playerInitialRotation: 0
-  completedLevels: 0000000000
+  completedLevels: 0000000000000000000000000000000000000000
   brightness: 0
   saturation: 0
+  PuzlesNVL1: 0
+  PuzlesNVL2: 0
+  PuzlesNVL3: 0
 --- !u!4 &1428005739
 Transform:
   m_ObjectHideFlags: 0
