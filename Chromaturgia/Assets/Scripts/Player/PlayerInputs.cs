@@ -22,7 +22,7 @@ public class PlayerInputs : MonoBehaviour {
 	{
         currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
         spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
-        spacebarText.text = "Spacebar";
+        spacebarText.text = "Espacio";
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
 
         gameObject.GetComponent<Movement>().canMove = true;

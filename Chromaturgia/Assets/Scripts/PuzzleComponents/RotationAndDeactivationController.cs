@@ -15,22 +15,22 @@ public class RotationAndDeactivationController : MonoBehaviour {
 
     private void Awake()
     {
-        for (int i = 0; i < identifierList.Length; i++)
-        {
-            if (identifierList[i] == 0)
-            {
-                identifierList[i] = -1;
-            }
-        }
-
-		// caching
-		containsWall = gameObject.name.Contains ("Wall");
+        // caching
+        containsWall = gameObject.name.Contains("Wall");
         gameObject.GetComponent<BoxCollider2D>().enabled = isWallActive;
 
         if (containsWall)
         {
             animator = gameObject.GetComponent<Animator>();
             animator.SetBool("On", isWallActive);
+        }
+
+        for (int i = 0; i < identifierList.Length; i++)
+        {
+            if (identifierList[i] == 0)
+            {
+                identifierList[i] = -1;
+            }
         }
     }
 

@@ -16,12 +16,13 @@ public class InfectedAnimalBehaviour : MonoBehaviour
 
     void Awake()
     {
-        totalAnimals++;
+        totalAnimals = curedAnimals = 0;
         levelText = GameObject.FindGameObjectWithTag("LevelInfo").GetComponent<Text>();
     }
 
     void Start()
     {
+        totalAnimals++;
         UpdateText();
         colors = gameObject.GetComponentInChildren<SpriteRenderer>().color;
         win = false;

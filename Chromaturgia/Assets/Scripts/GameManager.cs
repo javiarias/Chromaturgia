@@ -66,6 +66,8 @@ public class GameManager : MonoBehaviour {
             colors.y = 0.9f;
             colors.z = 0.9f;
             colors.w = 1;
+            bulletAmount = 0.05f;
+            sceneToLoad = "";
         }
         else 
 		{
@@ -75,7 +77,7 @@ public class GameManager : MonoBehaviour {
 
     public void Start()
     {
-        inHub = SceneManager.GetActiveScene().name == "Hub";
+        inHub = !SceneManager.GetActiveScene().name.Contains("Puzle");
         if (!inHub)
         {
             sceneToLoad = SceneManager.GetActiveScene().name;
