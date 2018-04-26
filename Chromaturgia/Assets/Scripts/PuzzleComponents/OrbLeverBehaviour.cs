@@ -5,7 +5,7 @@ using UnityEngine;
 public class OrbLeverBehaviour : MonoBehaviour {
 
 	public int masterIdentifier = 0;
-    static RotationAndDeactivationController[] objectList = null;
+    RotationAndDeactivationController[] objectList = null;
     Animator animator;
     bool deactivate = false;
 

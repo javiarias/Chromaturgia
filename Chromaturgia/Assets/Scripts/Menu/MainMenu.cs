@@ -57,10 +57,11 @@ public class MainMenu : MonoBehaviour
         musicText.text = musicVolume + "%";
 
         eventsystem = EventSystem.current;
-        if (eventsystem.currentSelectedGameObject == null)
-        {
-            eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
-        }
+		if(eventsystem!=null)
+		{
+	        if (eventsystem.currentSelectedGameObject == null)
+	            eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
+		}
 
         if (Input.GetKeyDown(KeyCode.Escape))
             volverOptionsMenu.onClick.Invoke();

@@ -49,7 +49,7 @@ public class SaveLoad : MonoBehaviour
         data.brightness = brightness;
         data.saturation = saturation;
         data.soundVolume = soundVolume;
-        data.soundVolume = musicVolume;
+        data.musicVolume = musicVolume;
 
         binaryFormatter.Serialize(file, data);
         file.Close();
@@ -82,7 +82,7 @@ public class SaveLoad : MonoBehaviour
         }
         else
         {
-            Debug.Log("No existe ninguna partida guardada");
+            //Debug.Log("No existe ninguna partida guardada");
         }
     }
 }

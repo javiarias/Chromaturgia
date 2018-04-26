@@ -5275,10 +5275,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd061ce3fdc47e49ac1d2f97076ed27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  redHUD: {fileID: 21300000, guid: f5e841c2aaac2e54c99b58e91295e4f6, type: 3}
-  greenHUD: {fileID: 21300000, guid: 824491ddc3f581e4a9df6d2fcfbda5a9, type: 3}
-  blueHUD: {fileID: 21300000, guid: 07e64aa0d6dcade41a5f95bb79bcead5, type: 3}
-  disabledHUD: {fileID: 0}
+  redHUD: {fileID: 21300000, guid: 1ab56cf9e231dff4987d742911a23c32, type: 3}
+  greenHUD: {fileID: 21300000, guid: b3f3492c943f0f14a91ac337ce9324fc, type: 3}
+  blueHUD: {fileID: 21300000, guid: a425baf9afe805c439a76ec112e5bfb7, type: 3}
+  disabledHUD: {fileID: 21300000, guid: fca95048b0f9dc94b84e356aa333460c, type: 3}
 --- !u!114 &981031072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5298,7 +5298,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: f5e841c2aaac2e54c99b58e91295e4f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fca95048b0f9dc94b84e356aa333460c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
