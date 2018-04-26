@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f9998ef6d38a744a33933c811da56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifierList: 0200000001000000000000000000000000000000
+  identifierList: 000000000000000000000000
   RotateLeft: 0
   isWallActive: 1
 --- !u!212 &212957488406258616

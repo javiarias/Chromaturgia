@@ -9,7 +9,6 @@ public class RotationAndDeactivationController : MonoBehaviour {
 	public int[] identifierList = new int[5];
     public bool RotateLeft = false;
 
-    [HideInInspector]
     public bool isWallActive = true;
 
     bool containsWall;

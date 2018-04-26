@@ -1124,7 +1124,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: Nivel 1   -   1
+  m_Text: Nivel 1   -   2
 --- !u!222 &256228709
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1284,41 +1284,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1808711355057686, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: sceneToLoad
-      value: Hub
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
