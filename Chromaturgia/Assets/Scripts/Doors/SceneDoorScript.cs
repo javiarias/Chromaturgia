@@ -23,7 +23,15 @@ public class SceneDoorScript : MonoBehaviour {
 
         scenePositionPointer = (sceneName != "Hub" || gmSceneToLoad == sceneToLoad);
 
-        if (sceneToLoad != "" && TestIfPuzzleComplete())
+        if (scenePositionPointer)
+        {
+            player.transform.position = gameObject.transform.GetChild(1).position;
+            angle = (gameObject.transform.eulerAngles.z * Mathf.PI) / 180;
+            Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(angle)), -Mathf.Round(Mathf.Cos(angle)));
+            player.GetComponent<Movement>().UpdateOrientation(auxVect);
+        }
+
+        if (sceneName == "Hub" && sceneToLoad != "" && TestIfPuzzleComplete())
         {
             GameManager.instance.puzzleComplete = false;
             child.SetActive(true);
@@ -34,14 +42,6 @@ public class SceneDoorScript : MonoBehaviour {
         {
             child.SetActive(true);
             GameManager.instance.colors = colorAmounts;
-        }
-
-        if (scenePositionPointer)
-        {
-            player.transform.position = gameObject.transform.GetChild(1).position;
-            angle = (gameObject.transform.eulerAngles.z * Mathf.PI) / 180;
-            Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(angle)), -Mathf.Round(Mathf.Cos(angle)));
-            player.GetComponent<Movement>().UpdateOrientation(auxVect);
         }
     }
 
@@ -73,13 +73,12 @@ public class SceneDoorScript : MonoBehaviour {
     private bool TestIfPuzzleComplete()
     {
         char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
-
         int index = int.Parse(tempArray[1].ToString()) - 1;
         if (tempArray[0] == '2')
         {
             index += GameManager.instance.PuzlesNVL1;
         }
-        if (tempArray[1] == '3')
+        if (tempArray[0] == '3')
         {
             index += GameManager.instance.PuzlesNVL2 + GameManager.instance.PuzlesNVL1;
         }
