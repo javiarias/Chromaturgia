@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour {
     {
         inHub = SceneManager.GetActiveScene().name == "Hub";
 
-        if (SceneManager.GetActiveScene().name != "Hub" && SceneManager.GetActiveScene().name != "MainMenu")
+        if (SceneIsPuzzle())
         {
             redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
             greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
@@ -222,6 +222,13 @@ public class GameManager : MonoBehaviour {
         }
     }
 
+    bool SceneIsPuzzle()
+    {
+        return (SceneManager.GetActiveScene().name != "Hub"
+            && SceneManager.GetActiveScene().name != "MainMenu"
+            && SceneManager.GetActiveScene().name != "GameOver");
+    }
+
     void CheckHealth()
     {
 		if (colors.x == 0 && colors.y == 0 && colors.z == 0) 
@@ -232,9 +239,17 @@ public class GameManager : MonoBehaviour {
 
     void Death() 
 	{
+        SceneManager.LoadScene("GameOver");
+
 		Debug.Log ("Muerte");
 	}
-    
+
+    public void QuitGame()
+    {
+        Debug.Log("Goodbye");
+
+        Application.Quit();
+    }
 }
 
 
