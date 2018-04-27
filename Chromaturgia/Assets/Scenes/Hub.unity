@@ -589,30 +589,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: sceneToLoad
-      value: Puzle 1-1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
-        type: 2}
-      propertyPath: colorAmounts.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4056340735696090, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 90
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
   m_IsPrefabParent: 0
@@ -25659,6 +25635,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 180
       objectReference: {fileID: 0}
+    - target: {fileID: 1808711355057686, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 61339451453490630, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
@@ -27939,6 +27919,9 @@ MonoBehaviour:
   level1Complete: 0
   level2Complete: 0
   level3Complete: 0
+  redPiecePicked: 0
+  greenPiecePicked: 0
+  bluePiecePicked: 0
   brightness: 0
   saturation: 0
   PuzlesNVL1: 0
@@ -51898,11 +51881,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 3.6
+      value: 2.16
       objectReference: {fileID: 0}
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.923
+      value: -2.76
       objectReference: {fileID: 0}
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_LocalPosition.z
@@ -51926,7 +51909,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4607736513375728, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 114622905457771978, guid: 5bbc6b32db15cfc4c884eeb72640bb62,
         type: 2}
