@@ -40,16 +40,19 @@ public class PlayerInputs : MonoBehaviour {
             else
             {
                 currentSprite.sprite = Shoot;
+                spacebarText.text = "Espacio";
             }
 		}
 		else if (action == GameManager.Action.Interact) 
 		{
 			currentSprite.sprite = Act;
-		}
+            spacebarText.text = "Espacio";
+        }
 		else if (action == GameManager.Action.Talk) 
 		{
 			currentSprite.sprite = Talk;
-		}
+            spacebarText.text = "Espacio";
+        }
 	}
 
 	void CheckInput ()

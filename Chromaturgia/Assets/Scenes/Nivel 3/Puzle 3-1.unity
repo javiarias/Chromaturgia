@@ -920,6 +920,10 @@ MonoBehaviour:
   saturationText: {fileID: 501816025}
   soundText: {fileID: 501816024}
   musicText: {fileID: 501816022}
+  brightnessSlider: {fileID: 501816033}
+  saturationSlider: {fileID: 501816032}
+  soundSlider: {fileID: 501816031}
+  musicSlider: {fileID: 501816030}
 --- !u!114 &421152913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1236,6 +1240,30 @@ GameObject:
   m_PrefabParentObject: {fileID: 1185624261926452, guid: 71c9f99c45d390a409938a8ecb142c3f,
     type: 2}
   m_PrefabInternal: {fileID: 501816021}
+--- !u!114 &501816030 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114251082622842564, guid: 71c9f99c45d390a409938a8ecb142c3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 501816021}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &501816031 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114006707565577538, guid: 71c9f99c45d390a409938a8ecb142c3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 501816021}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &501816032 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114483063557274640, guid: 71c9f99c45d390a409938a8ecb142c3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 501816021}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &501816033 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114974261702571778, guid: 71c9f99c45d390a409938a8ecb142c3f,
+    type: 2}
+  m_PrefabInternal: {fileID: 501816021}
+  m_Script: {fileID: -113659843, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &581590505 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4334209436391224, guid: 5eb3608c6a1ecd54695aa6dfdf591f46,

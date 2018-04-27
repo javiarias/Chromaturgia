@@ -10,18 +10,6 @@ public class GameOverController : MonoBehaviour {
 
     public const float WAIT_TIME = 0.3f;
 
-	public GameObject menu;
-
-	void Start()
-	{
-		Invoke ("ActiveMenu",7);
-	}
-
-	public void ActiveMenu()
-	{
-		menu.SetActive (true);
-	}
-
 	public void CallLoad()
     {
         Invoke("SaveLoad.instance.Load()", WAIT_TIME);

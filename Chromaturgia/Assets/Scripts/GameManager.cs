@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviour {
 
     //[HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
+    [HideInInspector]
+    public bool level1Complete, level2Complete, level3Complete;
 
     [HideInInspector]
     public float brightness;
@@ -68,6 +70,7 @@ public class GameManager : MonoBehaviour {
             colors.w = 1;
             bulletAmount = 0.05f;
             sceneToLoad = "";
+            level1Complete = level2Complete = level3Complete = false;
         }
         else 
 		{
@@ -191,11 +194,13 @@ public class GameManager : MonoBehaviour {
         char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
 
         int index = int.Parse(tempArray[1].ToString()) - 1; //de base la posición en el array siempre tiene que ser una unidad menor que cualquier valor que empleemos para situarla, ya que empieza en 0
-        if (tempArray[0] == '2')
+        int zone = tempArray[0];
+
+        if (zone == '2')
         {
             index += PuzlesNVL1;                            //cuando guardamos un puzle del nivel 2, hay que desplazarse en el array hasta pasar los puzles del nivel 1
         }
-        if (tempArray[1] == '3')          
+        if (zone == '3')          
         {
             index += PuzlesNVL2 + PuzlesNVL1;               //cuando guardamos un puzle el nivel 3, hay que desplazarse hasta pasar los puzles del nivel 2 además de los del nivel 1
         }
@@ -203,8 +208,58 @@ public class GameManager : MonoBehaviour {
         completedLevels[index] = true;
         puzzleComplete = true;
 
+        if (WholeLevelComplete(zone))
+        {
+            SetAsCompleted(zone);
+        }
+
         SaveLoad.instance.Save();
         Debug.Log("Saved");
+    }
+
+    bool WholeLevelComplete(int zone)
+    {
+        bool isComplete = true;
+
+        if (zone == 1)
+        {
+            for (int i = 0; i < PuzlesNVL1; ++i)
+            {
+                isComplete &= completedLevels[i];
+            }
+        }
+        else if (zone == 2)
+        {
+            for (int i = PuzlesNVL1; i < (PuzlesNVL1 + PuzlesNVL2); ++i)
+            {
+                isComplete &= completedLevels[i];
+            }
+        }
+        else if (zone == 3)
+        {
+            for (int i = (PuzlesNVL1 + PuzlesNVL2); i < (PuzlesNVL1 + PuzlesNVL2 + PuzlesNVL3); ++i)
+            {
+                isComplete &= completedLevels[i];
+            }
+        }
+
+        return isComplete;
+    }
+
+    void SetAsCompleted(int zone)
+    {
+        if (zone == 1)
+        {
+            level1Complete = true;
+        }
+        if (zone == 2)
+        {
+            level2Complete = true;
+        }
+        if (zone == 3)
+        {
+            level3Complete = true;
+        }
     }
 
     void Update()

@@ -15,8 +15,8 @@ public class PauseMenu : MonoBehaviour {
 
 	bool needsBrightnessUpdate, needsSaturationUpdate;
 
-	float sliderBrightness;
-	float sliderSaturation;
+	float sliderBrightnessValue;
+	float sliderSaturationValue;
 	float soundVolume;
 	float musicVolume;
 
@@ -24,6 +24,11 @@ public class PauseMenu : MonoBehaviour {
 	public Text saturationText;
 	public Text soundText;
 	public Text musicText;
+
+    public Slider brightnessSlider;
+    public Slider saturationSlider;
+    public Slider soundSlider;
+    public Slider musicSlider;
 
     EventSystem eventsystem;
 
@@ -38,14 +43,17 @@ public class PauseMenu : MonoBehaviour {
 
 	void Start()
 	{
-        sliderBrightness = (GameManager.instance.brightness * 50) + 50;
-		sliderSaturation = (GameManager.instance.saturation * 50) + 50;
+        sliderBrightnessValue = (GameManager.instance.brightness * 50) + 50;
+        brightnessSlider.value = sliderBrightnessValue;
+
+		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
+        saturationSlider.value = sliderSaturationValue;
 	}
 
 	void Update()
 	{
-		brightText.text = sliderBrightness + "%";
-		saturationText.text = sliderSaturation + "%";
+		brightText.text = sliderBrightnessValue + "%";
+		saturationText.text = sliderSaturationValue + "%";
 		soundText.text = soundVolume + "%";
 		musicText.text = musicVolume + "%";
 
@@ -86,20 +94,20 @@ public class PauseMenu : MonoBehaviour {
 
 	public void setBright(float brillo)
 	{
-		sliderBrightness = brillo;
+		sliderBrightnessValue = brillo;
 		needsBrightnessUpdate = true;
 
-		GameManager.instance.brightness = (sliderBrightness - 50) / 50;
+		GameManager.instance.brightness = (sliderBrightnessValue - 50) / 50;
 		SaveLoad.instance.brightness = GameManager.instance.brightness;
 		SaveLoad.instance.Save();
 	}
 
 	public void setSaturation(float saturation)
 	{
-		sliderSaturation = saturation;
+		sliderSaturationValue = saturation;
 		needsSaturationUpdate = true;
 
-		GameManager.instance.saturation = (sliderSaturation - 50) / 50;
+		GameManager.instance.saturation = (sliderSaturationValue - 50) / 50;
 		SaveLoad.instance.saturation = GameManager.instance.saturation;
 		SaveLoad.instance.Save();
 	}
