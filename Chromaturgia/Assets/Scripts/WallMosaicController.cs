@@ -4,23 +4,52 @@ using UnityEngine;
 
 public class WallMosaicController : MonoBehaviour {
 
-    GameObject redPiece, greenPiece, bluePiece;
-    GameObject floorMosaic;
+    public GameObject redPiece, greenPiece, bluePiece;
+    public GameObject floorMosaic;
+    Transform[] floorMosaicPieces;
+    bool allPicked = false;
     
 	void Start () {
-		// get children, activate the pieces that are already picked-- maybe 
-        // i need three more bool in GameManager to keep track of picked
-        // pieces-- not the same as finished levels
-
+        floorMosaicPieces = floorMosaic.GetComponentsInChildren<Transform>(true);
 	}
 
-    void Caching()
+    void CheckPickedPieces()
     {
-        redPiece = gameObject.GetComponentsInChildren<GameObject>(true)[0];
+        redPiece.SetActive(GameManager.instance.redPiecePicked);
+        greenPiece.SetActive(GameManager.instance.greenPiecePicked);
+        bluePiece.SetActive(GameManager.instance.bluePiecePicked);
     }
 
-    void OnTriggerEnter2D()
+    void Update()
     {
-        // check if its player, if it is, pick the 2nd child and activate
+        if (!allPicked)
+            CheckPickedPieces();
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            floorMosaicPieces[1].gameObject.SetActive(GameManager.instance.redPiecePicked); // red
+            floorMosaicPieces[2].gameObject.SetActive(GameManager.instance.greenPiecePicked); // green
+            floorMosaicPieces[3].gameObject.SetActive(GameManager.instance.bluePiecePicked); // blue
+        }
+
+    }
+
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            floorMosaic.SetActive(true);
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            floorMosaic.SetActive(false);
+        }
     }
 }

@@ -9,6 +9,7 @@ using UnityEngine.PostProcessing;
 public class GameManager : MonoBehaviour {
 
     public const int MAX_LEVELS = 20;
+    const float DEATH_ERROR = 0.05f;
 
     public static GameManager instance = null;
 
@@ -41,9 +42,9 @@ public class GameManager : MonoBehaviour {
 
     //[HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
-    [HideInInspector]
+    //[HideInInspector]
     public bool level1Complete, level2Complete, level3Complete;
-    [HideInInspector]
+    //[HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
     [HideInInspector]
@@ -72,7 +73,9 @@ public class GameManager : MonoBehaviour {
             colors.w = 1;
             bulletAmount = 0.05f;
             sceneToLoad = "";
-            level1Complete = level2Complete = level3Complete = false;
+            level1Complete = false;
+            level2Complete = false;
+            level3Complete = false;
         }
         else 
 		{
@@ -290,7 +293,7 @@ public class GameManager : MonoBehaviour {
 
     void CheckHealth()
     {
-		if (colors.x == 0 && colors.y == 0 && colors.z == 0) 
+		if (colors.x <= DEATH_ERROR && colors.y <= DEATH_ERROR && colors.z <= DEATH_ERROR) 
         {
             Death();
         }
