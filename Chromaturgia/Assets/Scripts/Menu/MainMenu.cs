@@ -22,6 +22,7 @@ public class MainMenu : MonoBehaviour
     public Text musicText;
 
     public Button volverOptionsMenu;
+	public Button continuarPartida;
 
     GameObject mainMenu;
 	GameObject currentGame;
@@ -88,7 +89,13 @@ public class MainMenu : MonoBehaviour
 
     void activeMenu()
     {
-		currentGame.SetActive (true);
+		if (SaveLoad.instance.existePartida) 
+		{
+			currentGame.SetActive (true);
+		}
+		else
+			continuarPartida.GetComponentInChildren<Text> ().canvasRenderer.SetAlpha (0.5f);
+		
         mainMenu.SetActive(true);
     }
 

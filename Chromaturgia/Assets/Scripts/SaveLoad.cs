@@ -15,6 +15,8 @@ public class SaveLoad : MonoBehaviour
     public float musicVolume;
     public float soundVolume;
 
+	public bool existePartida;
+
 	Animator anim;
 
     void Awake()
@@ -55,9 +57,9 @@ public class SaveLoad : MonoBehaviour
         file.Close();
     }
 
-    public void Load()
+	public void Load()
     {
-        if (File.Exists(Application.persistentDataPath + "/saveData"))
+		if (File.Exists(Application.persistentDataPath + "/saveData"))
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream file = File.Open(Application.persistentDataPath + "/saveData", FileMode.Open);
@@ -79,10 +81,8 @@ public class SaveLoad : MonoBehaviour
             {
                 //Debug.Log(GameManager.instance.completedLevels[i]);
             }
-        }
-        else
-        {
-            //Debug.Log("No existe ninguna partida guardada");
+
+			existePartida = true;
         }
     }
 }
