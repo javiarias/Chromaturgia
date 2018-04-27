@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class MainMenu : MonoBehaviour
     public Text musicText;
 
     public Button volverOptionsMenu;
-	public Button continuarPartida;
+	public Button continueButton;
 
     GameObject mainMenu;
 	GameObject currentGame;
@@ -89,12 +90,16 @@ public class MainMenu : MonoBehaviour
 
     void activeMenu()
     {
-		if (SaveLoad.instance.existePartida) 
+		if (SaveLoad.instance.saveDataExists) 
 		{
+            
 			currentGame.SetActive (true);
 		}
 		else
-			continuarPartida.GetComponentInChildren<Text> ().canvasRenderer.SetAlpha (0.5f);
+        {
+            continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
+            continueButton.interactable = false;
+        }
 		
         mainMenu.SetActive(true);
     }
@@ -138,6 +143,13 @@ public class MainMenu : MonoBehaviour
         SaveLoad.instance.musicVolume = volume;
 
         SaveLoad.instance.Save();
+    }
+
+    public void NewGame()
+    {
+        SaveLoad.instance.Reset();
+
+        SceneManager.LoadScene("Hub");
     }
 
     public void quitGame()

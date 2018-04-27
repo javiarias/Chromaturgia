@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour {
     public bool[] completedLevels = new bool[MAX_LEVELS];
     [HideInInspector]
     public bool level1Complete, level2Complete, level3Complete;
+    [HideInInspector]
+    public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
     [HideInInspector]
     public float brightness;

@@ -15,7 +15,7 @@ public class SaveLoad : MonoBehaviour
     public float musicVolume;
     public float soundVolume;
 
-	public bool existePartida;
+	public bool saveDataExists;
 
 	Animator anim;
 
@@ -26,6 +26,8 @@ public class SaveLoad : MonoBehaviour
             instance = this;
 
             DontDestroyOnLoad(this.gameObject);
+
+            saveDataExists = File.Exists(Application.persistentDataPath + "/saveData");
         }
         else
         {
@@ -37,6 +39,11 @@ public class SaveLoad : MonoBehaviour
 	{
 		anim = GetComponent<Animator>();
 	}
+
+    public void Reset()
+    {
+        File.Delete(Application.persistentDataPath + "/saveData");
+    }
 
     public void Save()
     {
@@ -81,8 +88,6 @@ public class SaveLoad : MonoBehaviour
             {
                 //Debug.Log(GameManager.instance.completedLevels[i]);
             }
-
-			existePartida = true;
         }
     }
 }

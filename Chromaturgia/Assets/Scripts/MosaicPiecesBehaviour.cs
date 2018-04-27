@@ -32,6 +32,18 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            if (gameObject.name == "Red")
+            {
+                GameManager.instance.redPiecePicked = true;
+            }
+            else if (gameObject.name == "Green")
+            {
+                GameManager.instance.greenPiecePicked = true;
+            }
+            else if (gameObject.name == "Blue")
+            {
+                GameManager.instance.bluePiecePicked = true;
+            }
             Destroy(gameObject);
         }
     }
