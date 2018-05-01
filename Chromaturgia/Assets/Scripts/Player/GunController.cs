@@ -23,11 +23,11 @@ public class GunController : MonoBehaviour
 
 		if (GameManager.instance.currentAction == GameManager.Action.Shoot) 
 		{
-			if (GameManager.instance.chosenColor == GameManager.Option.Red && GameManager.instance.colors.x < bulletQuantity) 
+			if (GameManager.instance.chosenColor == GameManager.Option.Red && GameManager.instance.colors.x < bulletQuantity/2) 
 			{
-			} else if (GameManager.instance.chosenColor == GameManager.Option.Green && GameManager.instance.colors.y < bulletQuantity) 
+			} else if (GameManager.instance.chosenColor == GameManager.Option.Green && GameManager.instance.colors.y < bulletQuantity/2) 
 			{
-			} else if (GameManager.instance.chosenColor == GameManager.Option.Blue && GameManager.instance.colors.z < bulletQuantity) 
+			} else if (GameManager.instance.chosenColor == GameManager.Option.Blue && GameManager.instance.colors.z < bulletQuantity/2) 
 			{
 			} else 
 			{

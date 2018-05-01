@@ -13,11 +13,12 @@ public class SaveLoad : MonoBehaviour
     public float brightness;
     public float saturation;
     public float musicVolume;
-    public float soundVolume;
-
-	public bool saveDataExists;
+    static public float soundVolume;
+    
 
 	Animator anim;
+
+    string SavePath = "..";
 
     void Awake()
     { 
@@ -27,7 +28,7 @@ public class SaveLoad : MonoBehaviour
 
             DontDestroyOnLoad(this.gameObject);
 
-            saveDataExists = File.Exists(Application.persistentDataPath + "/saveData");
+            //saveDataExists = File.Exists(SavePath + "/saveData");
         }
         else
         {
@@ -42,15 +43,24 @@ public class SaveLoad : MonoBehaviour
 
     public void Reset()
     {
-        File.Delete(Application.persistentDataPath + "/saveData");
+        File.Delete(SavePath + "/saveData");
     }
 
     public void Save()
     {
-		anim.SetTrigger ("Saving");
+        anim.SetTrigger ("Saving");
 
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/saveData");
+        FileStream file;
+
+        if (!File.Exists(SavePath + "/saveData"))
+        {
+            file = File.Create(SavePath + "/saveData");
+        }
+        else
+        {
+            file = File.Open(SavePath + "/saveData", FileMode.Open);
+        }
 
         SaveData data = new SaveData();
 
@@ -66,10 +76,10 @@ public class SaveLoad : MonoBehaviour
 
 	public void Load()
     {
-		if (File.Exists(Application.persistentDataPath + "/saveData"))
+        if (File.Exists(SavePath + "/saveData"))
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(Application.persistentDataPath + "/saveData", FileMode.Open);
+            FileStream file = File.Open(SavePath + "/saveData", FileMode.Open);
 
             SaveData data = (SaveData)binaryFormatter.Deserialize(file);
             file.Close();
@@ -83,12 +93,12 @@ public class SaveLoad : MonoBehaviour
 
             GameManager.instance.saturation = data.saturation;
             GameManager.instance.ChangeSaturation();
-
-            for (int i = 0; i < GameManager.MAX_LEVELS; ++i)
-            {
-                //Debug.Log(GameManager.instance.completedLevels[i]);
-            }
         }
+    }
+
+    public bool saveDataExists()
+    {
+        return File.Exists(SavePath + "/saveData");
     }
 }
 

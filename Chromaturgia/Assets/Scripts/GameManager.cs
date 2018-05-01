@@ -9,7 +9,7 @@ using UnityEngine.PostProcessing;
 public class GameManager : MonoBehaviour {
 
     public const int MAX_LEVELS = 20;
-    const float DEATH_ERROR = 0.05f;
+    //const float DEATH_ERROR = 0.05f;          //las razones de esta edición se hallan en Slack.
 
     public static GameManager instance = null;
 
@@ -43,20 +43,24 @@ public class GameManager : MonoBehaviour {
     //[HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
     //[HideInInspector]
-    public bool level1Complete, level2Complete, level3Complete;
+    public bool level1Complete = false, level2Complete = false, level3Complete = false;
     //[HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float brightness;
     [HideInInspector]
     public float saturation;
+    [HideInInspector]
+    public float soundVolume, musicVolume;
 
-    public int PuzlesNVL1, PuzlesNVL2, PuzlesNVL3;
+    public static int PuzlesNVL1, PuzlesNVL2, PuzlesNVL3;
     SceneDoorScript[] puzzleCalc = null;
 
     PostProcessingBehaviour cam;
     ColorGradingModel.Settings auxSettings;
+
+    bool testedLevels = false;
 
     void Awake()
     {
@@ -76,6 +80,7 @@ public class GameManager : MonoBehaviour {
             level1Complete = false;
             level2Complete = false;
             level3Complete = false;
+            completedLevels = new bool[MAX_LEVELS];
         }
         else 
 		{
@@ -86,12 +91,7 @@ public class GameManager : MonoBehaviour {
     public void Start()
     {
         inHub = !SceneManager.GetActiveScene().name.Contains("Puzle");
-        if (!inHub)
-        {
-            sceneToLoad = SceneManager.GetActiveScene().name;
-        }
-
-        if (inHub && puzzleCalc == null)
+        if (inHub && !testedLevels)
         {
             puzzleCalc = FindObjectsOfType<SceneDoorScript>();
             PuzlesNVL1 = PuzlesNVL2 = PuzlesNVL3 = 0;
@@ -110,6 +110,11 @@ public class GameManager : MonoBehaviour {
                     PuzlesNVL3++;
                 }
             }
+            testedLevels = true;
+        }
+        else if (!inHub)
+        {
+            sceneToLoad = SceneManager.GetActiveScene().name;
         }
     }
 
@@ -122,6 +127,8 @@ public class GameManager : MonoBehaviour {
 
     public void ChangeBrightness()
     {
+
+        Debug.Log(brightness);
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>();
 
         // may seem redundant but it's the only way it compiles:
@@ -149,19 +156,19 @@ public class GameManager : MonoBehaviour {
         if (color == Option.Red && colors.x > 0f)
         {
             colors.x -= bulletAmount;
-            if (colors.x < bulletAmount)
+            if (colors.x < bulletAmount/2)
                 colors.x = 0;
         }
         else if (color == Option.Green && colors.y > 0f)
         {
             colors.y -= bulletAmount;
-            if (colors.y < bulletAmount)
+            if (colors.y < bulletAmount/2)
                 colors.y = 0;
         }
         else if (color == Option.Blue && colors.z > 0f)
         {
             colors.z -= bulletAmount;
-            if (colors.z < bulletAmount)
+            if (colors.z < bulletAmount/2)
                 colors.z = 0;
         }
     }
@@ -199,27 +206,19 @@ public class GameManager : MonoBehaviour {
         char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
 
         int index = int.Parse(tempArray[1].ToString()) - 1; //de base la posición en el array siempre tiene que ser una unidad menor que cualquier valor que empleemos para situarla, ya que empieza en 0
-        int zone = tempArray[0];
-
-        if (zone == '2')
+        if (tempArray[0] == '2')
         {
             index += PuzlesNVL1;                            //cuando guardamos un puzle del nivel 2, hay que desplazarse en el array hasta pasar los puzles del nivel 1
         }
-        if (zone == '3')          
+        else if (tempArray[0] == '3')          
         {
             index += PuzlesNVL2 + PuzlesNVL1;               //cuando guardamos un puzle el nivel 3, hay que desplazarse hasta pasar los puzles del nivel 2 además de los del nivel 1
         }
-
+        
         completedLevels[index] = true;
         puzzleComplete = true;
 
-        if (WholeLevelComplete(zone))
-        {
-            SetAsCompleted(zone);
-        }
-
-        SaveLoad.instance.Save();
-        Debug.Log("Saved");
+        //SaveLoad.instance.Save();                         //eliminado para asegurar que la partida se guarda SI Y SOLO SI el jugador sale del puzle
     }
 
     bool WholeLevelComplete(int zone)
@@ -257,11 +256,11 @@ public class GameManager : MonoBehaviour {
         {
             level1Complete = true;
         }
-        if (zone == 2)
+        else if (zone == 2)
         {
             level2Complete = true;
         }
-        if (zone == 3)
+        else if (zone == 3)
         {
             level3Complete = true;
         }
@@ -282,6 +281,17 @@ public class GameManager : MonoBehaviour {
             blueLevels.text = Mathf.Round(colors.z / bulletAmount).ToString();
             CheckHealth();
         }
+
+        if (inHub && PuzlesNVL1 != 0 && PuzlesNVL2 != 0 && PuzlesNVL3 != 0)
+        {
+            for (int i = 1; i <= 3; i++)
+            {
+                if (WholeLevelComplete(i))
+                {
+                    SetAsCompleted(i);
+                }
+            }
+        }
     }
 
     bool SceneIsPuzzle()
@@ -293,7 +303,7 @@ public class GameManager : MonoBehaviour {
 
     void CheckHealth()
     {
-		if (colors.x <= DEATH_ERROR && colors.y <= DEATH_ERROR && colors.z <= DEATH_ERROR) 
+		if (colors.x == 0 && colors.y == 0 && colors.z == 0)            //las razones de esta edición se hallan en Slack.
         {
             Death();
         }

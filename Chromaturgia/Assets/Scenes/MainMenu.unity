@@ -536,6 +536,10 @@ MonoBehaviour:
   musicText: {fileID: 110797570}
   volverOptionsMenu: {fileID: 1491823}
   continueButton: {fileID: 742443332}
+  brightnessSlider: {fileID: 1109409764}
+  saturationSlider: {fileID: 540136142}
+  soundSlider: {fileID: 18624247}
+  musicSlider: {fileID: 567857587}
 --- !u!4 &53010952
 Transform:
   m_ObjectHideFlags: 0
@@ -3109,8 +3113,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1906236617}
-        m_MethodName: Load
+      - m_Target: {fileID: 53010951}
+        m_MethodName: continuarPartida
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6094,12 +6098,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1886599878}
---- !u!114 &1906236617 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114864712832720842, guid: 22cf7ae3850b6504b9d011158429aa4e,
-    type: 2}
-  m_PrefabInternal: {fileID: 731238777}
-  m_Script: {fileID: 11500000, guid: d56d6312d6d79804c94bf092fb9e2b62, type: 3}
 --- !u!1 &1971030186
 GameObject:
   m_ObjectHideFlags: 0

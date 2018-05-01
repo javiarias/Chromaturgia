@@ -13,7 +13,7 @@ public class PauseMenu : MonoBehaviour {
 	public EventSystem eventSystemPauseMenu;
 	public Button volverOptionsMenu;
 
-	bool needsBrightnessUpdate, needsSaturationUpdate;
+	bool needsBrightnessUpdate, needsSaturationUpdate, needsSoundUpdate, needsMusicUpdate;
 
 	float sliderBrightnessValue;
 	float sliderSaturationValue;
@@ -39,6 +39,8 @@ public class PauseMenu : MonoBehaviour {
 
 		needsBrightnessUpdate = true;
 		needsSaturationUpdate = true;
+        needsSoundUpdate = true;
+        needsMusicUpdate = true;
 	}
 
 	void Start()
@@ -48,7 +50,13 @@ public class PauseMenu : MonoBehaviour {
 
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
         saturationSlider.value = sliderSaturationValue;
-	}
+
+        soundVolume = (GameManager.instance.soundVolume * 50) + 50;
+        soundSlider.value = soundVolume;
+
+        musicVolume = (GameManager.instance.musicVolume * 50) + 50;
+        musicSlider.value = musicVolume;
+    }
 
 	void Update()
 	{
@@ -68,7 +76,7 @@ public class PauseMenu : MonoBehaviour {
 
         if (Input.GetKeyDown (KeyCode.Escape))
 		{
-			if(eventSystemPauseMenu.enabled)
+			if (eventSystemPauseMenu.enabled)
 			{
 				if (GameIsPaused)
 					resume ();
@@ -115,17 +123,21 @@ public class PauseMenu : MonoBehaviour {
 	public void setSoundVolume(float volume)
 	{
 		soundVolume = volume;
-		SaveLoad.instance.soundVolume = volume;
+        needsBrightnessUpdate = true;
 
-		SaveLoad.instance.Save();
+        GameManager.instance.soundVolume = (soundVolume - 50) / 50;
+        SaveLoad.soundVolume = GameManager.instance.soundVolume;
+        SaveLoad.instance.Save();
 	}
 
 	public void setMusicVolume(float volume)
 	{
 		musicVolume = volume;
-		SaveLoad.instance.musicVolume = volume;
+        needsBrightnessUpdate = true;
 
-		SaveLoad.instance.Save();
+        GameManager.instance.musicVolume = (musicVolume - 50) / 50;
+        SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;
+        SaveLoad.instance.Save();
 	}
 
 	public void resume()
@@ -156,4 +168,9 @@ public class PauseMenu : MonoBehaviour {
 		GameIsPaused = false;
 		SceneManager.LoadScene ("MainMenu");
 	}
+
+    public void alternaFullscreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
 }

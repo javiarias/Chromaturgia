@@ -31,17 +31,17 @@ public class SceneDoorScript : MonoBehaviour {
             player.GetComponent<Movement>().UpdateOrientation(auxVect);
         }
 
+        if (sceneName != "Hub")
+        {
+            child.SetActive(true);
+            GameManager.instance.colors = colorAmounts;
+        }
+
         if (sceneName == "Hub" && sceneToLoad != "" && TestIfPuzzleComplete())
         {
             GameManager.instance.puzzleComplete = false;
             child.SetActive(true);
             Destroy(this);
-        }
-
-        if (sceneName != "Hub")
-        {
-            child.SetActive(true);
-            GameManager.instance.colors = colorAmounts;
         }
     }
 
@@ -60,6 +60,7 @@ public class SceneDoorScript : MonoBehaviour {
             if (sceneName != "Hub")
             {
                 SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
+                SaveLoad.instance.Save();                //añadido aquí el guardado para asegurar que se guardará la partida si y solo si el jugador sale del puzle
             }
             else
             {
@@ -76,12 +77,13 @@ public class SceneDoorScript : MonoBehaviour {
         int index = int.Parse(tempArray[1].ToString()) - 1;
         if (tempArray[0] == '2')
         {
-            index += GameManager.instance.PuzlesNVL1;
+            index += GameManager.PuzlesNVL1;
         }
-        if (tempArray[0] == '3')
+        else if (tempArray[0] == '3')
         {
-            index += GameManager.instance.PuzlesNVL2 + GameManager.instance.PuzlesNVL1;
+            index += GameManager.PuzlesNVL2 + GameManager.PuzlesNVL1;
         }
+
 
         return GameManager.instance.completedLevels[index];
     }

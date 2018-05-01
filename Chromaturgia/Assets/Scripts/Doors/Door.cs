@@ -5,8 +5,6 @@ using UnityEngine;
 public class Door : MonoBehaviour 
 {
 	public Transform salida;
-	public Camera mainCamera;
-	public Transform posCamara;
 
 	void OnTriggerEnter2D (Collider2D coll)
 	{

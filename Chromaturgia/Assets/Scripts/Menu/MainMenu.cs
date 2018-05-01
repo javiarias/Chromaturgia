@@ -25,6 +25,11 @@ public class MainMenu : MonoBehaviour
     public Button volverOptionsMenu;
 	public Button continueButton;
 
+    public Slider brightnessSlider;
+    public Slider saturationSlider;
+    public Slider soundSlider;
+    public Slider musicSlider;
+
     GameObject mainMenu;
 	GameObject currentGame;
 
@@ -34,6 +39,8 @@ public class MainMenu : MonoBehaviour
     {
         soundVolume = 50;
         musicVolume = 50;
+        sliderBrightness = GameManager.instance.brightness;
+        sliderSaturation = GameManager.instance.saturation;
 
         needsBrightnessUpdate = true;
         needsSaturationUpdate = true;
@@ -48,7 +55,16 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(false);
 
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
+
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
+
+        brightnessSlider.value = sliderBrightness;
+
+        saturationSlider.value = sliderSaturation;
+
+        soundSlider.value = soundVolume;
+
+        musicSlider.value = musicVolume;
     }
 
     void Update()
@@ -79,6 +95,11 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.ChangeSaturation();
             needsSaturationUpdate = false;
         }
+
+        if(!SaveLoad.instance.saveDataExists())
+        {
+            continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
+        }
     }
 
     public void pulsaEspacio()
@@ -90,9 +111,8 @@ public class MainMenu : MonoBehaviour
 
     void activeMenu()
     {
-		if (SaveLoad.instance.saveDataExists) 
+		if (SaveLoad.instance.saveDataExists()) 
 		{
-            
 			currentGame.SetActive (true);
 		}
 		else
@@ -132,7 +152,7 @@ public class MainMenu : MonoBehaviour
     public void setSoundVolume(float volume)
     {
         soundVolume = volume;
-        SaveLoad.instance.soundVolume = volume;
+        SaveLoad.soundVolume = volume;
 
         SaveLoad.instance.Save();
     }
@@ -148,12 +168,17 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         SaveLoad.instance.Reset();
-
+        SaveLoad.instance.Load();
         SceneManager.LoadScene("Hub");
     }
 
     public void quitGame()
     {
         Application.Quit();
+    }
+
+    public void continuarPartida()
+    {
+        SaveLoad.instance.Load();
     }
 }
