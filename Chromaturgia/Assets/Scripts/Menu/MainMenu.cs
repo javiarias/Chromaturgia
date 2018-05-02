@@ -39,11 +39,6 @@ public class MainMenu : MonoBehaviour
     {
         soundVolume = 50;
         musicVolume = 50;
-        sliderBrightness = GameManager.instance.brightness;
-        sliderSaturation = GameManager.instance.saturation;
-
-        needsBrightnessUpdate = true;
-        needsSaturationUpdate = true;
     }
 
     void Start()
@@ -55,8 +50,10 @@ public class MainMenu : MonoBehaviour
         mainMenu.SetActive(false);
 
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
-
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
+
+        needsBrightnessUpdate = true;
+        needsSaturationUpdate = true;
 
         brightnessSlider.value = sliderBrightness;
 
@@ -75,7 +72,7 @@ public class MainMenu : MonoBehaviour
         musicText.text = musicVolume + "%";
 
         eventsystem = EventSystem.current;
-		if(eventsystem!=null)
+		if (eventsystem!=null)
 		{
 	        if (eventsystem.currentSelectedGameObject == null)
 	            eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);

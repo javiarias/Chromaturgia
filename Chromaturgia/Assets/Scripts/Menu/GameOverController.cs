@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
 
@@ -12,12 +13,20 @@ public class GameOverController : MonoBehaviour {
 
 	public void CallLoad()
     {
-        Invoke("SaveLoad.instance.Load()", WAIT_TIME);
-        SaveLoad.instance.Load();
+        Invoke("ActualLoad", WAIT_TIME);
     }
 
     public void CallExit()
     {
         GameManager.instance.QuitGame();
+    }
+
+    public void ActualLoad()
+    {
+        bool auxiliar = SaveLoad.instance.Load();
+        if (!auxiliar)
+        {
+            SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
+        }
     }
 }

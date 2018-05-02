@@ -74,7 +74,7 @@ public class SaveLoad : MonoBehaviour
         file.Close();
     }
 
-	public void Load()
+	public bool Load()
     {
         if (File.Exists(SavePath + "/saveData"))
         {
@@ -94,6 +94,8 @@ public class SaveLoad : MonoBehaviour
             GameManager.instance.saturation = data.saturation;
             GameManager.instance.ChangeSaturation();
         }
+
+        return File.Exists(SavePath + "/saveData");
     }
 
     public bool saveDataExists()

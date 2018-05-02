@@ -47,12 +47,12 @@ public class GameManager : MonoBehaviour {
     //[HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
-    //[HideInInspector]
-    public float brightness;
     [HideInInspector]
-    public float saturation;
+    public float brightness = 0;
     [HideInInspector]
-    public float soundVolume, musicVolume;
+    public float saturation = 0;
+    [HideInInspector]
+    public float soundVolume = 50, musicVolume = 50;
 
     public static int PuzlesNVL1, PuzlesNVL2, PuzlesNVL3;
     SceneDoorScript[] puzzleCalc = null;
@@ -127,8 +127,6 @@ public class GameManager : MonoBehaviour {
 
     public void ChangeBrightness()
     {
-
-        Debug.Log(brightness);
         cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>();
 
         // may seem redundant but it's the only way it compiles:
