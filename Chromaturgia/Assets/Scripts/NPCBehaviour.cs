@@ -1,10 +1,25 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCBehaviour : MonoBehaviour {
 
 	public GameObject message;
+	public GameObject background;
+
+	TextMesh text;
+	string sentence;
+	bool talk;
+
+	void Start()
+	{
+		text = message.GetComponent<TextMesh> ();
+		sentence = text.text;
+		text.text = "";
+		talk = false;
+	}
+
 
     void OnTriggerExit2D(Collider2D coll)
     {
@@ -23,14 +38,30 @@ public class NPCBehaviour : MonoBehaviour {
 			coll.GetComponent<PlayerInputs>().npc = this;
 		}
 	}
-		
+
 	public void DisplayText()
 	{
-		message.SetActive (true);
+		if (!talk) 
+		{
+			message.SetActive (true);
+			StartCoroutine (TypeSentence (sentence));
+			talk = true;
+		}
 	}
 
 	public void HideText()
 	{
 		message.SetActive (false);
+		talk = false;
+	}
+
+	IEnumerator TypeSentence(string sentence)
+	{
+		text.text = "";
+		foreach(char letter in sentence.ToCharArray())
+		{
+			text.text += letter;
+			yield return null;
+		}
 	}
 }

@@ -22,7 +22,7 @@ public class PlayerInputs : MonoBehaviour {
 	{
         currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
         spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
-        spacebarText.text = "Espacio";
+        spacebarText.text = "ESPACIO";
         playerGun = GameObject.FindGameObjectWithTag ("Gun").GetComponent<GunController> ();
 
         gameObject.GetComponent<Movement>().canMove = true;
@@ -40,18 +40,18 @@ public class PlayerInputs : MonoBehaviour {
             else
             {
                 currentSprite.sprite = Shoot;
-                spacebarText.text = "Espacio";
+				spacebarText.text = "ESPACIO";
             }
 		}
 		else if (action == GameManager.Action.Interact) 
 		{
 			currentSprite.sprite = Act;
-            spacebarText.text = "Espacio";
+			spacebarText.text = "ESPACIO";
         }
 		else if (action == GameManager.Action.Talk) 
 		{
 			currentSprite.sprite = Talk;
-            spacebarText.text = "Espacio";
+			spacebarText.text = "ESPACIO";
         }
 	}
 

@@ -1,21 +1,21 @@
 fileFormatVersion: 2
-guid: 4cd6eb3769dc60c46ae0fea6407c1260
-timeCreated: 1520619082
+guid: 32e2f6f6d960fdb478d5d97b38702ab2
+timeCreated: 1525513918
 licenseType: Free
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 150
-  forceTextureCase: -2
+  fontSize: 120
+  forceTextureCase: -1
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: ArcadeClassic
+  fontName: Nineteen Ninety Three
   fontNames:
-  - ArcadeClassic
+  - Nineteen Ninety Three
   fallbackFontReferences: []
   customCharacters: 
-  fontRenderingMode: 2
+  fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
   userData: 
