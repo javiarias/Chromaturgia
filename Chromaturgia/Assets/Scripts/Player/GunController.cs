@@ -39,6 +39,8 @@ public class GunController : MonoBehaviour
 
 	public void ShootLaser()
     {
+		FindObjectOfType<AudioManager> ().Play ("Disparo");
+
         if (CanShoot ())
         {
             if (GameManager.instance.chosenColor == GameManager.Option.Red)
