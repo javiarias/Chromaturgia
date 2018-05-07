@@ -166,16 +166,19 @@ public class MainMenu : MonoBehaviour
     {
         SaveLoad.instance.Reset();
         SaveLoad.instance.Load();
+		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         SceneManager.LoadScene("Hub");
     }
 
     public void quitGame()
     {
+		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         Application.Quit();
     }
 
     public void continuarPartida()
     {
+		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         SaveLoad.instance.Load();
     }
 }

@@ -51,6 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5160d8c1fbf3e9141936a80d5268b046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animFade: {fileID: 0}
+  Fade: {fileID: 0}
   colors: {x: 0, y: 0, z: 0, w: 0}
   bulletAmount: 0
   chosenColor: 0
@@ -61,8 +63,13 @@ MonoBehaviour:
   sceneToLoad: 
   playerInitialRotation: 0
   completedLevels: 0000000000000000000000000000000000000000
+  level1Complete: 0
+  level2Complete: 0
+  level3Complete: 0
+  redPiecePicked: 0
+  greenPiecePicked: 0
+  bluePiecePicked: 0
   brightness: 0
   saturation: 0
-  PuzlesNVL1: 0
-  PuzlesNVL2: 0
-  PuzlesNVL3: 0
+  soundVolume: 50
+  musicVolume: 50
