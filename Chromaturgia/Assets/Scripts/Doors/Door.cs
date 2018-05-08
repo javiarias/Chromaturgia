@@ -20,6 +20,7 @@ public class Door : MonoBehaviour
 
 	void DoorAnimation()
 	{
+		FindObjectOfType<AudioManager> ().Play ("DoorTransition");
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
 		GameObject.Find("Fade").GetComponent<Animator>().Rebind();
     }

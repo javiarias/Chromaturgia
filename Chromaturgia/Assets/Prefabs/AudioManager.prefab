@@ -58,3 +58,123 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Talk
+    clip: {fileID: 8300000, guid: cf7983a4447128240a286951572af4b6, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuSelect
+    clip: {fileID: 8300000, guid: 4a08922509bd0a04f878a5941a1334f0, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuAccept
+    clip: {fileID: 8300000, guid: 05c064ff1164c104583f299867b6e72e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuBack
+    clip: {fileID: 8300000, guid: 7be2b05302e36bb4882b2ef6a13b89c1, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SinMunicion
+    clip: {fileID: 8300000, guid: 7486144bbfd09224388d3bfbb7db8de7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: AnimalCurado
+    clip: {fileID: 8300000, guid: eeb5d1a746092f44b8c44f830e1ded4e, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: BloqueDestruction
+    clip: {fileID: 8300000, guid: 7385baccc7bd7a8418f40c9c6f3a272a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MuroOff
+    clip: {fileID: 8300000, guid: f5e4d72cc65f22f4fbc0126feace2250, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MuroOn
+    clip: {fileID: 8300000, guid: 7082f8555cc1cd341a75e3fbf8b6384d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Damage
+    clip: {fileID: 8300000, guid: 1b01ec82f3fc6f542a41b2da0d2329e5, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: FootStep
+    clip: {fileID: 8300000, guid: 936826e4d3078d240ab5822797c12606, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwitchOff
+    clip: {fileID: 8300000, guid: 9b0dfd71da6025d4ca19328efb2a530d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: SwitchOn
+    clip: {fileID: 8300000, guid: 21f3558c0f8d54845b00b9c2a19020e7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PrismReflect
+    clip: {fileID: 8300000, guid: e5358440b2b0c484e9fa54fcbb54ee38, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: CollectShard
+    clip: {fileID: 8300000, guid: aec4078eaada18c46b68904fd170caf8, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TurretDestruction
+    clip: {fileID: 8300000, guid: 4af0fd22a1ac9c24db87c8be0fc0932b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: TurretShoot
+    clip: {fileID: 8300000, guid: ab95f18cb3ea1654aaace884219c2324, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PrismReflect
+    clip: {fileID: 8300000, guid: e5358440b2b0c484e9fa54fcbb54ee38, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: DoorTransition
+    clip: {fileID: 8300000, guid: 04429931ee45d0c439b9ae7e5d1dbe4d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 72e090fa6f0b17d43aa1d976f062cb9d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

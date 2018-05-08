@@ -35,6 +35,7 @@ public class InfectedAnimalBehaviour : MonoBehaviour
     {
         if (!win && colors == Color.white)
         {
+			FindObjectOfType<AudioManager> ().Play ("AnimalCurado");
             win = true;
             curedAnimals++;
             UpdateText();

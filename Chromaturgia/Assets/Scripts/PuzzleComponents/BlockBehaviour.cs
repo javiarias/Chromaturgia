@@ -27,7 +27,7 @@ public class BlockBehaviour : MonoBehaviour
 				laserRb2d.velocity = Vector2.zero;
 				laserAnimator.SetBool ("Destroyed",true);
 				Destroy (coll.gameObject, 0.35f);
-
+				FindObjectOfType<AudioManager> ().Play ("BloqueDestruction");
 				animator.SetBool ("Destroyed", true);
 				Destroy (gameObject,0.75f);
 			} 

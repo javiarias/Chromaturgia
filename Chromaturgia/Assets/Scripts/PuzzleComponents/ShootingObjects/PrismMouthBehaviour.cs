@@ -10,6 +10,7 @@ public class PrismMouthBehaviour : MonoBehaviour {
 
 	public void ShootLaser(Color laserColor) 
 	{
+		FindObjectOfType<AudioManager> ().Play ("PrismReflect");
 		laserShot = Instantiate (laserPrefab, gameObject.transform.position, gameObject.transform.rotation);
 		laserShot.GetComponent<SpriteRenderer> ().color = laserColor;
 		laserShot.speed = laserSpeed;

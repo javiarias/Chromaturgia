@@ -16,6 +16,7 @@ public class Damage : MonoBehaviour {
 
 	public void Flash()
 	{
+		FindObjectOfType<AudioManager> ().Play ("Damage");
         renderer.color = turretColor;
 		Invoke ("NormalColor", 0.25f);
 	}

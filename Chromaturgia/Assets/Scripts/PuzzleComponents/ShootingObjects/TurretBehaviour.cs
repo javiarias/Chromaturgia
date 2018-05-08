@@ -39,6 +39,7 @@ public class TurretBehaviour : MonoBehaviour
 
 	void Shoot ()
 	{
+		FindObjectOfType<AudioManager> ().Play ("TurretShoot");
 		clon = Instantiate (varPrefab, gun.transform.position ,gameObject.transform.rotation);
 
 		clon.speed = laserSpeed;

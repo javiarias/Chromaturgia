@@ -51,6 +51,7 @@ public class NPCBehaviour : MonoBehaviour {
 
 	public void HideText()
 	{
+		StopAllCoroutines();
 		message.SetActive (false);
 		talk = false;
 	}
@@ -61,7 +62,11 @@ public class NPCBehaviour : MonoBehaviour {
 		foreach(char letter in sentence.ToCharArray())
 		{
 			text.text += letter;
-			yield return null;
+			FindObjectOfType<AudioManager>().Play("Talk");
+			if (letter == ',' || letter == '.' || letter == '?' || letter == '!')
+				yield return new WaitForSeconds (0.5f);
+			else
+				yield return new WaitForSeconds (0.05f);;
 		}
 	}
 }
