@@ -43,13 +43,15 @@ public class OrbLeverBehaviour : MonoBehaviour {
             bool orbLeverState = false;
 
             if (animator.GetCurrentAnimatorStateInfo(0).IsName("Off"))
-            {
-				FindObjectOfType<AudioManager> ().Play ("SwitchOff");
                 orbLeverState = true;
-            }
-
-            animator.SetBool("On", orbLeverState);
-			FindObjectOfType<AudioManager> ().Play ("SwitchOn");
+			
+			if(orbLeverState)
+				FindObjectOfType<AudioManager> ().Play ("SwitchOn");
+			else
+				FindObjectOfType<AudioManager> ().Play ("SwitchOff");
+			
+			
+			animator.SetBool("On", orbLeverState);
             foreach (RotationAndDeactivationController objectInstance in objectList)
             {
                 foreach (int objectIdentifier in objectInstance.identifierList)

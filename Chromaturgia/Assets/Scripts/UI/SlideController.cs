@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class SlideController : MonoBehaviour {
 
-    Slider playerLight;
+	Slider playerLight;
     enum Option {Red, Green, Blue};
     Option colorSelect = new Option();
 

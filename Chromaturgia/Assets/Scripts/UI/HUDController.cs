@@ -12,6 +12,7 @@ public class HUDController : MonoBehaviour {
 	void Start () 
 	{
 		currentHUD = gameObject.GetComponent<Image> ();
+
         ChangeColorSelected("R");
 	}
 

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class InfectedAnimalBehaviour : MonoBehaviour
 {
-
+	ParticleSystem.MainModule FX;
     Animator animator;
     Color colors;
     Color laserColor;
@@ -24,6 +24,8 @@ public class InfectedAnimalBehaviour : MonoBehaviour
     {
         totalAnimals++;
         UpdateText();
+
+		FX = gameObject.GetComponentInChildren<ParticleSystem>().main;
         colors = gameObject.GetComponentInChildren<SpriteRenderer>().color;
         win = false;
 
@@ -67,6 +69,7 @@ public class InfectedAnimalBehaviour : MonoBehaviour
                 colors.b = 1;
             }
             gameObject.GetComponentInChildren<SpriteRenderer>().color = colors;
+			FX.startColor = new ParticleSystem.MinMaxGradient (colors);
             Destroy(coll.gameObject);
         }
     }

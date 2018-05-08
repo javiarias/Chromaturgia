@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour {
 
+	public AudioMixerGroup audioMixer;
 	public Sound[] sounds;
 
 	public static AudioManager instance;
@@ -23,7 +24,7 @@ public class AudioManager : MonoBehaviour {
 		foreach (Sound s in sounds) {
 			s.source = gameObject.AddComponent<AudioSource> ();
 			s.source.clip = s.clip;
-
+			s.source.outputAudioMixerGroup = audioMixer;
 			s.source.volume = s.volume;
 			s.source.pitch = s.pitch;
 			s.source.loop = s.loop;

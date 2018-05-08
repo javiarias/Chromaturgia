@@ -36,7 +36,7 @@ public class RotationAndDeactivationController : MonoBehaviour {
 
     public void OrbLeverSignal()
     {
-		FindObjectOfType<AudioManager> ().Play ("MuroOn");
+		//FindObjectOfType<AudioManager> ().Play ("MuroOn");
 
 		if (containsWall)
         {

@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour {
+
+	public AudioMixer audioMixer;
 
 	public static bool GameIsPaused = false;
 
@@ -34,9 +37,6 @@ public class PauseMenu : MonoBehaviour {
 
 	void Awake()
 	{
-		soundVolume = 50;
-		musicVolume = 50;
-
 		needsBrightnessUpdate = true;
 		needsSaturationUpdate = true;
         needsSoundUpdate = true;
@@ -62,8 +62,8 @@ public class PauseMenu : MonoBehaviour {
 	{
 		brightText.text = sliderBrightnessValue + "%";
 		saturationText.text = sliderSaturationValue + "%";
-		soundText.text = soundVolume + "%";
-		musicText.text = musicVolume + "%";
+		soundText.text = soundVolume+80 + "%";
+		musicText.text = musicVolume+80 + "%";
 
         if (GameIsPaused)
         {
@@ -124,6 +124,7 @@ public class PauseMenu : MonoBehaviour {
 	{
 		soundVolume = volume;
         needsBrightnessUpdate = true;
+		audioMixer.SetFloat ("Volume",volume);
 
         GameManager.instance.soundVolume = (soundVolume - 50) / 50;
         SaveLoad.soundVolume = GameManager.instance.soundVolume;

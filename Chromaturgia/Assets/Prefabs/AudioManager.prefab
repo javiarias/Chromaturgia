@@ -51,6 +51,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc5abd853df4f7f42a568be8a06ce048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24300002, guid: 58de525bdf9d0a546a42fb92051cd552, type: 2}
   sounds:
   - name: Disparo
     clip: {fileID: 8300000, guid: 024eb9c5aea4b374c9f960c0b5a678e0, type: 3}
@@ -131,7 +132,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - name: SwitchOn
-    clip: {fileID: 8300000, guid: 21f3558c0f8d54845b00b9c2a19020e7, type: 3}
+    clip: {fileID: 8300000, guid: ab43e9b7c581c194fa2caef1a5bd6275, type: 3}
     volume: 1
     pitch: 1
     loop: 0
@@ -174,6 +175,18 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Death
     clip: {fileID: 8300000, guid: 72e090fa6f0b17d43aa1d976f062cb9d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PausaOn
+    clip: {fileID: 8300000, guid: e5008803e5a5e724c9bd0faafd9e8095, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: PausaOff
+    clip: {fileID: 8300000, guid: 19e2867b0fcdfc14f9d283b05d0dd86b, type: 3}
     volume: 1
     pitch: 1
     loop: 0

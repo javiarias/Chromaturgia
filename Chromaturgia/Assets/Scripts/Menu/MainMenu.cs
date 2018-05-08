@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
+	public AudioMixer audioMixer;
 
     bool needsBrightnessUpdate, needsSaturationUpdate;
 
@@ -35,12 +37,6 @@ public class MainMenu : MonoBehaviour
 
     EventSystem eventsystem;
 
-    void Awake()
-    {
-        soundVolume = 50;
-        musicVolume = 50;
-    }
-
     void Start()
     {
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
@@ -68,8 +64,8 @@ public class MainMenu : MonoBehaviour
     {
         brightText.text = sliderBrightness + "%";
         saturationText.text = sliderSaturation + "%";
-        soundText.text = soundVolume + "%";
-        musicText.text = musicVolume + "%";
+        soundText.text = soundVolume+80 + "%";
+        musicText.text = musicVolume+80 + "%";
 
         eventsystem = EventSystem.current;
 		if (eventsystem!=null)
@@ -150,6 +146,7 @@ public class MainMenu : MonoBehaviour
     {
         soundVolume = volume;
         SaveLoad.soundVolume = volume;
+		audioMixer.SetFloat ("Volume",volume);
 
         SaveLoad.instance.Save();
     }
