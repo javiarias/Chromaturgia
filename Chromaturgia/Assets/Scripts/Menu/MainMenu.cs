@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     bool needsBrightnessUpdate, needsSaturationUpdate;
 
+	ParticleSystem.MainModule thinkFX;
     Animator thinkAnim;
 
     float sliderBrightness;
@@ -40,10 +41,13 @@ public class MainMenu : MonoBehaviour
     void Start()
     {
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
+		thinkFX = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponentInChildren<ParticleSystem>().main;
         mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
 		currentGame = GameObject.FindGameObjectWithTag("CurrentGame");
 		currentGame.SetActive (false);
         mainMenu.SetActive(false);
+
+		thinkFX.startSize = 0f;
 
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
@@ -113,7 +117,8 @@ public class MainMenu : MonoBehaviour
             continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
             continueButton.interactable = false;
         }
-		
+
+		thinkFX.startSize = 0.29f;
         mainMenu.SetActive(true);
     }
 
