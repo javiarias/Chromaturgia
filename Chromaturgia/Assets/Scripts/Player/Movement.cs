@@ -163,6 +163,13 @@ public class Movement : MonoBehaviour
 	// check input every frame
 	void Update ()
     {
+        if (!canMove)
+        {
+            playerRB.inertia = 0f;
+            moves = false;
+            SetAnimatorBools("Idle");
+        }
+
         if (canMove)
         {
             CheckInput();

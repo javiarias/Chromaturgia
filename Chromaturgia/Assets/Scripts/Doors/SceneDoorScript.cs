@@ -77,13 +77,12 @@ public class SceneDoorScript : MonoBehaviour {
         int index = int.Parse(tempArray[1].ToString()) - 1;
         if (tempArray[0] == '2')
         {
-            index += GameManager.PuzlesNVL1;
+            index += 3;
         }
         else if (tempArray[0] == '3')
         {
-            index += GameManager.PuzlesNVL2 + GameManager.PuzlesNVL1;
+            index += 6;
         }
-
 
         return GameManager.instance.completedLevels[index];
     }

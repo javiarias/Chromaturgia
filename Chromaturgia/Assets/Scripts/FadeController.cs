@@ -7,16 +7,24 @@ public class FadeController : MonoBehaviour {
 
 	Animator animFade;
 	Image Fade;
+    GameObject player;
 
 	void Start()
 	{
 		animFade = gameObject.GetComponent<Animator>();
 		Fade = gameObject.GetComponent<Image>();
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 
-	public IEnumerator Fading()
+    void RestartMovement()
+    {
+        player.GetComponent<Movement>().canMove = true;
+    }
+
+    public IEnumerator Fading()
 	{
+        Invoke("RestartMovement", 0.3f);
 		animFade.SetBool ("Fade", true);
-		yield return new WaitUntil (()=> Fade.color.a == 1);
-	}
+        yield return new WaitUntil (()=> Fade.color.a == 1);
+    }
 }

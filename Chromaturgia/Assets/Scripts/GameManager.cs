@@ -54,9 +54,6 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float soundVolume = 50, musicVolume = 50;
 
-    public static int PuzlesNVL1, PuzlesNVL2, PuzlesNVL3;
-    SceneDoorScript[] puzzleCalc = null;
-
     PostProcessingBehaviour cam;
     ColorGradingModel.Settings auxSettings;
 
@@ -91,28 +88,7 @@ public class GameManager : MonoBehaviour {
     public void Start()
     {
         inHub = !SceneManager.GetActiveScene().name.Contains("Puzle");
-        if (inHub && !testedLevels)
-        {
-            puzzleCalc = FindObjectsOfType<SceneDoorScript>();
-            PuzlesNVL1 = PuzlesNVL2 = PuzlesNVL3 = 0;
-            foreach (SceneDoorScript door in puzzleCalc)
-            {
-                if (door.sceneToLoad.Contains("Puzle 1"))
-                {
-                    PuzlesNVL1++;
-                }
-                else if (door.sceneToLoad.Contains("Puzle 2"))
-                {
-                    PuzlesNVL2++;
-                }
-                else if (door.sceneToLoad.Contains("Puzle 3"))
-                {
-                    PuzlesNVL3++;
-                }
-            }
-            testedLevels = true;
-        }
-        else if (!inHub)
+        if (!inHub)
         {
             sceneToLoad = SceneManager.GetActiveScene().name;
         }
@@ -206,13 +182,13 @@ public class GameManager : MonoBehaviour {
         int index = int.Parse(tempArray[1].ToString()) - 1; //de base la posición en el array siempre tiene que ser una unidad menor que cualquier valor que empleemos para situarla, ya que empieza en 0
         if (tempArray[0] == '2')
         {
-            index += PuzlesNVL1;                            //cuando guardamos un puzle del nivel 2, hay que desplazarse en el array hasta pasar los puzles del nivel 1
+            index += 3;
         }
-        else if (tempArray[0] == '3')          
+        else if (tempArray[0] == '3')
         {
-            index += PuzlesNVL2 + PuzlesNVL1;               //cuando guardamos un puzle el nivel 3, hay que desplazarse hasta pasar los puzles del nivel 2 además de los del nivel 1
+            index += 6;
         }
-        
+
         completedLevels[index] = true;
         puzzleComplete = true;
 
@@ -225,21 +201,21 @@ public class GameManager : MonoBehaviour {
 
         if (zone == 1)
         {
-            for (int i = 0; i < PuzlesNVL1; ++i)
+            for (int i = 0; i < 3; ++i)
             {
                 isComplete &= completedLevels[i];
             }
         }
         else if (zone == 2)
         {
-            for (int i = PuzlesNVL1; i < (PuzlesNVL1 + PuzlesNVL2); ++i)
+            for (int i = 3; i < 6; ++i)
             {
                 isComplete &= completedLevels[i];
             }
         }
         else if (zone == 3)
         {
-            for (int i = (PuzlesNVL1 + PuzlesNVL2); i < (PuzlesNVL1 + PuzlesNVL2 + PuzlesNVL3); ++i)
+            for (int i = 6; i < 9; ++i)
             {
                 isComplete &= completedLevels[i];
             }
@@ -280,7 +256,7 @@ public class GameManager : MonoBehaviour {
             CheckHealth();
         }
 
-        if (inHub && PuzlesNVL1 != 0 && PuzlesNVL2 != 0 && PuzlesNVL3 != 0)
+        if (inHub)
         {
             for (int i = 1; i <= 3; i++)
             {
