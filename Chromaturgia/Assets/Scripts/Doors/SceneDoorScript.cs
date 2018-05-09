@@ -21,8 +21,8 @@ public class SceneDoorScript : MonoBehaviour {
         sceneName = SceneManager.GetActiveScene().name;
         gmSceneToLoad = GameManager.instance.sceneToLoad;
 
-        scenePositionPointer = (sceneName != "Hub" || gmSceneToLoad == sceneToLoad);
-
+        scenePositionPointer = ((sceneName == "Hub" && sceneToLoad == gmSceneToLoad) || (sceneName == sceneToLoad && sceneName != "Hub"));
+        
         if (scenePositionPointer)
         {
             player.transform.position = gameObject.transform.GetChild(1).position;
@@ -74,7 +74,7 @@ public class SceneDoorScript : MonoBehaviour {
     private bool TestIfPuzzleComplete()
     {
         char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
-        int index = int.Parse(tempArray[1].ToString()) - 1;
+        int index = int.Parse(tempArray[1].ToString());
         if (tempArray[0] == '2')
         {
             index += 3;

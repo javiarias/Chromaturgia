@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f9998ef6d38a744a33933c811da56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifierList: 0200000000000000000000000000000000000000
+  identifierList: 000000000000000000000000
   RotateLeft: 0
   isWallActive: 1
 --- !u!114 &114944846688179206
@@ -274,6 +274,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   frecuency: 2
   laserSpeed: 100
+  delay: 0
   gun: {fileID: 4601200941988626}
   varPrefab: {fileID: 114948375239650204, guid: 1ad6b589e53fd77429b70cfdefe052fc,
     type: 2}

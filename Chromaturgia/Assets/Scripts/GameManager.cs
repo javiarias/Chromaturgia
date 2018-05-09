@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour {
     public bool inHub, puzzleComplete = false;
     [HideInInspector]
     public Vector3 entryPosition;
-    [HideInInspector]
+    //[HideInInspector]
     public string sceneToLoad = "";
     [HideInInspector]
     public float playerInitialRotation;
@@ -182,7 +182,7 @@ public class GameManager : MonoBehaviour {
         //extrae del nombre de la escena el número del nivel y del puzle
         char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
 
-        int index = int.Parse(tempArray[1].ToString()) - 1; //de base la posición en el array siempre tiene que ser una unidad menor que cualquier valor que empleemos para situarla, ya que empieza en 0
+        int index = int.Parse(tempArray[1].ToString());
         if (tempArray[0] == '2')
         {
             index += 3;
