@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameOverController : MonoBehaviour {
@@ -11,7 +12,19 @@ public class GameOverController : MonoBehaviour {
 
     public const float WAIT_TIME = 0.3f;
 
-	public void CallLoad()
+    EventSystem eventsystem;
+
+    private void Update()
+    {
+        eventsystem = EventSystem.current;
+        if (eventsystem != null)
+        {
+            if (eventsystem.currentSelectedGameObject == null)
+                eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
+        }
+    }
+
+    public void CallLoad()
     {
         Invoke("ActualLoad", WAIT_TIME);
     }

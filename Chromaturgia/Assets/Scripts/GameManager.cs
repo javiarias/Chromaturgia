@@ -67,6 +67,9 @@ public class GameManager : MonoBehaviour {
 
 			DontDestroyOnLoad (this.gameObject);
 
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+
             // initializing goes in Awake since it doesn't depend on other gO
             colors.x = 0.9f;
             colors.y = 0.9f;
@@ -270,9 +273,7 @@ public class GameManager : MonoBehaviour {
 
     bool SceneIsPuzzle()
     {
-        return (SceneManager.GetActiveScene().name != "Hub"
-            && SceneManager.GetActiveScene().name != "MainMenu"
-            && SceneManager.GetActiveScene().name != "GameOver");
+        return (SceneManager.GetActiveScene().name.Contains("Puzle"));
     }
 
     void CheckHealth()
