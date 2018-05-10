@@ -107,7 +107,7 @@ public class PauseMenu : MonoBehaviour {
 
 		GameManager.instance.brightness = (sliderBrightnessValue - 50) / 50;
 		SaveLoad.instance.brightness = GameManager.instance.brightness;
-		SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
 	}
 
 	public void setSaturation(float saturation)
@@ -117,7 +117,7 @@ public class PauseMenu : MonoBehaviour {
 
 		GameManager.instance.saturation = (sliderSaturationValue - 50) / 50;
 		SaveLoad.instance.saturation = GameManager.instance.saturation;
-		SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
 	}
 
 	public void setSoundVolume(float volume)
@@ -128,7 +128,7 @@ public class PauseMenu : MonoBehaviour {
 
         GameManager.instance.soundVolume = (soundVolume - 50) / 50;
         SaveLoad.soundVolume = GameManager.instance.soundVolume;
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
 	}
 
 	public void setMusicVolume(float volume)
@@ -138,7 +138,7 @@ public class PauseMenu : MonoBehaviour {
 
         GameManager.instance.musicVolume = (musicVolume - 50) / 50;
         SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
 	}
 
 	public void resume()

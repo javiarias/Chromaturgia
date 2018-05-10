@@ -88,15 +88,6 @@ public class GameManager : MonoBehaviour {
 		}
     }
 
-    public void Start()
-    {
-        inHub = !SceneManager.GetActiveScene().name.Contains("Puzle");
-        if (!inHub)
-        {
-            sceneToLoad = SceneManager.GetActiveScene().name;
-        }
-    }
-
     public void Caching()
     {
         redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
@@ -180,7 +171,7 @@ public class GameManager : MonoBehaviour {
 
         //CÓDIGO JAVI
         //extrae del nombre de la escena el número del nivel y del puzle
-        char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
+        char[] tempArray = SceneManager.GetActiveScene().name.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
 
         int index = int.Parse(tempArray[1].ToString());
         if (tempArray[0] == '2')
@@ -257,6 +248,8 @@ public class GameManager : MonoBehaviour {
             greenLevels.text = Mathf.Round(colors.y / bulletAmount).ToString();
             blueLevels.text = Mathf.Round(colors.z / bulletAmount).ToString();
             CheckHealth();
+
+            sceneToLoad = SceneManager.GetActiveScene().name;
         }
 
         if (inHub)

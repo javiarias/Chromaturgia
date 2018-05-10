@@ -19,17 +19,7 @@ public class SceneDoorScript : MonoBehaviour {
         child = gameObject.transform.GetChild(0).gameObject;
         player = GameObject.FindGameObjectWithTag("Player");
         sceneName = SceneManager.GetActiveScene().name;
-        gmSceneToLoad = GameManager.instance.sceneToLoad;
-
-        scenePositionPointer = ((sceneName == "Hub" && sceneToLoad == gmSceneToLoad) || (sceneName == sceneToLoad && sceneName != "Hub"));
         
-        if (scenePositionPointer)
-        {
-            player.transform.position = gameObject.transform.GetChild(1).position;
-            angle = (gameObject.transform.eulerAngles.z * Mathf.PI) / 180;
-            Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(angle)), -Mathf.Round(Mathf.Cos(angle)));
-            player.GetComponent<Movement>().UpdateOrientation(auxVect);
-        }
 
         if (sceneName != "Hub")
         {
@@ -42,6 +32,17 @@ public class SceneDoorScript : MonoBehaviour {
             GameManager.instance.puzzleComplete = false;
             child.SetActive(true);
             Destroy(this);
+        }
+
+        gmSceneToLoad = GameManager.instance.sceneToLoad;
+        scenePositionPointer = ((sceneName == "Hub" && sceneToLoad == gmSceneToLoad) || (sceneName != "Hub" && sceneToLoad == ""));
+
+        if (scenePositionPointer)
+        {
+            player.transform.position = gameObject.transform.GetChild(1).position;
+            angle = (gameObject.transform.eulerAngles.z * Mathf.PI) / 180;
+            Vector2 auxVect = new Vector2(Mathf.Round(Mathf.Sin(angle)), -Mathf.Round(Mathf.Cos(angle)));
+            player.GetComponent<Movement>().UpdateOrientation(auxVect);
         }
     }
 
@@ -60,7 +61,7 @@ public class SceneDoorScript : MonoBehaviour {
             if (sceneName != "Hub")
             {
                 SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
-                SaveLoad.instance.Save();                //añadido aquí el guardado para asegurar que se guardará la partida si y solo si el jugador sale del puzle
+                SaveLoad.instance.SaveLevels();                //añadido aquí el guardado para asegurar que se guardará la partida si y solo si el jugador sale del puzle
             }
             else
             {

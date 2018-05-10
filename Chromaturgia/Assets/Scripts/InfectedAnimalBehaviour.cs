@@ -27,7 +27,7 @@ public class InfectedAnimalBehaviour : MonoBehaviour
 
 		FX = gameObject.GetComponentInChildren<ParticleSystem>().main;
         colors = gameObject.GetComponentInChildren<SpriteRenderer>().color;
-        win = false;
+        GameManager.instance.puzzleComplete = win = false;
 
         animator = gameObject.GetComponent<Animator>();
         InvokeRepeating("AnimacionIdle2", 0, 5f);

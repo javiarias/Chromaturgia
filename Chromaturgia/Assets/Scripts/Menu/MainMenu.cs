@@ -134,7 +134,7 @@ public class MainMenu : MonoBehaviour
 
         GameManager.instance.brightness = (sliderBrightness - 50) / 50;
         SaveLoad.instance.brightness = GameManager.instance.brightness;
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
     }
 
     public void setSaturation(float saturation)
@@ -144,7 +144,7 @@ public class MainMenu : MonoBehaviour
 
         GameManager.instance.saturation = (sliderSaturation - 50) / 50;
         SaveLoad.instance.saturation = GameManager.instance.saturation;
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
     }
 
     public void setSoundVolume(float volume)
@@ -153,7 +153,7 @@ public class MainMenu : MonoBehaviour
         SaveLoad.soundVolume = volume;
 		audioMixer.SetFloat ("Volume",volume);
 
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
     }
 
     public void setMusicVolume(float volume)
@@ -161,7 +161,7 @@ public class MainMenu : MonoBehaviour
         musicVolume = volume;
         SaveLoad.instance.musicVolume = volume;
 
-        SaveLoad.instance.Save();
+        SaveLoad.instance.SaveConfig();
     }
 
     public void NewGame()
@@ -169,7 +169,7 @@ public class MainMenu : MonoBehaviour
         SaveLoad.instance.Reset();
         SaveLoad.instance.Load();
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
-        SceneManager.LoadScene("Hub");
+        SceneManager.LoadScene("Puzle 0-0");
     }
 
     public void quitGame()

@@ -46,7 +46,7 @@ public class SaveLoad : MonoBehaviour
         File.Delete(SavePath + "/saveData");
     }
 
-    public void Save()
+    public void SaveLevels()
     {
         anim.SetTrigger ("Saving");
 
@@ -57,14 +57,39 @@ public class SaveLoad : MonoBehaviour
         {
             file = File.Create(SavePath + "/saveData");
         }
+
         else
         {
             file = File.Open(SavePath + "/saveData", FileMode.Open);
         }
 
         SaveData data = new SaveData();
-
+        
         data.completedLevels = GameManager.instance.completedLevels;
+
+        binaryFormatter.Serialize(file, data);
+        file.Close();
+    }
+
+    public void SaveConfig()
+    {
+        anim.SetTrigger("Saving");
+
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        FileStream file;
+
+        if (!File.Exists(SavePath + "/configData"))
+        {
+            file = File.Create(SavePath + "/configData");
+        }
+
+        else
+        {
+            file = File.Open(SavePath + "/configData", FileMode.Open);
+        }
+
+        SaveData data = new SaveData();
+
         data.brightness = brightness;
         data.saturation = saturation;
         data.soundVolume = soundVolume;
@@ -74,28 +99,44 @@ public class SaveLoad : MonoBehaviour
         file.Close();
     }
 
-	public bool Load()
+    public bool Load()
     {
-        if (File.Exists(SavePath + "/saveData"))
+        if (File.Exists(SavePath + "/saveData") && File.Exists(SavePath + "/configData"))
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(SavePath + "/saveData", FileMode.Open);
+            FileStream file = File.Open(SavePath + "/configData", FileMode.Open);
 
             SaveData data = (SaveData)binaryFormatter.Deserialize(file);
             file.Close();
-
-            SceneManager.LoadScene("Hub");
-
-            GameManager.instance.completedLevels = data.completedLevels;
 
             GameManager.instance.brightness = data.brightness;
             GameManager.instance.ChangeBrightness();
 
             GameManager.instance.saturation = data.saturation;
             GameManager.instance.ChangeSaturation();
+
+            GameManager.instance.musicVolume = data.musicVolume;
+
+            GameManager.instance.soundVolume = data.soundVolume;
+
+            file = File.Open(SavePath + "/saveData", FileMode.Open);
+
+            data = (SaveData)binaryFormatter.Deserialize(file);
+            file.Close();
+
+            GameManager.instance.completedLevels = data.completedLevels;
+
+            if (data.completedLevels[0])
+            {
+                SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
+            }
+            else
+            {
+                SceneManager.LoadSceneAsync("Puzle 0-0", LoadSceneMode.Single);
+            }
         }
 
-        return File.Exists(SavePath + "/saveData");
+        return (File.Exists(SavePath + "/saveData") && File.Exists(SavePath + "/configData"));
     }
 
     public bool saveDataExists()

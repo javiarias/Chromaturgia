@@ -222,7 +222,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5674fca4c4150034eac4125cba5e2eb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Puzle 1-1
+  sceneToLoad: 
   colorAmounts: {x: 0.5, y: 0.5, z: 0.5, w: 0}
 --- !u!212 &212151139309686052
 SpriteRenderer:

@@ -18,7 +18,10 @@ public class FadeController : MonoBehaviour {
 
     void RestartMovement()
     {
-        player.GetComponent<Movement>().canMove = true;
+        if (player != null)
+        {
+            player.GetComponent<Movement>().canMove = true;
+        }
     }
 
     public IEnumerator Fading()
