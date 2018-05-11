@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
 	public AudioMixer audioMixer;
 
     bool needsBrightnessUpdate, needsSaturationUpdate;
+    bool needsSoundUpdate, needsMusicUpdate;
 
 	ParticleSystem.MainModule thinkFX;
     Animator thinkAnim;
@@ -52,16 +53,22 @@ public class MainMenu : MonoBehaviour
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
 
-        needsBrightnessUpdate = true;
-        needsSaturationUpdate = true;
+        soundVolume = (GameManager.instance.soundVolume - 80);
+        musicVolume = (GameManager.instance.musicVolume - 80);
+
+        soundSlider.value = soundVolume;
+        musicSlider.value = musicVolume;
 
         brightnessSlider.value = sliderBrightness;
 
         saturationSlider.value = sliderSaturation;
 
-        soundSlider.value = soundVolume;
+        needsBrightnessUpdate = true;
+        needsSaturationUpdate = true;
+        needsMusicUpdate = false;
+        needsSoundUpdate = false;
 
-        musicSlider.value = musicVolume;
+
     }
 
     void Update()
@@ -92,6 +99,8 @@ public class MainMenu : MonoBehaviour
             GameManager.instance.ChangeSaturation();
             needsSaturationUpdate = false;
         }
+
+
 
         if(!SaveLoad.instance.saveDataExists())
         {

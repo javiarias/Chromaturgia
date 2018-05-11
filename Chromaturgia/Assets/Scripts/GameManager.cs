@@ -119,6 +119,16 @@ public class GameManager : MonoBehaviour {
         cam.profile.colorGrading.settings = auxSettings;
     }
 
+    public void ChangeMusic()
+    {
+       
+    }
+
+    public void ChangeSound()
+    {
+
+    }
+
     public void DecreaseColor(Option color)
     {
         if (color == Option.Red && colors.x > 0f)

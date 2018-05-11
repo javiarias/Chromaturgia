@@ -73,6 +73,7 @@ public class SaveLoad : MonoBehaviour
 
     public void SaveConfig()
     {
+        Debug.Log("viva yo");
         anim.SetTrigger("Saving");
 
         BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -88,7 +89,7 @@ public class SaveLoad : MonoBehaviour
             file = File.Open(SavePath + "/configData", FileMode.Open);
         }
 
-        SaveData data = new SaveData();
+        ConfigData data = new ConfigData();
 
         data.brightness = brightness;
         data.saturation = saturation;
@@ -101,29 +102,16 @@ public class SaveLoad : MonoBehaviour
 
     public bool Load()
     {
-        if (File.Exists(SavePath + "/saveData") && File.Exists(SavePath + "/configData"))
+        bool exists = File.Exists(SavePath + "/saveData");
+
+        if (exists)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(SavePath + "/configData", FileMode.Open);
+            FileStream file = File.Open(SavePath + "/saveData", FileMode.Open);
 
             SaveData data = (SaveData)binaryFormatter.Deserialize(file);
             file.Close();
-
-            GameManager.instance.brightness = data.brightness;
-            GameManager.instance.ChangeBrightness();
-
-            GameManager.instance.saturation = data.saturation;
-            GameManager.instance.ChangeSaturation();
-
-            GameManager.instance.musicVolume = data.musicVolume;
-
-            GameManager.instance.soundVolume = data.soundVolume;
-
-            file = File.Open(SavePath + "/saveData", FileMode.Open);
-
-            data = (SaveData)binaryFormatter.Deserialize(file);
-            file.Close();
-
+            
             GameManager.instance.completedLevels = data.completedLevels;
 
             if (data.completedLevels[0])
@@ -136,7 +124,34 @@ public class SaveLoad : MonoBehaviour
             }
         }
 
-        return (File.Exists(SavePath + "/saveData") && File.Exists(SavePath + "/configData"));
+        return exists;
+    }
+
+    public bool LoadConfig()
+    {
+        bool exists = File.Exists(SavePath + "/configData");
+
+        if (exists)
+        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream file = File.Open(SavePath + "/configData", FileMode.Open);
+
+            ConfigData data = (ConfigData)binaryFormatter.Deserialize(file);
+            file.Close();
+
+            GameManager.instance.brightness = data.brightness;
+            GameManager.instance.ChangeBrightness();
+
+            GameManager.instance.saturation = data.saturation;
+            GameManager.instance.ChangeSaturation();
+
+            GameManager.instance.musicVolume = data.musicVolume;
+
+            GameManager.instance.soundVolume = data.soundVolume;
+
+        }
+
+        return exists;
     }
 
     public bool saveDataExists()
@@ -149,6 +164,11 @@ public class SaveLoad : MonoBehaviour
 class SaveData
 {
     public bool[] completedLevels;
+}
+
+[Serializable]
+class ConfigData
+{
     public float brightness;
     public float saturation;
     public float musicVolume;
