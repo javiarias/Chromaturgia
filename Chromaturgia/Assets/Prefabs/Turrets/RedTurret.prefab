@@ -100,8 +100,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1237347351147966}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.70710677}
-  m_LocalPosition: {x: 1.08, y: 1.8, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.000000104308114, w: 1}
+  m_LocalPosition: {x: -19.32, y: 1.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4198392182148508}
@@ -110,7 +110,7 @@ Transform:
   - {fileID: 4124487257887524}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90.00001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4124487257887524
 Transform:
   m_ObjectHideFlags: 1
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406b0ad963987894bbe359f1a6e99ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frecuency: 2
+  frecuency: 1
   laserSpeed: 100
   delay: 0
   gun: {fileID: 4871732846230424}
@@ -275,7 +275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1f9998ef6d38a744a33933c811da56d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  identifierList: 000000000000000000000000
+  identifierList: 040000000000000000000000
   RotateLeft: 0
   isWallActive: 1
 --- !u!212 &212060616081757754
@@ -355,7 +355,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 5fba2c9a47302a5408425b35c5ba6257, type: 3}
   m_Color: {r: 1, g: 0, b: 0, a: 1}
   m_FlipX: 0
