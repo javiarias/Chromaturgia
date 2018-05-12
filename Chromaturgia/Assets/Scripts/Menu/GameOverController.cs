@@ -12,7 +12,14 @@ public class GameOverController : MonoBehaviour {
 
     public const float WAIT_TIME = 0.3f;
 
+	public GameObject animation;
+
     EventSystem eventsystem;
+
+	void Start()
+	{
+		StartCoroutine(animation.GetComponent<Shaker> ().Shake (5f,.01f));
+	}
 
     private void Update()
     {

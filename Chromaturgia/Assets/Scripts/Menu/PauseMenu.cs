@@ -51,10 +51,10 @@ public class PauseMenu : MonoBehaviour {
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
         saturationSlider.value = sliderSaturationValue;
 
-        soundVolume = (GameManager.instance.soundVolume * 50) + 50;
+		soundVolume = (GameManager.instance.soundVolume - 80);
         soundSlider.value = soundVolume;
 
-        musicVolume = (GameManager.instance.musicVolume * 50) + 50;
+		musicVolume = (GameManager.instance.musicVolume - 80);
         musicSlider.value = musicVolume;
     }
 
@@ -82,10 +82,16 @@ public class PauseMenu : MonoBehaviour {
 					resume ();
 				else
 					pause ();
+			} 
+			else if (volverOptionsMenu.isActiveAndEnabled)
+			{
+				volverOptionsMenu.onClick.Invoke ();
+				FindObjectOfType<AudioManager> ().Play ("MenuBack");
 			}
-			else
-				volverOptionsMenu.onClick.Invoke();
 		}
+
+		if(GameIsPaused && (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow)))
+			FindObjectOfType<AudioManager> ().Play ("MenuSelect");
 
 		if (needsBrightnessUpdate)
 		{
@@ -143,6 +149,7 @@ public class PauseMenu : MonoBehaviour {
 
 	public void resume()
 	{
+		FindObjectOfType<AudioManager> ().Play ("PausaOff");
 		pauseMenu.SetActive (false);
 		Time.timeScale = 1;
 		GameIsPaused = false;
@@ -157,6 +164,7 @@ public class PauseMenu : MonoBehaviour {
 
 	void pause()
 	{
+		FindObjectOfType<AudioManager> ().Play ("PausaOn");
 		EventSystem.current = eventSystemPauseMenu;
 		pauseMenu.SetActive (true);
 		Time.timeScale = 0;

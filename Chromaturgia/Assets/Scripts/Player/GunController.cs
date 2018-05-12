@@ -41,7 +41,6 @@ public class GunController : MonoBehaviour
     {
         if (CanShoot ())
         {
-            FindObjectOfType<AudioManager>().Play("Disparo");
             if (GameManager.instance.chosenColor == GameManager.Option.Red)
             {
                 laserShot = Instantiate(prefabRed, gameObject.transform.position, gameObject.transform.rotation);

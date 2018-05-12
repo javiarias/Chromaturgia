@@ -134,20 +134,35 @@ public class GameManager : MonoBehaviour {
         if (color == Option.Red && colors.x > 0f)
         {
             colors.x -= bulletAmount;
-            if (colors.x < bulletAmount/2)
-                colors.x = 0;
+			if (colors.x < bulletAmount / 2) 
+			{
+				colors.x = 0;
+				FindObjectOfType<AudioManager>().Play("SinMunicion");
+			}
+			else
+				FindObjectOfType<AudioManager>().Play("Disparo");
         }
         else if (color == Option.Green && colors.y > 0f)
         {
             colors.y -= bulletAmount;
             if (colors.y < bulletAmount/2)
+			{
                 colors.y = 0;
+				FindObjectOfType<AudioManager>().Play("SinMunicion");
+			}
+			else
+				FindObjectOfType<AudioManager>().Play("Disparo");
         }
         else if (color == Option.Blue && colors.z > 0f)
         {
             colors.z -= bulletAmount;
             if (colors.z < bulletAmount/2)
+			{
                 colors.z = 0;
+				FindObjectOfType<AudioManager>().Play("SinMunicion");
+			}
+			else
+				FindObjectOfType<AudioManager>().Play("Disparo");
         }
     }
 
@@ -291,7 +306,7 @@ public class GameManager : MonoBehaviour {
 	{
         SceneManager.LoadScene("GameOver");
 
-		Debug.Log ("Muerte");
+		FindObjectOfType<AudioManager>().Play("Death");
 	}
 
     public void QuitGame()

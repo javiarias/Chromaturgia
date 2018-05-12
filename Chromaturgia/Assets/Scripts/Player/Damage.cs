@@ -16,6 +16,7 @@ public class Damage : MonoBehaviour {
 
 	public void Flash()
 	{
+		StartCoroutine(GameObject.FindWithTag ("MainCamera").GetComponent<Shaker> ().Shake (.15f,.15f));
 		FindObjectOfType<AudioManager> ().Play ("Damage");
         renderer.color = turretColor;
 		Invoke ("NormalColor", 0.25f);

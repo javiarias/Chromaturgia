@@ -123,7 +123,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 936826e4d3078d240ab5822797c12606, type: 3}
     volume: 1
     pitch: 1
-    loop: 0
+    loop: 1
     source: {fileID: 0}
   - name: SwitchOff
     clip: {fileID: 8300000, guid: 9b0dfd71da6025d4ca19328efb2a530d, type: 3}
@@ -157,19 +157,19 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TurretShoot
     clip: {fileID: 8300000, guid: ab95f18cb3ea1654aaace884219c2324, type: 3}
-    volume: 1
+    volume: 0.04
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: PrismReflect
     clip: {fileID: 8300000, guid: e5358440b2b0c484e9fa54fcbb54ee38, type: 3}
-    volume: 1
+    volume: 0.125
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DoorTransition
     clip: {fileID: 8300000, guid: 04429931ee45d0c439b9ae7e5d1dbe4d, type: 3}
-    volume: 1
+    volume: 0.456
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -187,6 +187,12 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: PausaOff
     clip: {fileID: 8300000, guid: 19e2867b0fcdfc14f9d283b05d0dd86b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: MenuSpace
+    clip: {fileID: 8300000, guid: 8bb2f2205c2ad544091ec6ef4ee19aec, type: 3}
     volume: 1
     pitch: 1
     loop: 0

@@ -36,6 +36,7 @@ public class MainMenu : MonoBehaviour
 
     GameObject mainMenu;
 	GameObject currentGame;
+	GameObject newGameMenu;
 
     EventSystem eventsystem;
 
@@ -44,9 +45,11 @@ public class MainMenu : MonoBehaviour
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
 		thinkFX = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponentInChildren<ParticleSystem>().main;
         mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
+		newGameMenu = GameObject.FindGameObjectWithTag("NewGameMenu");
 		currentGame = GameObject.FindGameObjectWithTag("CurrentGame");
 		currentGame.SetActive (false);
         mainMenu.SetActive(false);
+		newGameMenu.SetActive(false);
 
 		thinkFX.startSize = 0f;
 
@@ -85,8 +88,14 @@ public class MainMenu : MonoBehaviour
 	            eventsystem.SetSelectedGameObject(eventsystem.firstSelectedGameObject);
 		}
 
-        if (Input.GetKeyDown(KeyCode.Escape))
-            volverOptionsMenu.onClick.Invoke();
+		if (Input.GetKeyDown (KeyCode.Escape) && volverOptionsMenu.isActiveAndEnabled)
+		{
+			volverOptionsMenu.onClick.Invoke ();
+			FindObjectOfType<AudioManager> ().Play ("MenuBack");
+		}
+
+		if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+			FindObjectOfType<AudioManager> ().Play ("MenuSelect");
 
         if (needsBrightnessUpdate)
         {
@@ -192,4 +201,16 @@ public class MainMenu : MonoBehaviour
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         SaveLoad.instance.Load();
     }
+
+	public void NewGameMenu()
+	{
+		if (SaveLoad.instance.saveDataExists ()) 
+		{
+			newGameMenu.SetActive (true);
+		}
+		else 
+		{
+			NewGame ();
+		}
+	}
 }
