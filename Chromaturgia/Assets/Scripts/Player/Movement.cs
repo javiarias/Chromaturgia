@@ -181,7 +181,6 @@ public class Movement : MonoBehaviour
 		if (moves) {
 			Move (movementDirection);
 			SetGunOrientation (movementDirection);
-
 			// reset inertia so it doesn't spin uncontrollably
 			playerRB.inertia = 0f;
         }

@@ -15,6 +15,8 @@ public class ShardBehavior : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+			FindObjectOfType<AudioManager> ().Play ("CollectShard");
+
 			if (shardColor == Color.red)
             {
                 GameManager.instance.IncreaseColor(GameManager.Option.Red);

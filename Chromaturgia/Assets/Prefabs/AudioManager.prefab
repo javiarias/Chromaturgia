@@ -123,7 +123,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 936826e4d3078d240ab5822797c12606, type: 3}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: SwitchOff
     clip: {fileID: 8300000, guid: 9b0dfd71da6025d4ca19328efb2a530d, type: 3}
@@ -157,7 +157,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TurretShoot
     clip: {fileID: 8300000, guid: ab95f18cb3ea1654aaace884219c2324, type: 3}
-    volume: 0.04
+    volume: 0.395
     pitch: 1
     loop: 0
     source: {fileID: 0}
