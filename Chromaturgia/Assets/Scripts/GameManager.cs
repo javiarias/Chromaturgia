@@ -59,6 +59,9 @@ public class GameManager : MonoBehaviour {
 
     bool testedLevels = false;
 
+    [HideInInspector]
+    public float playtime;
+
     void Awake()
     {
 		if (instance == null) 
@@ -220,21 +223,21 @@ public class GameManager : MonoBehaviour {
 
         if (zone == 1)
         {
-            for (int i = 0; i < 3; ++i)
+            for (int i = 1; i <= 3; ++i)
             {
                 isComplete &= completedLevels[i];
             }
         }
         else if (zone == 2)
         {
-            for (int i = 3; i < 6; ++i)
+            for (int i = 4; i <= 6; ++i)
             {
                 isComplete &= completedLevels[i];
             }
         }
         else if (zone == 3)
         {
-            for (int i = 6; i < 9; ++i)
+            for (int i = 7; i <= 9; ++i)
             {
                 isComplete &= completedLevels[i];
             }
@@ -286,6 +289,11 @@ public class GameManager : MonoBehaviour {
                     SetAsCompleted(i);
                 }
             }
+        }
+
+        if(SceneManager.GetActiveScene().name.Contains("Puzle") || SceneManager.GetActiveScene().name == "Hub")
+        {
+            playtime += Time.deltaTime;
         }
     }
 

@@ -610,6 +610,11 @@ Prefab:
       propertyPath: m_Name
       value: TransparentWall (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
   m_IsPrefabParent: 0
@@ -9960,6 +9965,11 @@ Prefab:
     - target: {fileID: 4862706180655516, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_RootOrder
       value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}

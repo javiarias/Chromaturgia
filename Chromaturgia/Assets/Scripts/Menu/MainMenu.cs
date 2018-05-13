@@ -187,7 +187,7 @@ public class MainMenu : MonoBehaviour
         SaveLoad.instance.Reset();
         SaveLoad.instance.Load();
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
-        SceneManager.LoadScene("Puzle 0-0");
+        SceneManager.LoadSceneAsync("Puzle 0-0", LoadSceneMode.Single);
     }
 
     public void quitGame()
@@ -198,8 +198,9 @@ public class MainMenu : MonoBehaviour
 
     public void continuarPartida()
     {
-		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         SaveLoad.instance.Load();
+        StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
+        SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
     }
 
 	public void NewGameMenu()

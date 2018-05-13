@@ -61,6 +61,7 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
             {
                 GameManager.instance.bluePiecePicked = true;
             }
+            SaveLoad.instance.SaveLevels();
             Destroy(gameObject);
         }
     }

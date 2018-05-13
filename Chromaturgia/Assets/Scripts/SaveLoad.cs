@@ -18,7 +18,8 @@ public class SaveLoad : MonoBehaviour
 
 	Animator anim;
 
-    string SavePath = "..";
+    [HideInInspector]
+    public string SavePath = "..";
 
     void Awake()
     { 
@@ -66,6 +67,10 @@ public class SaveLoad : MonoBehaviour
         SaveData data = new SaveData();
         
         data.completedLevels = GameManager.instance.completedLevels;
+        data.redPicked = GameManager.instance.redPiecePicked;
+        data.greenPicked = GameManager.instance.greenPiecePicked;
+        data.bluePicked = GameManager.instance.bluePiecePicked;
+        data.playtime = Mathf.Round(GameManager.instance.playtime);
 
         binaryFormatter.Serialize(file, data);
         file.Close();
@@ -73,7 +78,6 @@ public class SaveLoad : MonoBehaviour
 
     public void SaveConfig()
     {
-        Debug.Log("viva yo");
         anim.SetTrigger("Saving");
 
         BinaryFormatter binaryFormatter = new BinaryFormatter();
@@ -113,15 +117,10 @@ public class SaveLoad : MonoBehaviour
             file.Close();
             
             GameManager.instance.completedLevels = data.completedLevels;
-
-            if (data.completedLevels[0])
-            {
-                SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
-            }
-            else
-            {
-                SceneManager.LoadSceneAsync("Puzle 0-0", LoadSceneMode.Single);
-            }
+            GameManager.instance.redPiecePicked = data.redPicked;
+            GameManager.instance.greenPiecePicked = data.greenPicked;
+            GameManager.instance.bluePiecePicked = data.bluePicked;
+            GameManager.instance.playtime = Mathf.Round(data.playtime);
         }
 
         return exists;
@@ -164,6 +163,8 @@ public class SaveLoad : MonoBehaviour
 class SaveData
 {
     public bool[] completedLevels;
+    public bool redPicked, greenPicked, bluePicked;
+    public float playtime;
 }
 
 [Serializable]
