@@ -339,7 +339,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &86275285 stripped
@@ -476,7 +477,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &149586096
@@ -542,7 +544,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &178766502 stripped
@@ -613,7 +616,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &182423441 stripped
@@ -881,7 +885,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &230697025
@@ -1295,7 +1300,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &274853231 stripped
@@ -1526,7 +1532,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &422112070 stripped
@@ -1619,7 +1626,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &496224898
@@ -1993,7 +2001,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &577696423 stripped
@@ -2395,7 +2404,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &756005186
@@ -3042,7 +3052,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &990821330 stripped
@@ -6230,7 +6241,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1145022013
@@ -6791,7 +6803,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1465981140 stripped
@@ -6941,7 +6954,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1557726408
@@ -7127,7 +7141,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1 &1641567294
@@ -7177,6 +7192,7 @@ MonoBehaviour:
   saturation: 0
   soundVolume: 50
   musicVolume: 50
+  playtime: 0
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0
@@ -10681,7 +10697,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1711948430 stripped
@@ -10767,7 +10784,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1756858752 stripped
@@ -11011,7 +11029,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!1001 &1871491300
@@ -11417,7 +11436,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 6
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2043127700 stripped
@@ -11627,7 +11647,8 @@ Prefab:
       propertyPath: identifierList.Array.data[1]
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114136727670021874, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 79dc80b5682082849b07fd87647dcb34, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2083064753 stripped

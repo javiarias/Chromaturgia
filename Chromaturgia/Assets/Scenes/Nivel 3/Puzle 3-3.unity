@@ -1267,6 +1267,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 114785323639479604, guid: 546d65fbd30d2e64eb48c46d7089d507,
+        type: 2}
+      propertyPath: masterIdentifier
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 546d65fbd30d2e64eb48c46d7089d507, type: 2}
   m_IsPrefabParent: 0
@@ -4201,6 +4206,7 @@ MonoBehaviour:
   saturation: 0
   soundVolume: 50
   musicVolume: 50
+  playtime: 0
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0
