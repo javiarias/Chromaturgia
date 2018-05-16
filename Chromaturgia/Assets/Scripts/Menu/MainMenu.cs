@@ -78,8 +78,8 @@ public class MainMenu : MonoBehaviour
     {
         brightText.text = sliderBrightness + "%";
         saturationText.text = sliderSaturation + "%";
-        soundText.text = soundVolume+80 + "%";
-        musicText.text = musicVolume+80 + "%";
+        soundText.text = soundVolume+40 + "%";
+        musicText.text = musicVolume+40 + "%";
 
         eventsystem = EventSystem.current;
 		if (eventsystem!=null)

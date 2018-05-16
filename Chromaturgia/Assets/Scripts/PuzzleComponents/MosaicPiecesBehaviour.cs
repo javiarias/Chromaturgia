@@ -49,6 +49,8 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+			FindObjectOfType<AudioManager> ().Play ("CollectPiece");
+
             if (gameObject.name == "Red")
             {
                 GameManager.instance.redPiecePicked = true;

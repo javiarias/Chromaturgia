@@ -122,6 +122,8 @@ public class GameManager : MonoBehaviour {
 			pista = "Hall";
 		else if(SceneManager.GetActiveScene().name == "Intro")
 			pista = "Intro";
+		else if(SceneManager.GetActiveScene().name == "GameOver")
+			pista = "GameOver";
 		else if(SceneManager.GetActiveScene().name.Contains("Puzle 1"))
 			pista = "Nivel1";
 		else if(SceneManager.GetActiveScene().name.Contains("Puzle 2"))
@@ -182,7 +184,7 @@ public class GameManager : MonoBehaviour {
         else if (color == Option.Green && colors.y > 0f)
         {
             colors.y -= bulletAmount;
-            if (colors.y < bulletAmount/2)
+			if (colors.y < bulletAmount/2)
 			{
                 colors.y = 0;
 				FindObjectOfType<AudioManager>().Play("SinMunicion");
@@ -193,7 +195,7 @@ public class GameManager : MonoBehaviour {
         else if (color == Option.Blue && colors.z > 0f)
         {
             colors.z -= bulletAmount;
-            if (colors.z < bulletAmount/2)
+			if (colors.z < bulletAmount/2)
 			{
                 colors.z = 0;
 				FindObjectOfType<AudioManager>().Play("SinMunicion");
