@@ -5,10 +5,13 @@ using UnityEngine;
 public class ShardBehavior : MonoBehaviour {
 
 	Color shardColor;
+	ParticleSystem.MainModule FX;
 
 	void Start()
 	{
 		shardColor = gameObject.GetComponent<SpriteRenderer> ().color;
+		FX = GetComponent<ParticleSystem> ().main;
+		FX.startColor = shardColor;
 	}
 
     void OnTriggerEnter2D(Collider2D collision)

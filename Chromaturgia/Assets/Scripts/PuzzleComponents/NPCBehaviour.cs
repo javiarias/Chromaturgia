@@ -64,9 +64,9 @@ public class NPCBehaviour : MonoBehaviour {
 			text.text += letter;
 			FindObjectOfType<AudioManager>().Play("Talk");
 			if (letter == ',' || letter == '.' || letter == '?' || letter == '!')
-				yield return new WaitForSeconds (0.5f);
+				yield return new WaitForSeconds (0.3f);
 			else
-				yield return new WaitForSeconds (0.05f);;
+				yield return new WaitForSeconds (0.03f);;
 		}
 	}
 }

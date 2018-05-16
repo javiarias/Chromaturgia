@@ -91,12 +91,27 @@ public class GameManager : MonoBehaviour {
 		}
     }
 
+	void Start()
+	{
+		SetMusic ();
+	}
+
     public void Caching()
     {
         redLevels = GameObject.FindGameObjectWithTag("RedLevels").GetComponent<Text>();
         greenLevels = GameObject.FindGameObjectWithTag("GreenLevels").GetComponent<Text>();
         blueLevels = GameObject.FindGameObjectWithTag("BlueLevels").GetComponent<Text>();
     }
+
+	void SetMusic()
+	{
+		string pista = "";
+
+		if(SceneManager.GetActiveScene().name == "Puzle 0-0")
+			pista = "Almacen";
+
+		FindObjectOfType<MusicManager>().Play("Almacen");
+	}
 
     public void ChangeBrightness()
     {
