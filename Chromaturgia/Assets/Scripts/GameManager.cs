@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour {
 
     bool testedLevels = false;
 
+	static string sSceneName = null;
+
     [HideInInspector]
     public float playtime;
 
@@ -103,14 +105,31 @@ public class GameManager : MonoBehaviour {
         blueLevels = GameObject.FindGameObjectWithTag("BlueLevels").GetComponent<Text>();
     }
 
+	public void StopMusic()
+	{
+		FindObjectOfType<MusicManager> ().StopAll();
+	}
+
 	void SetMusic()
 	{
+		StopMusic ();
+
 		string pista = "";
 
 		if(SceneManager.GetActiveScene().name == "Puzle 0-0")
 			pista = "Almacen";
+		else if(SceneManager.GetActiveScene().name == "Hub")
+			pista = "Hall";
+		else if(SceneManager.GetActiveScene().name == "Intro")
+			pista = "Intro";
+		else if(SceneManager.GetActiveScene().name.Contains("Puzle 1"))
+			pista = "Nivel1";
+		else if(SceneManager.GetActiveScene().name.Contains("Puzle 2"))
+			pista = "Nivel2";
+		else if(SceneManager.GetActiveScene().name.Contains("Puzle 3"))
+			pista = "Nivel3";
 
-		FindObjectOfType<MusicManager>().Play("Almacen");
+		FindObjectOfType<MusicManager>().Play(pista);
 	}
 
     public void ChangeBrightness()
@@ -279,6 +298,11 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
+		if (sSceneName != SceneManager.GetActiveScene ().name) {
+			SetMusic ();
+			sSceneName = SceneManager.GetActiveScene ().name;
+		}
+
         inHub = SceneManager.GetActiveScene().name == "Hub";
 
         if (SceneIsPuzzle())

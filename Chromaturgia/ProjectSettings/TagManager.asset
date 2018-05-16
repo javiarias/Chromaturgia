@@ -36,6 +36,7 @@ TagManager:
   - SceneDoor
   - NewGameMenu
   - DeathAnimation
+  - MusicEnd
   layers:
   - Default
   - TransparentFX

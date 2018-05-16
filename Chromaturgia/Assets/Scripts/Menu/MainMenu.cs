@@ -187,7 +187,7 @@ public class MainMenu : MonoBehaviour
         SaveLoad.instance.Reset();
         SaveLoad.instance.Load();
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
-        SceneManager.LoadSceneAsync("Puzle 0-0", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Pre-Puzle 0-0", LoadSceneMode.Single);
     }
 
     public void quitGame()

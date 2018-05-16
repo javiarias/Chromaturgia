@@ -21,5 +21,6 @@ public class IntroController : MonoBehaviour {
     void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+		GameManager.instance.StopMusic ();
     }
 }

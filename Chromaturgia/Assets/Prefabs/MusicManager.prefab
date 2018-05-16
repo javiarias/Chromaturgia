@@ -59,3 +59,39 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Hall
+    clip: {fileID: 8300000, guid: 32c6d9514e4d0824883277a155ad68e7, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Nivel1
+    clip: {fileID: 8300000, guid: c1e7ea39247012f46a27b5de3e7c4a7a, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Nivel2
+    clip: {fileID: 8300000, guid: 6674495d26c15574baa2f424162a7990, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Nivel3
+    clip: {fileID: 8300000, guid: 63abe4e2e27f3364aa72b782b3a8831b, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: 68a9caabf12714e4381eb612dc4dfddf, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - name: Intro
+    clip: {fileID: 8300000, guid: 02a3e69ac370c2841a77de1121004165, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}

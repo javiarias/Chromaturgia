@@ -6660,6 +6660,48 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!1001 &1201280190
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 381.6843
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 199.47467
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -5.245885
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1296816407
 GameObject:
   m_ObjectHideFlags: 0
@@ -7354,7 +7396,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1878765075}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eccd1ed547207744caf81ca45b01c00b, type: 3}
+  m_Script: {fileID: 11500000, guid: 526129b8fe903c94a9ab67642933b415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1878765077
