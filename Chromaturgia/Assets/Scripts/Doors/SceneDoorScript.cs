@@ -20,22 +20,11 @@ public class SceneDoorScript : MonoBehaviour {
         player = GameObject.FindGameObjectWithTag("Player");
         sceneName = SceneManager.GetActiveScene().name;
         
-
-        if (sceneName != "Hub")
-        {
-            child.SetActive(true);
-            GameManager.instance.colors = colorAmounts;
-        }
-
-        if (sceneName == "Hub" && sceneToLoad != "" && TestIfPuzzleComplete())
-        {
-            GameManager.instance.puzzleComplete = false;
-            child.SetActive(true);
-            Destroy(this);
-        }
+        child.SetActive(true);
+        GameManager.instance.colors = colorAmounts;
 
         gmSceneToLoad = GameManager.instance.sceneToLoad;
-        scenePositionPointer = ((sceneName == "Hub" && sceneToLoad == gmSceneToLoad) || (sceneName != "Hub" && sceneToLoad == ""));
+        scenePositionPointer = (sceneName == "Puzle 0-0" && sceneToLoad == "") || sceneToLoad.Contains("Puzle") || sceneToLoad == "MainMenu";
 
         if (scenePositionPointer)
         {
@@ -48,7 +37,7 @@ public class SceneDoorScript : MonoBehaviour {
 
     private void Update()
     {
-        if (sceneName != "Hub" && GameManager.instance.puzzleComplete)
+        if (GameManager.instance.puzzleComplete)
         {
             child.SetActive(false);
         }
@@ -58,33 +47,9 @@ public class SceneDoorScript : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
-            if (sceneName != "Hub")
-            {
-                SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
-                SaveLoad.instance.SaveLevels();                //añadido aquí el guardado para asegurar que se guardará la partida si y solo si el jugador sale del puzle
-            }
-            else
-            {
-                GameManager.instance.sceneToLoad = sceneToLoad;
-                GameManager.instance.puzzleComplete = false;
-                SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
-            }
+            GameManager.instance.sceneToLoad = sceneToLoad;
+            GameManager.instance.puzzleComplete = false;
+            SceneManager.LoadSceneAsync(sceneToLoad, LoadSceneMode.Single);
         }
-    }
-
-    private bool TestIfPuzzleComplete()
-    {
-        char[] tempArray = sceneToLoad.TrimStart("Puzle".ToCharArray()).Replace(" ", String.Empty).Replace("-", String.Empty).ToCharArray();
-        int index = int.Parse(tempArray[1].ToString());
-        if (tempArray[0] == '2')
-        {
-            index += 3;
-        }
-        else if (tempArray[0] == '3')
-        {
-            index += 6;
-        }
-
-        return GameManager.instance.completedLevels[index];
     }
 }

@@ -38,15 +38,11 @@ public class GameOverController : MonoBehaviour {
 
     public void CallExit()
     {
-        GameManager.instance.QuitGame();
+        //GameManager.instance.QuitGame();
     }
 
     public void ActualLoad()
     {
-        bool auxiliar = SaveLoad.instance.Load();
-        if (!auxiliar)
-        {
-            SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
-        }
+        SceneManager.LoadSceneAsync(GameManager.instance.sceneToLoad, LoadSceneMode.Single);
     }
 }

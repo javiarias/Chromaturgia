@@ -23,11 +23,11 @@ public class GunController : MonoBehaviour
 
 		if (GameManager.instance.currentAction == GameManager.Action.Shoot) 
 		{
-			if (GameManager.instance.chosenColor == GameManager.Option.Red && GameManager.instance.colors.x < bulletQuantity/2) 
+			if (GameManager.instance.chosenColor == GameManager.Option.Red && GameManager.instance.colors.x == 0) 
 			{
-			} else if (GameManager.instance.chosenColor == GameManager.Option.Green && GameManager.instance.colors.y < bulletQuantity/2) 
+			} else if (GameManager.instance.chosenColor == GameManager.Option.Green && GameManager.instance.colors.y == 0) 
 			{
-			} else if (GameManager.instance.chosenColor == GameManager.Option.Blue && GameManager.instance.colors.z < bulletQuantity/2) 
+			} else if (GameManager.instance.chosenColor == GameManager.Option.Blue && GameManager.instance.colors.z == 0) 
 			{
 			} else 
 			{
@@ -55,7 +55,12 @@ public class GunController : MonoBehaviour
             }
             laserShot.speed = laserSpeed;
 			GameManager.instance.DecreaseColor (GameManager.instance.chosenColor);
-		}
+            FindObjectOfType<AudioManager>().Play("Disparo");
+        }
+        else
+        {
+            FindObjectOfType<AudioManager>().Play("SinMunicion");
+        }
 	}
 
     void CheckInput()

@@ -51,10 +51,10 @@ public class PauseMenu : MonoBehaviour {
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
         saturationSlider.value = sliderSaturationValue;
 
-		soundVolume = (GameManager.instance.soundVolume - 80);
+		soundVolume = -20;
         soundSlider.value = soundVolume;
 
-		musicVolume = (GameManager.instance.musicVolume - 80);
+		musicVolume = 0;
         musicSlider.value = musicVolume;
     }
 
@@ -173,9 +173,9 @@ public class PauseMenu : MonoBehaviour {
 
 	public void loadMainMenu()
 	{
-		Time.timeScale = 1;
-		GameIsPaused = false;
-		SceneManager.LoadScene ("MainMenu");
+		//Time.timeScale = 1;
+		//GameIsPaused = false;
+		//SceneManager.LoadScene ("MainMenu");
 	}
 
     public void alternaFullscreen()

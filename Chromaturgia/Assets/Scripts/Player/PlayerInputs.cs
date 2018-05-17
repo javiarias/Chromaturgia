@@ -20,6 +20,7 @@ public class PlayerInputs : MonoBehaviour {
 
     void Start () 
 	{
+        GameManager.instance.currentAction = GameManager.Action.Shoot;
         currentSprite = GameObject.FindGameObjectWithTag("Spacebar").GetComponent<Image>();
         spacebarText = currentSprite.transform.Find("Text").GetComponent<Text>();
         spacebarText.text = "ESPACIO";
@@ -61,7 +62,7 @@ public class PlayerInputs : MonoBehaviour {
 		{
 			if (GameManager.instance.currentAction == GameManager.Action.Shoot && gunEnabled && !GameManager.instance.inHub) 
 			{
-				playerGun.ShootLaser ();
+				playerGun.ShootLaser();
 			} 
 			else if (GameManager.instance.currentAction == GameManager.Action.Talk) 
 			{

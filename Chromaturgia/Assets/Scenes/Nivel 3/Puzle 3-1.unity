@@ -1170,6 +1170,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85f56c92d58ac8c469f997f5578efc68, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &743197202 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20359252939212644, guid: 85f56c92d58ac8c469f997f5578efc68,
+    type: 2}
+  m_PrefabInternal: {fileID: 743197201}
 --- !u!4 &743197203 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4800008929323052, guid: 85f56c92d58ac8c469f997f5578efc68,
@@ -7048,7 +7053,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 743197202}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -7277,7 +7282,22 @@ Prefab:
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: sceneToLoad
-      value: 
+      value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
+        type: 2}
+      propertyPath: colorAmounts.x
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
+        type: 2}
+      propertyPath: colorAmounts.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
+        type: 2}
+      propertyPath: colorAmounts.z
+      value: 0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}

@@ -126,15 +126,8 @@ public class MainMenu : MonoBehaviour
 
     void activeMenu()
     {
-		if (SaveLoad.instance.saveDataExists()) 
-		{
-			currentGame.SetActive (true);
-		}
-		else
-        {
-            continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
-            continueButton.interactable = false;
-        }
+		continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
+        continueButton.interactable = false;
 
 		thinkFX.startSize = 0.29f;
         mainMenu.SetActive(true);
@@ -187,7 +180,7 @@ public class MainMenu : MonoBehaviour
         SaveLoad.instance.Reset();
         SaveLoad.instance.Load();
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
-        SceneManager.LoadSceneAsync("Pre-Puzle 0-0", LoadSceneMode.Single);
+        SceneManager.LoadSceneAsync("Puzle 0-0", LoadSceneMode.Single);
     }
 
     public void quitGame()

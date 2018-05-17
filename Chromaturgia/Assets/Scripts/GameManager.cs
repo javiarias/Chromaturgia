@@ -40,18 +40,18 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float playerInitialRotation;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
-    //[HideInInspector]
+    [HideInInspector]
     public bool level1Complete = false, level2Complete = false, level3Complete = false;
-    //[HideInInspector]
+    [HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
     [HideInInspector]
     public float brightness = 0;
     [HideInInspector]
     public float saturation = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public float soundVolume = 50, musicVolume = 50;
 
     PostProcessingBehaviour cam;
@@ -170,38 +170,29 @@ public class GameManager : MonoBehaviour {
 
     public void DecreaseColor(Option color)
     {
-        if (color == Option.Red && colors.x > 0f)
+        if (color == Option.Red)
         {
             colors.x -= bulletAmount;
-			if (colors.x < bulletAmount / 2) 
-			{
-				colors.x = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
-			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
+            if (colors.x < bulletAmount / 2)
+            {
+                colors.x = 0;
+            }
         }
-        else if (color == Option.Green && colors.y > 0f)
+        else if (color == Option.Green)
         {
             colors.y -= bulletAmount;
-			if (colors.y < bulletAmount/2)
-			{
+            if (colors.y < bulletAmount / 2)
+            {
                 colors.y = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
-			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
+            }
         }
-        else if (color == Option.Blue && colors.z > 0f)
+        else if (color == Option.Blue)
         {
             colors.z -= bulletAmount;
-			if (colors.z < bulletAmount/2)
-			{
+            if (colors.z < bulletAmount / 2)
+            {
                 colors.z = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
-			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
+            }
         }
     }
 
@@ -300,7 +291,8 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-		if (sSceneName != SceneManager.GetActiveScene ().name) {
+		if (sSceneName != SceneManager.GetActiveScene ().name)
+        {
 			SetMusic ();
 			sSceneName = SceneManager.GetActiveScene ().name;
 		}

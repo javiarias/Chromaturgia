@@ -18701,7 +18701,7 @@ Prefab:
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: sceneToLoad
-      value: Hub
+      value: Puzle 1-1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
