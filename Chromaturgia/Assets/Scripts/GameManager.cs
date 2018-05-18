@@ -358,6 +358,13 @@ public class GameManager : MonoBehaviour {
 		FindObjectOfType<AudioManager>().Play("Death");
 	}
 
+    public void MoveMainCamera(Vector3 newPosition)
+    {
+        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<PostProcessingBehaviour>();
+
+        cam.transform.position.Set(newPosition.x, newPosition.y, newPosition.z);
+    }
+
     public void QuitGame()
     {
         Debug.Log("Goodbye");

@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Door : MonoBehaviour 
 {
-	public Transform salida;
+	public Transform exit;
+    public Transform cameraPosition;
+    bool needsCameraUpdate = false;
 
 	void OnTriggerEnter2D (Collider2D coll)
 	{
@@ -13,8 +15,13 @@ public class Door : MonoBehaviour
 			Time.timeScale = 0;
             coll.gameObject.GetComponent<Movement>().canMove = false;
             DoorAnimation ();
-			coll.gameObject.transform.position = salida.position;
-			Time.timeScale = 1;
+
+			coll.gameObject.transform.position = exit.position;
+
+            coll.gameObject.GetComponent<Movement>().canMove = true;
+
+            GameManager.instance.MoveMainCamera(cameraPosition.position);
+            Time.timeScale = 1;
 		}
 	}
 
@@ -23,5 +30,11 @@ public class Door : MonoBehaviour
 		FindObjectOfType<AudioManager> ().Play ("DoorTransition");
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
 		GameObject.Find("Fade").GetComponent<Animator>().Rebind();
+    }
+
+    void LateUpdate()
+    {
+        GameManager.instance.MoveMainCamera(cameraPosition.position);
+        needsCameraUpdate = false;
     }
 }

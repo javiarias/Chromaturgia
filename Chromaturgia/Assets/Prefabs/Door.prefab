@@ -187,9 +187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d00a6d7b16c270e4a8982695c26ab941, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  salida: {fileID: 4787353738443218}
-  mainCamera: {fileID: 0}
-  posCamara: {fileID: 0}
+  exit: {fileID: 4787353738443218}
+  cameraPosition: {fileID: 4787353738443218}
 --- !u!212 &212098057269980418
 SpriteRenderer:
   m_ObjectHideFlags: 1
