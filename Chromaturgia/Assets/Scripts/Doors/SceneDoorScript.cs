@@ -24,7 +24,7 @@ public class SceneDoorScript : MonoBehaviour {
         GameManager.instance.colors = colorAmounts;
 
         gmSceneToLoad = GameManager.instance.sceneToLoad;
-        scenePositionPointer = (sceneName == "Puzle 0-0" && sceneToLoad == "") || sceneToLoad.Contains("Puzle") || sceneToLoad == "MainMenu";
+        scenePositionPointer = (sceneName == "Puzle 0-0" && sceneToLoad == "") || (sceneName != "Puzle 0-0" && (sceneToLoad.Contains("Puzle") || sceneToLoad == "MainMenu"));
 
         if (scenePositionPointer)
         {

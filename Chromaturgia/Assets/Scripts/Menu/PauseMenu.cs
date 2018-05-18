@@ -51,10 +51,10 @@ public class PauseMenu : MonoBehaviour {
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
         saturationSlider.value = sliderSaturationValue;
 
-		soundVolume = -20;
+		soundVolume = (GameManager.instance.soundVolume - 80);
         soundSlider.value = soundVolume;
 
-		musicVolume = 0;
+		musicVolume = (GameManager.instance.musicVolume - 80);
         musicSlider.value = musicVolume;
     }
 
@@ -128,23 +128,23 @@ public class PauseMenu : MonoBehaviour {
 
 	public void setSoundVolume(float volume)
 	{
-		soundVolume = volume;
+		/*soundVolume = volume;
         needsBrightnessUpdate = true;
 		audioMixer.SetFloat ("Volume",volume);
 
         GameManager.instance.soundVolume = (soundVolume - 50) / 50;
         SaveLoad.soundVolume = GameManager.instance.soundVolume;
-        SaveLoad.instance.SaveConfig();
+        SaveLoad.instance.SaveConfig();*/
 	}
 
 	public void setMusicVolume(float volume)
 	{
-		musicVolume = volume;
+		/*musicVolume = volume;
         needsBrightnessUpdate = true;
 
         GameManager.instance.musicVolume = (musicVolume - 50) / 50;
         SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;
-        SaveLoad.instance.SaveConfig();
+        SaveLoad.instance.SaveConfig();*/
 	}
 
 	public void resume()

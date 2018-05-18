@@ -157,7 +157,7 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: TurretShoot
     clip: {fileID: 8300000, guid: ab95f18cb3ea1654aaace884219c2324, type: 3}
-    volume: 0.121
+    volume: 0.07
     pitch: 1
     loop: 0
     source: {fileID: 0}
