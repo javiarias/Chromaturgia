@@ -6,7 +6,6 @@ public class Door : MonoBehaviour
 {
 	public Transform exit;
     public Transform cameraPosition;
-    bool needsCameraUpdate = false;
 
 	void OnTriggerEnter2D (Collider2D coll)
 	{
@@ -20,7 +19,6 @@ public class Door : MonoBehaviour
 
             coll.gameObject.GetComponent<Movement>().canMove = true;
 
-            GameManager.instance.MoveMainCamera(cameraPosition.position);
             Time.timeScale = 1;
 		}
 	}
@@ -30,11 +28,5 @@ public class Door : MonoBehaviour
 		FindObjectOfType<AudioManager> ().Play ("DoorTransition");
 		StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
 		GameObject.Find("Fade").GetComponent<Animator>().Rebind();
-    }
-
-    void LateUpdate()
-    {
-        GameManager.instance.MoveMainCamera(cameraPosition.position);
-        needsCameraUpdate = false;
     }
 }
