@@ -207,7 +207,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 29578535927438d4da193cbfd145cd4b, type: 3}
     volume: 1
     pitch: 1
-    loop: 1
+    loop: 0
     source: {fileID: 0}
   - name: PuertaCerrada
     clip: {fileID: 8300000, guid: b479c953a32f0b140999aa28e45883bb, type: 3}

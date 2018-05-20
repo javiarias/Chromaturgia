@@ -599,7 +599,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1173362709}
-  m_Text: "\xA1Mierda! \xA1Llego tarde!\n\n\xA1La prueba final ya ha empezado y a\xFAn
+  m_Text: "\xA1Mierda, llego tarde!\n\n\xA1La prueba final ya ha empezado y a\xFAn
     no he\n\nllegado a la escuela!\n\n\n\n\n\xA1Debo darme prisa!"
   m_OffsetZ: -1
   m_CharacterSize: 0.01

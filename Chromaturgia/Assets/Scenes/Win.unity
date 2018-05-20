@@ -10974,8 +10974,16 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1113257992}
-  m_Text: "Pero...\n\n no hay tiempo para celebraciones.\n\nEl mundo corre peligro...\n\ntodo
-    esto... los estudios...la prueba..."
+  m_Text: 'Pero...
+
+
+    No hay tiempo para celebraciones.
+
+
+    El mundo corre peligro.
+
+
+    Todo esto. Los estudios, la prueba...'
   m_OffsetZ: -1
   m_CharacterSize: 0.01
   m_LineSpacing: 0.6
@@ -11659,7 +11667,7 @@ TextMesh:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1849673645}
-  m_Text: "No puedo creerlo...\n\n\xA1soy un chromaturgo de verdad!"
+  m_Text: "No puedo creerlo...\n\n\xA1Soy un cromaturgo de verdad!"
   m_OffsetZ: -1
   m_CharacterSize: 0.01
   m_LineSpacing: 0.6

@@ -63,6 +63,9 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
             {
                 GameManager.instance.bluePiecePicked = true;
             }
+
+            other.gameObject.GetComponentInChildren<SmoothMovement>().ActivateMovement();
+
             SaveLoad.instance.SaveLevels();
             Destroy(gameObject);
         }
