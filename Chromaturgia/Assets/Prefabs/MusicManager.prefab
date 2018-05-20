@@ -84,7 +84,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - name: Credits
-    clip: {fileID: 8300000, guid: 68a9caabf12714e4381eb612dc4dfddf, type: 3}
+    clip: {fileID: 8300000, guid: 0887b0a3048bd754c9d161df4d554512, type: 3}
     volume: 1
     pitch: 1
     loop: 1

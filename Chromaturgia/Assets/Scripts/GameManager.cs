@@ -116,20 +116,46 @@ public class GameManager : MonoBehaviour {
 
 		string pista = "";
 
-		if(SceneManager.GetActiveScene().name == "Puzle 0-0")
-			pista = "Almacen";
-		else if(SceneManager.GetActiveScene().name == "Hub")
-			pista = "Hall";
-		else if(SceneManager.GetActiveScene().name == "Intro")
-			pista = "Intro";
-		else if(SceneManager.GetActiveScene().name == "GameOver")
-			pista = "GameOver";
-		else if(SceneManager.GetActiveScene().name.Contains("Puzle 1"))
-			pista = "Nivel1";
-		else if(SceneManager.GetActiveScene().name.Contains("Puzle 2"))
-			pista = "Nivel2";
-		else if(SceneManager.GetActiveScene().name.Contains("Puzle 3"))
-			pista = "Nivel3";
+		switch(SceneManager.GetActiveScene().name)
+		{
+			case "Puzle 0-0":
+				pista = "Almacen";
+				break;
+
+			case "Hub":
+				pista = "Hall";
+				break;
+
+			case "Intro":
+				pista = "Intro";
+				break;
+
+			case "GameOver":
+				pista = "GameOver";
+				break;
+
+			case "Puzle 1-1":
+			case "Puzle 1-2":
+			case "Puzle 1-3":
+				pista = "Nivel1";
+				break;
+
+			case "Puzle 2-1":
+			case "Puzle 2-2":
+			case "Puzle 2-3":
+				pista = "Nivel2";
+				break;
+
+			case "Puzle 3-1":
+			case "Puzle 3-2":
+			case "Puzle 3-3":
+				pista = "Nivel3";
+				break;
+
+			case "TheEnd":
+				pista = "Credits";
+				break;
+		}
 
 		FindObjectOfType<MusicManager>().Play(pista);
 	}
