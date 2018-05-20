@@ -215,3 +215,15 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - name: Thunder
+    clip: {fileID: 8300000, guid: c6ee74947fd20a34e91ef340d830dbe4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - name: Laugh
+    clip: {fileID: 8300000, guid: 45fc6e80cc7928d459a8ec3db50b2678, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
