@@ -20,7 +20,16 @@ public class SmoothMovement : MonoBehaviour {
             if (Vector3.Distance(transform.position, movementDestination) <= 0.01f && movementDestination == mosaicPos)
             {
                 move = false;
-                Invoke("ResetPos", 0.6f);
+                if (GameManager.instance.redPiecePicked && GameManager.instance.greenPiecePicked && GameManager.instance.bluePiecePicked)
+                {
+                    StartCoroutine(gameObject.GetComponentInChildren<Shaker>().Shake(1.5f, 0.03f));
+                    GameObject.Find("WallMosaic").GetComponent<WallMosaicController>().GameFinished();
+                    Invoke("ResetPos", 3f);
+                }
+                else
+                {
+                    Invoke("ResetPos", 0.6f);
+                }
             }
             if (Vector3.Distance(transform.position, movementDestination) <= 0.01f && movementDestination == playerPos)
             {

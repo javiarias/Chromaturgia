@@ -47,3 +47,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nivel 2/Puzle 2-2.unity
     guid: 9bb6735d73e40de4e873000dd8c29161
+  - enabled: 1
+    path: Assets/Scenes/Nivel 2/Puzle 2-3.unity
+    guid: 60cdd5280d3a3da4ba4019e0ce060b3c
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: 09afa9d1a23ab544a92e3643e7913e00
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 3890cdf371478114e84a321ef2845e07

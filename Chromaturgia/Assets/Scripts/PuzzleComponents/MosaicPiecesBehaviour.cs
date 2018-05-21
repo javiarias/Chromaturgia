@@ -7,11 +7,6 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
     void Update()
     {
         SetPiecesActive();
-
-        if(GameManager.instance.redPiecePicked)
-        {
-            Destroy(gameObject);
-        }
     }
 
     void SetPiecesActive()
