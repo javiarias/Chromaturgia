@@ -1309,6 +1309,11 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 85f56c92d58ac8c469f997f5578efc68, type: 2}
   m_IsPrefabParent: 0
+--- !u!20 &862339993 stripped
+Camera:
+  m_PrefabParentObject: {fileID: 20359252939212644, guid: 85f56c92d58ac8c469f997f5578efc68,
+    type: 2}
+  m_PrefabInternal: {fileID: 862339992}
 --- !u!4 &862339994 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4800008929323052, guid: 85f56c92d58ac8c469f997f5578efc68,
@@ -3678,6 +3683,16 @@ Prefab:
     - target: {fileID: 1464522701122174, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
       propertyPath: m_Name
       value: Player (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61992671988168858, guid: 5bbc6b32db15cfc4c884eeb72640bb62,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.022524506
+      objectReference: {fileID: 0}
+    - target: {fileID: 61992671988168858, guid: 5bbc6b32db15cfc4c884eeb72640bb62,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.12164861
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5bbc6b32db15cfc4c884eeb72640bb62, type: 2}
@@ -6311,7 +6326,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 862339993}
   m_PlaneDistance: 100
   m_PixelPerfect: 1
   m_ReceivesEvents: 1

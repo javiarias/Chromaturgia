@@ -26,6 +26,7 @@ public class TurretBehaviour : MonoBehaviour
 		{
 			if (coll.gameObject.GetComponent <SpriteRenderer> ().color == turretColor) 
 			{
+				FindObjectOfType<AudioManager> ().Play ("TurretDestruction");
 				Destroy (coll.gameObject);
 				animator.SetBool ("Destroyed", true);
 				Destroy (gameObject,0.75f);

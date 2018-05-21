@@ -10696,8 +10696,8 @@ Transform:
   - {fileID: 908992628}
   - {fileID: 160816350}
   - {fileID: 669578571}
-  - {fileID: 534139912}
   - {fileID: 1693927853}
+  - {fileID: 534139912}
   m_Father: {fileID: 771125849}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11461,17 +11461,17 @@ Prefab:
     - target: {fileID: 212034176016558148, guid: 546d65fbd30d2e64eb48c46d7089d507,
         type: 2}
       propertyPath: m_Color.r
-      value: 0.5588235
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212034176016558148, guid: 546d65fbd30d2e64eb48c46d7089d507,
         type: 2}
       propertyPath: m_Color.g
-      value: 0.5588235
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 212034176016558148, guid: 546d65fbd30d2e64eb48c46d7089d507,
         type: 2}
       propertyPath: m_Color.b
-      value: 0.5588235
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114785323639479604, guid: 546d65fbd30d2e64eb48c46d7089d507, type: 2}
@@ -11482,6 +11482,23 @@ Transform:
   m_PrefabParentObject: {fileID: 4756436437270996, guid: 546d65fbd30d2e64eb48c46d7089d507,
     type: 2}
   m_PrefabInternal: {fileID: 1624664153}
+--- !u!1 &1624664155 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1293860179420070, guid: 546d65fbd30d2e64eb48c46d7089d507,
+    type: 2}
+  m_PrefabInternal: {fileID: 1624664153}
+--- !u!114 &1624664156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1624664155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e3605643417286419c40dc8b54c44b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterIdentifier: 4
 --- !u!1 &1641567294
 GameObject:
   m_ObjectHideFlags: 0
