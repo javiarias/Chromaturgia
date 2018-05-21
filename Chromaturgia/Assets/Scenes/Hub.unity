@@ -11003,6 +11003,11 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 2.6037881
       objectReference: {fileID: 0}
+    - target: {fileID: 102812279537921172, guid: d16357e3fde558a4ca3418b57044f514,
+        type: 2}
+      propertyPath: m_Text
+      value: Este puzzle duele a la vista.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
   m_IsPrefabParent: 0
@@ -18813,9 +18818,9 @@ Prefab:
     - target: {fileID: 102812279537921172, guid: d16357e3fde558a4ca3418b57044f514,
         type: 2}
       propertyPath: m_Text
-      value: 'Estas puertas llevan cerradas
+      value: 'Pocos alumnos consiguen superar
 
-        mucho tiempo...'
+        la prueba final...'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d16357e3fde558a4ca3418b57044f514, type: 2}

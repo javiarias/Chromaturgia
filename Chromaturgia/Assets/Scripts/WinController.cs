@@ -39,7 +39,7 @@ public class WinController : MonoBehaviour {
 		text3.SetActive (false);
 
 		yield return new WaitForSeconds(3f);
-		//FindObjectOfType<AudioManager>().Play("Win");
+
 		StartCoroutine(GameObject.FindWithTag ("MainCamera").GetComponent<Shaker> ().Shake (4.5f, .05f));
 		text4.SetActive (true);
 		yield return new WaitForSeconds(4f);
@@ -62,8 +62,9 @@ public class WinController : MonoBehaviour {
 		text8.SetActive (false);
 
 		yield return new WaitForSeconds(3f);
-		FindObjectOfType<AudioManager>().Play("Laugh");
+
 		unknown.SetActive (true);
+		unknown.GetComponent<Shaker> ().Shake (8f, 1f);
 		yield return new WaitForSeconds(8f);
 		unknown.SetActive (false);
 		FindObjectOfType<AudioManager> ().StopAll ();
