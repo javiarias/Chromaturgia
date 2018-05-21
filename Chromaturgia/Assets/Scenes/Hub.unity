@@ -18775,11 +18775,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4208195036283094, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.800003
+      value: 4.32
       objectReference: {fileID: 0}
     - target: {fileID: 4208195036283094, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -1.8000001
+      value: -0.24
       objectReference: {fileID: 0}
     - target: {fileID: 4208195036283094, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
       propertyPath: m_LocalPosition.z
@@ -18812,11 +18812,15 @@ Prefab:
     - target: {fileID: 102812279537921172, guid: d16357e3fde558a4ca3418b57044f514,
         type: 2}
       propertyPath: m_Text
-      value: "Hey, \xBFqu\xE9 tal?\n\xBFHas estudiado?"
+      value: "Aqu\xED puedes ver el\nn\xFAmero de piezas de\nnivel que llevas.\n"
       objectReference: {fileID: 0}
     - target: {fileID: 4698244168968984, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1.6444979
+      value: 1.8911728
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698244168968984, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.7018341
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
