@@ -202,10 +202,7 @@ public class GameManager : MonoBehaviour {
 			if (colors.x < bulletAmount / 2) 
 			{
 				colors.x = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
 			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
         }
         else if (color == Option.Green && colors.y > 0f)
         {
@@ -213,10 +210,7 @@ public class GameManager : MonoBehaviour {
 			if (colors.y < bulletAmount/2)
 			{
                 colors.y = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
 			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
         }
         else if (color == Option.Blue && colors.z > 0f)
         {
@@ -224,10 +218,7 @@ public class GameManager : MonoBehaviour {
 			if (colors.z < bulletAmount/2)
 			{
                 colors.z = 0;
-				FindObjectOfType<AudioManager>().Play("SinMunicion");
 			}
-			else
-				FindObjectOfType<AudioManager>().Play("Disparo");
         }
     }
 
