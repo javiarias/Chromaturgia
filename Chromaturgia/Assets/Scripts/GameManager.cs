@@ -64,6 +64,9 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float playtime;
 
+    [HideInInspector]
+    public bool openEndingDoor = true;
+
     void Awake()
     {
 		if (instance == null) 
@@ -86,6 +89,7 @@ public class GameManager : MonoBehaviour {
             level2Complete = false;
             level3Complete = false;
             completedLevels = new bool[MAX_LEVELS];
+            openEndingDoor = true;
         }
         else 
 		{
@@ -353,9 +357,25 @@ public class GameManager : MonoBehaviour {
             }
         }
 
-        if(SceneManager.GetActiveScene().name.Contains("Puzle") || SceneManager.GetActiveScene().name == "Hub")
+        if (SceneManager.GetActiveScene().name.Contains("Puzle") || SceneManager.GetActiveScene().name == "Hub")
         {
             playtime += Time.deltaTime;
+        }
+
+        if (redPiecePicked && bluePiecePicked && greenPiecePicked && openEndingDoor)
+        {
+            GameObject mosaic = GameObject.Find("WallMosaic");
+            mosaic.GetComponent<SpriteRenderer>().enabled = false;
+            mosaic.GetComponent<BoxCollider2D>().enabled = false;
+            mosaic.transform.GetChild(0).gameObject.SetActive(false);
+            mosaic.transform.GetChild(1).gameObject.SetActive(true);
+            GameObject door = GameObject.Find("Ending").transform.GetChild(0).gameObject;
+            door.GetComponent<BoxCollider2D>().enabled = false;
+            door.transform.GetChild(0).gameObject.SetActive(true);
+            door.transform.GetChild(1).gameObject.SetActive(true);
+            door.transform.GetChild(2).gameObject.SetActive(true);
+            door.transform.GetChild(3).gameObject.SetActive(true);
+            openEndingDoor = false;
         }
     }
 

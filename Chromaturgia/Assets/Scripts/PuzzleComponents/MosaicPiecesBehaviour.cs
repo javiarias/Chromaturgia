@@ -46,6 +46,11 @@ public class MosaicPiecesBehaviour : MonoBehaviour {
         {
 			FindObjectOfType<AudioManager> ().Play ("CollectPiece");
 
+            if ((GameManager.instance.redPiecePicked && GameManager.instance.greenPiecePicked) || (GameManager.instance.redPiecePicked && GameManager.instance.bluePiecePicked) || (GameManager.instance.greenPiecePicked && GameManager.instance.bluePiecePicked))
+            {
+                GameManager.instance.openEndingDoor = false;
+            }
+
             if (gameObject.name == "Red")
             {
                 GameManager.instance.redPiecePicked = true;
