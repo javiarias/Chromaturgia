@@ -26,7 +26,7 @@ public class FadeController : MonoBehaviour {
 
     public IEnumerator Fading()
 	{
-        Invoke("RestartMovement", 0.3f);
+        Invoke("RestartMovement", 0.5f);
 		animFade.SetBool ("Fade", true);
         yield return new WaitUntil (()=> Fade.color.a == 1);
     }

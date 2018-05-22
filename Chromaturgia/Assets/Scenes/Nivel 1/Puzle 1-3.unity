@@ -3124,6 +3124,11 @@ Prefab:
       propertyPath: m_Name
       value: TransparentWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
   m_IsPrefabParent: 0
@@ -3786,6 +3791,11 @@ Prefab:
       propertyPath: m_Name
       value: TransparentWall (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
   m_IsPrefabParent: 0
@@ -3836,6 +3846,11 @@ Prefab:
     - target: {fileID: 1157597558302608, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_Name
       value: TransparentWall (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
@@ -5488,6 +5503,11 @@ Prefab:
       propertyPath: m_Name
       value: TransparentWall (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
   m_IsPrefabParent: 0
@@ -5606,17 +5626,17 @@ Prefab:
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: colorAmounts.x
-      value: 0.5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: colorAmounts.y
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 114136849375088690, guid: 084bd990ffa38224c9d639fd0f0af2f3,
         type: 2}
       propertyPath: colorAmounts.z
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1808711355057686, guid: 084bd990ffa38224c9d639fd0f0af2f3, type: 2}
       propertyPath: m_IsActive
@@ -5797,6 +5817,11 @@ Prefab:
       propertyPath: m_Name
       value: TransparentWall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
   m_IsPrefabParent: 0
@@ -5957,6 +5982,11 @@ Prefab:
     - target: {fileID: 4862706180655516, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_RootOrder
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
@@ -6299,6 +6329,11 @@ Prefab:
     - target: {fileID: 1157597558302608, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}
       propertyPath: m_Name
       value: TransparentWall (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 114255834445768210, guid: 346e1ff24918928418dcfa7acbe166e4,
+        type: 2}
+      propertyPath: identifierList.Array.data[0]
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 346e1ff24918928418dcfa7acbe166e4, type: 2}

@@ -17,8 +17,6 @@ public class Door : MonoBehaviour
 
 			coll.gameObject.transform.position = exit.position;
 
-            coll.gameObject.GetComponent<Movement>().canMove = true;
-
             Time.timeScale = 1;
 		}
 	}
