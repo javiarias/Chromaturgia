@@ -58,6 +58,8 @@ public class SceneDoorScript : MonoBehaviour {
     {
         if (collision.tag == "Player")
         {
+            GameManager.instance.chosenColor = GameManager.Option.Red;
+
             if (sceneName != "Hub")
             {
                 SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);

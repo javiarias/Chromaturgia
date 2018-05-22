@@ -43,10 +43,6 @@ public class GameOverController : MonoBehaviour {
 
     public void ActualLoad()
     {
-        bool auxiliar = SaveLoad.instance.Load();
-        if (!auxiliar)
-        {
-            SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
-        }
+        SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
     }
 }

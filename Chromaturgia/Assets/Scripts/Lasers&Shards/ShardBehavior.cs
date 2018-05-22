@@ -6,17 +6,19 @@ public class ShardBehavior : MonoBehaviour {
 
 	Color shardColor;
 	ParticleSystem.MainModule FX;
+    bool pickUp = false;
 
 	void Start()
 	{
 		shardColor = gameObject.GetComponent<SpriteRenderer> ().color;
 		FX = GetComponent<ParticleSystem> ().main;
 		FX.startColor = shardColor;
+        Invoke("EnablePickUp", 0.3f);
 	}
 
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.tag == "Player")
+        if (collision.tag == "Player" && pickUp)
         {
 			FindObjectOfType<AudioManager> ().Play ("CollectShard");
 
@@ -34,5 +36,10 @@ public class ShardBehavior : MonoBehaviour {
             }
 			Destroy(gameObject);
         }
+    }
+
+    void EnablePickUp()
+    {
+        pickUp = true;
     }
 }

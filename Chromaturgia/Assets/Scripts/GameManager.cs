@@ -223,7 +223,11 @@ public class GameManager : MonoBehaviour {
 			{
                 colors.z = 0;
 			}
+            
         }
+        colors.x = Mathf.Round(colors.x * 100) / 100;
+        colors.y = Mathf.Round(colors.y * 100) / 100;
+        colors.z = Mathf.Round(colors.z * 100) / 100;
     }
 
     public void IncreaseColor(Option color)
@@ -246,6 +250,9 @@ public class GameManager : MonoBehaviour {
             if (colors.z > 1 - bulletAmount)
                 colors.z = 1;
         }
+        colors.x = Mathf.Round(colors.x * 100) / 100;
+        colors.y = Mathf.Round(colors.y * 100) / 100;
+        colors.z = Mathf.Round(colors.z * 100) / 100;
     }
 
     public void SetPuzzleAsCompleted()
@@ -362,7 +369,7 @@ public class GameManager : MonoBehaviour {
             playtime += Time.deltaTime;
         }
 
-        if (redPiecePicked && bluePiecePicked && greenPiecePicked && openEndingDoor)
+        if (inHub && redPiecePicked && bluePiecePicked && greenPiecePicked && openEndingDoor)
         {
             GameObject mosaic = GameObject.Find("WallMosaic");
             mosaic.GetComponent<SpriteRenderer>().enabled = false;
