@@ -80828,14 +80828,15 @@ MonoBehaviour:
   level1Complete: 0
   level2Complete: 0
   level3Complete: 0
-  redPiecePicked: 1
-  greenPiecePicked: 1
-  bluePiecePicked: 1
+  redPiecePicked: 0
+  greenPiecePicked: 0
+  bluePiecePicked: 0
   brightness: 0
   saturation: 0
   soundVolume: 50
   musicVolume: 50
   playtime: 0
+  openEndingDoor: 1
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0
