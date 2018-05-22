@@ -44,7 +44,30 @@ public class SaveLoad : MonoBehaviour
 
     public void Reset()
     {
-        File.Delete(SavePath + "/saveData");
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        FileStream file;
+
+        if (File.Exists(SavePath + "/saveData"))
+        {
+            File.Delete(SavePath + "/saveData");
+        }
+
+        file = File.Create(SavePath + "/saveData");
+
+        SaveData data = new SaveData();
+
+        bool[] aux = new bool[GameManager.MAX_LEVELS];
+        for (int i = 0; i < aux.Length; i++)
+            aux[i] = false;
+
+        data.completedLevels = aux;
+        data.redPicked = false;
+        data.greenPicked = false;
+        data.bluePicked = false;
+        data.playtime = 0;
+
+        binaryFormatter.Serialize(file, data);
+        file.Close();
     }
 
     public void SaveLevels()

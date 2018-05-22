@@ -299,19 +299,19 @@ public class GameManager : MonoBehaviour {
         return isComplete;
     }
 
-    void SetAsCompleted(int zone)
+    void SetAsCompleted(int zone, bool completed)
     {
         if (zone == 1)
         {
-            level1Complete = true;
+            level1Complete = completed;
         }
         else if (zone == 2)
         {
-            level2Complete = true;
+            level2Complete = completed;
         }
         else if (zone == 3)
         {
-            level3Complete = true;
+            level3Complete = completed;
         }
     }
 
@@ -344,7 +344,11 @@ public class GameManager : MonoBehaviour {
             {
                 if (WholeLevelComplete(i))
                 {
-                    SetAsCompleted(i);
+                    SetAsCompleted(i, true);
+                }
+                else
+                {
+                    SetAsCompleted(i, false);
                 }
             }
         }
