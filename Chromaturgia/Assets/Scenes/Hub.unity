@@ -80828,9 +80828,9 @@ MonoBehaviour:
   level1Complete: 0
   level2Complete: 0
   level3Complete: 0
-  redPiecePicked: 0
-  greenPiecePicked: 0
-  bluePiecePicked: 0
+  redPiecePicked: 1
+  greenPiecePicked: 1
+  bluePiecePicked: 1
   brightness: 0
   saturation: 0
   soundVolume: 50
