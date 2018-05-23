@@ -162,6 +162,10 @@ public class GameManager : MonoBehaviour {
 				pista = "Credits";
 				break;
 
+			case "MainMenu":
+				pista = "MainMenu";
+				break;
+
             default:
                 aux = false;
                 break;
