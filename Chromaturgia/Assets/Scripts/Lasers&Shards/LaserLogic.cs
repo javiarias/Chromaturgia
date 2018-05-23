@@ -49,6 +49,7 @@ public class LaserLogic : MonoBehaviour {
         if (coll.gameObject.tag == "Turret" || coll.gameObject.tag == "Door" || coll.gameObject.tag == "Player" || coll.gameObject.tag == "NPCBody" || coll.gameObject.tag == "Orb" || coll.gameObject.name.Contains("LaserBlack"))
 		{
 			rb2d.velocity = Vector2.zero;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
 			animator.SetBool ("Destroyed",true);
 			Destroy (gameObject, 0.35f);
 		}
@@ -72,6 +73,7 @@ public class LaserLogic : MonoBehaviour {
         if (coll.gameObject.tag == "Opaque" || (coll.gameObject.tag == "RedTransparent" && laserColor != Color.red) || (coll.gameObject.tag == "GreenTransparent" && laserColor != Color.green) || (coll.gameObject.tag == "BlueTransparent" && laserColor != Color.blue))
 		{
             rb2d.velocity = Vector2.zero;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             animator.SetBool("Destroyed", true);
             Invoke("CrearShards", 0.35f);
             Destroy(gameObject, 0.35f);
