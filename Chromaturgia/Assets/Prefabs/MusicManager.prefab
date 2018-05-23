@@ -65,6 +65,12 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - name: Intro
+    clip: {fileID: 8300000, guid: 02a3e69ac370c2841a77de1121004165, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
   - name: Nivel1
     clip: {fileID: 8300000, guid: c1e7ea39247012f46a27b5de3e7c4a7a, type: 3}
     volume: 1
@@ -85,12 +91,6 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Credits
     clip: {fileID: 8300000, guid: 0887b0a3048bd754c9d161df4d554512, type: 3}
-    volume: 1
-    pitch: 1
-    loop: 1
-    source: {fileID: 0}
-  - name: Intro
-    clip: {fileID: 8300000, guid: 02a3e69ac370c2841a77de1121004165, type: 3}
     volume: 1
     pitch: 1
     loop: 1

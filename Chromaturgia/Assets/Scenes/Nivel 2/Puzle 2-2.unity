@@ -2518,7 +2518,7 @@ Transform:
   - {fileID: 260039789}
   - {fileID: 2068369074}
   m_Father: {fileID: 771125849}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &666873320 stripped
 Transform:
@@ -2971,13 +2971,13 @@ Transform:
   m_Children:
   - {fileID: 1649137494}
   - {fileID: 1045304598}
+  - {fileID: 633477119}
   - {fileID: 700834975}
   - {fileID: 496689067}
   - {fileID: 1171981631}
-  - {fileID: 633477119}
   - {fileID: 681048341}
-  - {fileID: 1505307846}
   - {fileID: 1209588255}
+  - {fileID: 1505307846}
   - {fileID: 1484053342}
   - {fileID: 560121583}
   - {fileID: 217945166}
@@ -6696,6 +6696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 58de525bdf9d0a546a42fb92051cd552, type: 2}
+  musicMixer: {fileID: 24100000, guid: 7c6ac9f4789c68b4eb15ee6ca51ccb83, type: 2}
   pauseMenu: {fileID: 1506811402}
   eventSystemPauseMenu: {fileID: 1506811401}
   volverOptionsMenu: {fileID: 1506811400}
@@ -7590,7 +7591,7 @@ Transform:
   - {fileID: 1921804168}
   - {fileID: 692244708}
   m_Father: {fileID: 771125849}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1211007215 stripped
 Transform:
@@ -9659,6 +9660,7 @@ MonoBehaviour:
   soundVolume: 50
   musicVolume: 50
   playtime: 0
+  openEndingDoor: 1
 --- !u!4 &1641567296
 Transform:
   m_ObjectHideFlags: 0

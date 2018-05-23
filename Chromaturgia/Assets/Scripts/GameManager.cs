@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float saturation = 0;
     [HideInInspector]
-    public float soundVolume = 50, musicVolume = 50;
+    public float soundVolume = -16, musicVolume = -16;
 
     PostProcessingBehaviour cam;
     ColorGradingModel.Settings auxSettings;
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour {
 		StopMusic ();
 
 		string pista = "";
+        bool aux = true;
 
 		switch(SceneManager.GetActiveScene().name)
 		{
@@ -159,9 +160,17 @@ public class GameManager : MonoBehaviour {
 			case "TheEnd":
 				pista = "Credits";
 				break;
+
+            default:
+                //aux = false;
+                pista = "Credits";
+                break;
 		}
 
-		FindObjectOfType<MusicManager>().Play(pista);
+        if (aux)
+        {
+            FindObjectOfType<MusicManager>().Play(pista);
+        }
 	}
 
     public void ChangeBrightness()
@@ -328,11 +337,6 @@ public class GameManager : MonoBehaviour {
 
     void Update()
     {
-		if (sSceneName != SceneManager.GetActiveScene ().name) {
-			SetMusic ();
-			sSceneName = SceneManager.GetActiveScene ().name;
-		}
-
         inHub = SceneManager.GetActiveScene().name == "Hub";
 
         if (SceneIsPuzzle())
@@ -384,11 +388,17 @@ public class GameManager : MonoBehaviour {
             door.transform.GetChild(3).gameObject.SetActive(true);
             openEndingDoor = false;
         }
+
+        if (sSceneName != SceneManager.GetActiveScene().name)
+        {
+            SetMusic();
+            sSceneName = SceneManager.GetActiveScene().name;
+        }
     }
 
     bool SceneIsPuzzle()
     {
-        return (SceneManager.GetActiveScene().name.Contains("Puzle"));
+        return (SceneManager.GetActiveScene().name.Contains("Puzle") && !SceneManager.GetActiveScene().name.Contains("Pre"));
     }
 
     void CheckHealth()

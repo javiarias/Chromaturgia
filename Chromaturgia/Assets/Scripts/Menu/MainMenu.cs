@@ -9,6 +9,7 @@ using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
 	public AudioMixer audioMixer;
+    public AudioMixer musicMixer;
 
     bool needsBrightnessUpdate, needsSaturationUpdate;
     bool needsSoundUpdate, needsMusicUpdate;
@@ -56,8 +57,12 @@ public class MainMenu : MonoBehaviour
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
 
-        soundVolume = (GameManager.instance.soundVolume - 80);
-        musicVolume = (GameManager.instance.musicVolume - 80);
+        Debug.Log(soundVolume);
+
+        soundVolume = GameManager.instance.soundVolume;
+        musicVolume = GameManager.instance.musicVolume;
+
+        Debug.Log(soundVolume);
 
         soundSlider.value = soundVolume;
         musicSlider.value = musicVolume;
@@ -78,8 +83,8 @@ public class MainMenu : MonoBehaviour
     {
         brightText.text = sliderBrightness + "%";
         saturationText.text = sliderSaturation + "%";
-        soundText.text = soundVolume+40 + "%";
-        musicText.text = musicVolume+40 + "%";
+        soundText.text = ((soundVolume + 48) * 100) / 48 + "%";
+        musicText.text = ((musicVolume + 48) * 100) / 48 + "%";
 
         eventsystem = EventSystem.current;
 		if (eventsystem!=null)
@@ -167,17 +172,32 @@ public class MainMenu : MonoBehaviour
 
     public void setSoundVolume(float volume)
     {
-        soundVolume = volume;
+        if (volume == -40)
+        {
+            soundVolume = -80;
+        }
+        else
+        {
+            soundVolume = volume;
+        }
         SaveLoad.soundVolume = volume;
-		audioMixer.SetFloat ("Volume",volume);
+		audioMixer.SetFloat ("SoundVolume",volume);
 
         SaveLoad.instance.SaveConfig();
     }
 
     public void setMusicVolume(float volume)
     {
-        musicVolume = volume;
+        if (volume == -40)
+        {
+            musicVolume = -80;
+        }
+        else
+        {
+            musicVolume = volume;
+        }
         SaveLoad.instance.musicVolume = volume;
+        musicMixer.SetFloat("MusicVolume", volume);
 
         SaveLoad.instance.SaveConfig();
     }

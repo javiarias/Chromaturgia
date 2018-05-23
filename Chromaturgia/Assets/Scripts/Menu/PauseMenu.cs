@@ -9,6 +9,7 @@ using UnityEngine.Audio;
 public class PauseMenu : MonoBehaviour {
 
 	public AudioMixer audioMixer;
+    public AudioMixer musicMixer;
 
 	public static bool GameIsPaused = false;
 
@@ -51,19 +52,19 @@ public class PauseMenu : MonoBehaviour {
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
         saturationSlider.value = sliderSaturationValue;
 
-		soundVolume = (GameManager.instance.soundVolume - 80);
+		soundVolume = GameManager.instance.soundVolume;
         soundSlider.value = soundVolume;
 
-		musicVolume = (GameManager.instance.musicVolume - 80);
+		musicVolume = GameManager.instance.musicVolume;
         musicSlider.value = musicVolume;
     }
 
 	void Update()
-	{
-		brightText.text = sliderBrightnessValue + "%";
-		saturationText.text = sliderSaturationValue + "%";
-		soundText.text = soundVolume+80 + "%";
-		musicText.text = musicVolume+80 + "%";
+    {
+        brightText.text = sliderBrightnessValue + "%";
+        saturationText.text = sliderSaturationValue + "%";
+        soundText.text = ((soundVolume + 48) * 100) / 48 + "%";
+        musicText.text = ((musicVolume + 48) * 100) / 48 + "%";
 
         if (GameIsPaused)
         {
@@ -128,21 +129,36 @@ public class PauseMenu : MonoBehaviour {
 
 	public void setSoundVolume(float volume)
 	{
-		soundVolume = volume;
+        if (volume == -40)
+        {
+            soundVolume = -80;
+        }
+        else
+        {
+            soundVolume = volume;
+        }
         needsBrightnessUpdate = true;
-		audioMixer.SetFloat ("Volume",volume);
+		audioMixer.SetFloat ("SoundVolume",volume);
 
-        GameManager.instance.soundVolume = (soundVolume - 50) / 50;
+        GameManager.instance.soundVolume = soundVolume;
         SaveLoad.soundVolume = GameManager.instance.soundVolume;
         SaveLoad.instance.SaveConfig();
 	}
 
 	public void setMusicVolume(float volume)
 	{
-		musicVolume = volume;
+        if (volume == -40)
+        {
+            musicVolume = -80;
+        }
+        else
+        {
+            musicVolume = volume;
+        }
         needsBrightnessUpdate = true;
+        musicMixer.SetFloat("MusicVolume", volume);
 
-        GameManager.instance.musicVolume = (musicVolume - 50) / 50;
+        GameManager.instance.musicVolume = musicVolume;
         SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;
         SaveLoad.instance.SaveConfig();
 	}

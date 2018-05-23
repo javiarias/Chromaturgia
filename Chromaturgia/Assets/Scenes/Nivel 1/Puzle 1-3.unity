@@ -6148,6 +6148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 58de525bdf9d0a546a42fb92051cd552, type: 2}
+  musicMixer: {fileID: 24100000, guid: 7c6ac9f4789c68b4eb15ee6ca51ccb83, type: 2}
   pauseMenu: {fileID: 455420958}
   eventSystemPauseMenu: {fileID: 455420957}
   volverOptionsMenu: {fileID: 455420956}
@@ -6391,6 +6392,7 @@ MonoBehaviour:
   soundVolume: 50
   musicVolume: 50
   playtime: 0
+  openEndingDoor: 1
 --- !u!4 &1782349948
 Transform:
   m_ObjectHideFlags: 0
