@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour {
 	void Start()
     {
         SetMusic ();
+        openEndingDoor = true;
 	}
 
     public void Caching()

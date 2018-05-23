@@ -18,6 +18,7 @@ public class WinController : MonoBehaviour {
 
 	void Start () 
 	{
+        GameManager.instance.sceneToLoad = "Hub";
 		StartCoroutine (Animation ());
 	}
 
