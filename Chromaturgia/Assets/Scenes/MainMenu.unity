@@ -210,6 +210,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 58de525bdf9d0a546a42fb92051cd552, type: 2}
   musicMixer: {fileID: 24100000, guid: 7c6ac9f4789c68b4eb15ee6ca51ccb83, type: 2}
+  sliderBrightness: 50
+  sliderSaturation: 50
+  soundVolume: -16
+  musicVolume: -16
   brightText: {fileID: 612524785}
   saturationText: {fileID: 734305308}
   soundText: {fileID: 1804162190}
@@ -12682,7 +12686,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -12714,7 +12718,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 517812836}
         m_MethodName: Play
         m_Mode: 5
@@ -16981,7 +16985,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -17013,7 +17017,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 517812836}
         m_MethodName: Play
         m_Mode: 5
@@ -21851,7 +21855,7 @@ MonoBehaviour:
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0}
     m_ColorMultiplier: 1
-    m_FadeDuration: 0.1
+    m_FadeDuration: 0
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
     m_PressedSprite: {fileID: 0}
@@ -21883,7 +21887,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
       - m_Target: {fileID: 517812836}
         m_MethodName: Play
         m_Mode: 5
@@ -22277,16 +22281,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114766389966136790, guid: b2764f61132df6a4085f68f9a53867fa,
-        type: 2}
-      propertyPath: animFade
-      value: 
-      objectReference: {fileID: 1880588348}
-    - target: {fileID: 114766389966136790, guid: b2764f61132df6a4085f68f9a53867fa,
-        type: 2}
-      propertyPath: Fade
-      value: 
-      objectReference: {fileID: 1880588349}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b2764f61132df6a4085f68f9a53867fa, type: 2}
   m_IsPrefabParent: 0

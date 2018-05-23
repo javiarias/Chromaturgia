@@ -19,10 +19,10 @@ public class PauseMenu : MonoBehaviour {
 
 	bool needsBrightnessUpdate, needsSaturationUpdate, needsSoundUpdate, needsMusicUpdate;
 
-	float sliderBrightnessValue;
-	float sliderSaturationValue;
-	float soundVolume;
-	float musicVolume;
+	public float sliderBrightnessValue;
+    public float sliderSaturationValue;
+    public float soundVolume;
+	public float musicVolume;
 
 	public Text brightText;
 	public Text saturationText;
@@ -61,10 +61,10 @@ public class PauseMenu : MonoBehaviour {
 
 	void Update()
     {
-        brightText.text = sliderBrightnessValue + "%";
-        saturationText.text = sliderSaturationValue + "%";
-        soundText.text = ((soundVolume + 48) * 100) / 48 + "%";
-        musicText.text = ((musicVolume + 48) * 100) / 48 + "%";
+        brightText.text = Mathf.RoundToInt(sliderBrightnessValue) + "%";
+        saturationText.text = Mathf.RoundToInt(sliderSaturationValue) + "%";
+        soundText.text = Mathf.RoundToInt(((soundVolume + 40) * 100) / 48) + "%";
+        musicText.text = Mathf.RoundToInt(((musicVolume + 40) * 100) / 48) + "%";
 
         if (GameIsPaused)
         {
@@ -105,7 +105,19 @@ public class PauseMenu : MonoBehaviour {
 			GameManager.instance.ChangeSaturation();
 			needsSaturationUpdate = false;
 		}
-	}
+
+        if (needsMusicUpdate)
+        {
+            setMusicVolume(musicVolume);
+            needsMusicUpdate = false;
+        }
+
+        if (needsSoundUpdate)
+        {
+            setSoundVolume(soundVolume);
+            needsSoundUpdate = false;
+        }
+    }
 
 	public void setBright(float brillo)
 	{
@@ -131,14 +143,14 @@ public class PauseMenu : MonoBehaviour {
 	{
         if (volume == -40)
         {
-            soundVolume = -80;
+            audioMixer.SetFloat("SoundVolume", -80);
         }
         else
         {
-            soundVolume = volume;
+            audioMixer.SetFloat("SoundVolume", Mathf.Round(volume * 100) / 100);
         }
-        needsBrightnessUpdate = true;
-		audioMixer.SetFloat ("SoundVolume",volume);
+
+        soundVolume = Mathf.Round(volume * 100) / 100;
 
         GameManager.instance.soundVolume = soundVolume;
         SaveLoad.soundVolume = GameManager.instance.soundVolume;
@@ -149,14 +161,14 @@ public class PauseMenu : MonoBehaviour {
 	{
         if (volume == -40)
         {
-            musicVolume = -80;
+            musicMixer.SetFloat("MusicVolume", -80);
         }
         else
         {
-            musicVolume = volume;
+            musicMixer.SetFloat("MusicVolume", Mathf.Round(volume * 100) / 100);
         }
-        needsBrightnessUpdate = true;
-        musicMixer.SetFloat("MusicVolume", volume);
+
+        musicVolume = Mathf.Round(volume * 100) / 100;
 
         GameManager.instance.musicVolume = musicVolume;
         SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;

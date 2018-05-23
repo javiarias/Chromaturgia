@@ -47,12 +47,12 @@ public class GameManager : MonoBehaviour {
     //[HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float brightness = 0;
-    [HideInInspector]
+    //[HideInInspector]
     public float saturation = 0;
-    [HideInInspector]
-    public float soundVolume = -16, musicVolume = -16;
+    //[HideInInspector]
+    public float soundVolume = -16, musicVolume = -3.2f;
 
     PostProcessingBehaviour cam;
     ColorGradingModel.Settings auxSettings;
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
 
     void Awake()
     {
-		if (instance == null) 
+        if (instance == null) 
 		{
 			instance = this;
 
@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour {
             level3Complete = false;
             completedLevels = new bool[MAX_LEVELS];
             openEndingDoor = true;
+            
         }
         else 
 		{
@@ -98,8 +99,8 @@ public class GameManager : MonoBehaviour {
     }
 
 	void Start()
-	{
-		SetMusic ();
+    {
+        SetMusic ();
 	}
 
     public void Caching()
@@ -162,8 +163,7 @@ public class GameManager : MonoBehaviour {
 				break;
 
             default:
-                //aux = false;
-                pista = "Credits";
+                aux = false;
                 break;
 		}
 

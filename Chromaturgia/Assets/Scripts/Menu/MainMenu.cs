@@ -17,10 +17,10 @@ public class MainMenu : MonoBehaviour
 	ParticleSystem.MainModule thinkFX;
     Animator thinkAnim;
 
-    float sliderBrightness;
-    float sliderSaturation;
-    float soundVolume;
-    float musicVolume;
+    public float sliderBrightness;
+    public float sliderSaturation;
+    public float soundVolume;
+    public float musicVolume;
 
     public Text brightText;
     public Text saturationText;
@@ -43,6 +43,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        SaveLoad.instance.LoadConfig();
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
 		thinkFX = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponentInChildren<ParticleSystem>().main;
         mainMenu = GameObject.FindGameObjectWithTag("MainMenu");
@@ -55,36 +56,31 @@ public class MainMenu : MonoBehaviour
 		thinkFX.startSize = 0f;
 
         sliderBrightness = (GameManager.instance.brightness * 50) + 50;
+        try { brightnessSlider.value = sliderBrightness; }                      //por alguna razón, al intentar actualizar los sliders por segunda vez saltan excepciones extrañas, pero que no parecen tener ningún tipo de impacto. Esto debería impedir que salten
+        catch{ }
         sliderSaturation = (GameManager.instance.saturation * 50) + 50;
-
-        Debug.Log(soundVolume);
+        try { saturationSlider.value = sliderSaturation; }
+        catch{ }
 
         soundVolume = GameManager.instance.soundVolume;
+        try { soundSlider.value = soundVolume; }
+        catch { }
         musicVolume = GameManager.instance.musicVolume;
-
-        Debug.Log(soundVolume);
-
-        soundSlider.value = soundVolume;
-        musicSlider.value = musicVolume;
-
-        brightnessSlider.value = sliderBrightness;
-
-        saturationSlider.value = sliderSaturation;
+        try { musicSlider.value = musicVolume; }
+        catch { }
 
         needsBrightnessUpdate = true;
         needsSaturationUpdate = true;
-        needsMusicUpdate = false;
-        needsSoundUpdate = false;
-
-
+        needsMusicUpdate = true;
+        needsSoundUpdate = true;
     }
 
     void Update()
     {
-        brightText.text = sliderBrightness + "%";
-        saturationText.text = sliderSaturation + "%";
-        soundText.text = ((soundVolume + 48) * 100) / 48 + "%";
-        musicText.text = ((musicVolume + 48) * 100) / 48 + "%";
+        brightText.text = Mathf.RoundToInt(sliderBrightness) + "%";
+        saturationText.text = Mathf.RoundToInt(sliderSaturation) + "%";
+        soundText.text = Mathf.RoundToInt(((soundVolume + 40) * 100) / 48) + "%";
+        musicText.text = Mathf.RoundToInt(((musicVolume + 40) * 100) / 48) + "%";
 
         eventsystem = EventSystem.current;
 		if (eventsystem!=null)
@@ -99,7 +95,7 @@ public class MainMenu : MonoBehaviour
 			FindObjectOfType<AudioManager> ().Play ("MenuBack");
 		}
 
-		if(Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
+		if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.UpArrow))
 			FindObjectOfType<AudioManager> ().Play ("MenuSelect");
 
         if (needsBrightnessUpdate)
@@ -114,9 +110,19 @@ public class MainMenu : MonoBehaviour
             needsSaturationUpdate = false;
         }
 
+        if (needsMusicUpdate)
+        {
+            setMusicVolume(musicVolume);
+            needsMusicUpdate = false;
+        }
 
+        if (needsSoundUpdate)
+        {
+            setSoundVolume(soundVolume);
+            needsSoundUpdate = false;
+        }
 
-        if(!SaveLoad.instance.saveDataExists())
+        if (!SaveLoad.instance.saveDataExists())
         {
             continueButton.GetComponentInChildren<Text>().canvasRenderer.SetAlpha(0.5f);
         }
@@ -174,15 +180,17 @@ public class MainMenu : MonoBehaviour
     {
         if (volume == -40)
         {
-            soundVolume = -80;
+            audioMixer.SetFloat("SoundVolume", -80);
         }
         else
         {
-            soundVolume = volume;
+            audioMixer.SetFloat("SoundVolume", Mathf.Round(volume * 100) / 100);
         }
-        SaveLoad.soundVolume = volume;
-		audioMixer.SetFloat ("SoundVolume",volume);
 
+        soundVolume = Mathf.Round(volume * 100) / 100;
+
+        GameManager.instance.soundVolume = soundVolume;
+        SaveLoad.soundVolume = GameManager.instance.soundVolume;
         SaveLoad.instance.SaveConfig();
     }
 
@@ -190,15 +198,17 @@ public class MainMenu : MonoBehaviour
     {
         if (volume == -40)
         {
-            musicVolume = -80;
+            musicMixer.SetFloat("MusicVolume", -80);
         }
         else
         {
-            musicVolume = volume;
+            musicMixer.SetFloat("MusicVolume", Mathf.Round(volume * 100) / 100);
         }
-        SaveLoad.instance.musicVolume = volume;
-        musicMixer.SetFloat("MusicVolume", volume);
 
+        musicVolume = Mathf.Round(volume * 100) / 100;
+
+        GameManager.instance.musicVolume = musicVolume;
+        SaveLoad.instance.musicVolume = GameManager.instance.musicVolume;
         SaveLoad.instance.SaveConfig();
     }
 

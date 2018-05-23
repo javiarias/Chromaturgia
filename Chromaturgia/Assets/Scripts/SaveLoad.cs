@@ -101,30 +101,24 @@ public class SaveLoad : MonoBehaviour
 
     public void SaveConfig()
     {
-        anim.SetTrigger("Saving");
-
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-        FileStream file;
-
-        if (!File.Exists(SavePath + "/configData"))
+        if (GameManager.instance != null) //al hacer un poquito de troubleshooting vi que cuando cierras el juego de golpe, algo llama a SaveConfig() como una instancia vacía, guardando datos erróneos. Esto debería remediarlo
         {
-            file = File.Create(SavePath + "/configData");
-        }
+            anim.SetTrigger("Saving");
 
-        else
-        {
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            FileStream file;
+
             file = File.Open(SavePath + "/configData", FileMode.Open);
+            ConfigData data = new ConfigData();
+
+            data.brightness = GameManager.instance.brightness;
+            data.saturation = GameManager.instance.saturation;
+            data.soundVolume = GameManager.instance.soundVolume;
+            data.musicVolume = GameManager.instance.musicVolume;
+
+            binaryFormatter.Serialize(file, data);
+            file.Close();
         }
-
-        ConfigData data = new ConfigData();
-
-        data.brightness = brightness;
-        data.saturation = saturation;
-        data.soundVolume = soundVolume;
-        data.musicVolume = musicVolume;
-
-        binaryFormatter.Serialize(file, data);
-        file.Close();
     }
 
     public bool Load()
@@ -152,26 +146,38 @@ public class SaveLoad : MonoBehaviour
     public bool LoadConfig()
     {
         bool exists = File.Exists(SavePath + "/configData");
+        BinaryFormatter binaryFormatter = new BinaryFormatter();
+        FileStream file;
 
-        if (exists)
+        if (!exists)
         {
-            BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(SavePath + "/configData", FileMode.Open);
+            file = File.Create(SavePath + "/configData");
+            ConfigData dataA = new ConfigData();
 
-            ConfigData data = (ConfigData)binaryFormatter.Deserialize(file);
+            dataA.brightness = 0;
+            dataA.saturation = 0;
+            dataA.soundVolume = -6.4f;
+            dataA.musicVolume = -16;
+
+            binaryFormatter.Serialize(file, dataA);
             file.Close();
-
-            GameManager.instance.brightness = data.brightness;
-            GameManager.instance.ChangeBrightness();
-
-            GameManager.instance.saturation = data.saturation;
-            GameManager.instance.ChangeSaturation();
-
-            GameManager.instance.musicVolume = data.musicVolume;
-
-            GameManager.instance.soundVolume = data.soundVolume;
-
         }
+
+        binaryFormatter = new BinaryFormatter();
+        file = File.Open(SavePath + "/configData", FileMode.Open);
+
+        ConfigData data = (ConfigData)binaryFormatter.Deserialize(file);
+        file.Close();
+        
+        GameManager.instance.brightness = data.brightness;
+        GameManager.instance.ChangeBrightness();
+
+        GameManager.instance.saturation = data.saturation;
+        GameManager.instance.ChangeSaturation();
+        
+        GameManager.instance.musicVolume = data.musicVolume;
+
+        GameManager.instance.soundVolume = data.soundVolume;
 
         return exists;
     }
