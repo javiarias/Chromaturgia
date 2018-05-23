@@ -2047,7 +2047,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4963136335449498, guid: 25bd904d199514643bb70a32bcba3893, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 25bd904d199514643bb70a32bcba3893, type: 2}
@@ -2925,6 +2925,11 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 580723299}
+    - target: {fileID: 114024383973442008, guid: db5fd04b90695e140b11b38c1a830b02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1884919034}
     - target: {fileID: 114259034858467310, guid: db5fd04b90695e140b11b38c1a830b02,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2983,6 +2988,11 @@ Prefab:
     - target: {fileID: 114801529250732638, guid: db5fd04b90695e140b11b38c1a830b02,
         type: 2}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 580723299}
+    - target: {fileID: 114208457288100310, guid: db5fd04b90695e140b11b38c1a830b02,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[4].m_Target
       value: 
       objectReference: {fileID: 580723299}
     m_RemovedComponents: []
@@ -3160,7 +3170,7 @@ Transform:
   - {fileID: 1466904055}
   - {fileID: 1134845967}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &776787880
 Prefab:
@@ -18743,7 +18753,7 @@ RectTransform:
   - {fileID: 763531166}
   - {fileID: 1649590419}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -19202,7 +19212,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4123661821152360, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 062fff1a26be97c4d9dd31707a575309, type: 2}
