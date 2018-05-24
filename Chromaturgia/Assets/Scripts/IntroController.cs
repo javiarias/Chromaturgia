@@ -21,6 +21,7 @@ public class IntroController : MonoBehaviour {
     void LoadMainMenu()
     {
         SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+        SaveLoad.instance.SaveLevels();
 		GameManager.instance.StopMusic ();
     }
 }

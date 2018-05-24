@@ -138,6 +138,7 @@ public class SaveLoad : MonoBehaviour
             GameManager.instance.greenPiecePicked = data.greenPicked;
             GameManager.instance.bluePiecePicked = data.bluePicked;
             GameManager.instance.playtime = Mathf.Round(data.playtime);
+            GameManager.instance.sceneToLoad = "Hub";
         }
 
         return exists;

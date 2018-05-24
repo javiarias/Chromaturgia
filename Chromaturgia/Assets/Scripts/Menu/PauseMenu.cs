@@ -211,8 +211,9 @@ public class PauseMenu : MonoBehaviour {
 	{
 		Time.timeScale = 1;
 		GameIsPaused = false;
-		SceneManager.LoadScene ("MainMenu");
-	}
+		SceneManager.LoadSceneAsync ("MainMenu", LoadSceneMode.Single);
+        SaveLoad.instance.SaveLevels();
+    }
 
     public void alternaFullscreen()
     {

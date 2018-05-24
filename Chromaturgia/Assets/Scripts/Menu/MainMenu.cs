@@ -43,6 +43,7 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
+        SaveLoad.instance.Load();
         SaveLoad.instance.LoadConfig();
         thinkAnim = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponent<Animator>();
 		thinkFX = GameObject.FindGameObjectWithTag("ThinkMenu").GetComponentInChildren<ParticleSystem>().main;
@@ -139,7 +140,9 @@ public class MainMenu : MonoBehaviour
     {
 		if (SaveLoad.instance.saveDataExists()) 
 		{
+            Debug.Log("a");
 			currentGame.SetActive (true);
+            Debug.Log("a");
 		}
 		else
         {
@@ -228,7 +231,6 @@ public class MainMenu : MonoBehaviour
 
     public void continuarPartida()
     {
-        SaveLoad.instance.Load();
         StartCoroutine (GameObject.Find("Fade").GetComponent<FadeController>().Fading());
         SceneManager.LoadSceneAsync("Hub", LoadSceneMode.Single);
     }

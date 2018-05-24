@@ -13,6 +13,7 @@ public class CurrentGameController : MonoBehaviour {
 
     private void Start()
     {
+
         mosaic = GameObject.Find("MiniMosaico");
         r = mosaic.transform.GetChild(0).gameObject;
         r.SetActive(false);
@@ -22,22 +23,20 @@ public class CurrentGameController : MonoBehaviour {
         b.SetActive(false);
         curedAnimals = GameObject.Find("AnimalesCurados").GetComponent<Text>();
         playtime = GameObject.Find("Tiempo").GetComponent<Text>();
-    }
 
-    private void Update()
-    {
-        if (gameObject.activeSelf && !File.Exists(SaveLoad.instance.SavePath + "/saveData"))
+
+        if (gameObject.activeSelf && !File.Exists("saveData"))
         {
             gameObject.SetActive(false);
         }
-        else if (File.Exists(SaveLoad.instance.SavePath + "/saveData") && loadLimiter)
+        else if (File.Exists("saveData") && loadLimiter)
         {
             loadLimiter = false;
             SaveLoad.instance.Load();
 
             int count = 0;
             completedLevels = GameManager.instance.completedLevels;
-            for(int x = 0; x < completedLevels.Length; x++)
+            for (int x = 0; x < completedLevels.Length; x++)
             {
                 if (completedLevels[x])
                 {
@@ -53,7 +52,25 @@ public class CurrentGameController : MonoBehaviour {
             int min = sec / 60;
             sec = sec % 60;
 
-            playtime.text = hours + "  :  " + min + "  :  " + sec;
+            string text = "";
+
+            if (hours < 10)
+            {
+                text += "0" + hours + ":";
+            }
+            else { text += hours + ":"; }
+            if (min < 10)
+            {
+                text += "0" + min + ":";
+            }
+            else { text += min + ":"; }
+            if (sec < 10)
+            {
+                text += "0" + sec;
+            }
+            else { text += sec; }
+
+            playtime.text = text;
 
             r.SetActive(GameManager.instance.redPiecePicked);
             g.SetActive(GameManager.instance.greenPiecePicked);

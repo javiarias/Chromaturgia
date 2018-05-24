@@ -27,7 +27,7 @@ public class SceneDoorScript : MonoBehaviour {
             GameManager.instance.colors = colorAmounts;
         }
 
-        if (sceneName == "Hub" && sceneToLoad != "" && TestIfPuzzleComplete())
+        if (sceneName == "Hub" && sceneToLoad != "" && sceneToLoad != "Hub" && TestIfPuzzleComplete())
         {
             GameManager.instance.puzzleComplete = false;
             child.SetActive(true);

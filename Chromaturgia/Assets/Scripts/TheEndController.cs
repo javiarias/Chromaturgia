@@ -82,6 +82,7 @@ public class TheEndController : MonoBehaviour {
 
 		yield return new WaitForSeconds(2f);
 
-		SceneManager.LoadScene("MainMenu");
-	}
+		SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Single);
+        SaveLoad.instance.SaveLevels();
+    }
 }

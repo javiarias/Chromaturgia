@@ -40,18 +40,18 @@ public class GameManager : MonoBehaviour {
     [HideInInspector]
     public float playerInitialRotation;
 
-    //[HideInInspector]
+    [HideInInspector]
     public bool[] completedLevels = new bool[MAX_LEVELS];
-    //[HideInInspector]
+    [HideInInspector]
     public bool level1Complete = false, level2Complete = false, level3Complete = false;
-    //[HideInInspector]
+    [HideInInspector]
     public bool redPiecePicked, greenPiecePicked, bluePiecePicked;
 
-    //[HideInInspector]
+    [HideInInspector]
     public float brightness = 0;
-    //[HideInInspector]
+    [HideInInspector]
     public float saturation = 0;
-    //[HideInInspector]
+    [HideInInspector]
     public float soundVolume = -16, musicVolume = -3.2f;
 
     PostProcessingBehaviour cam;
@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour {
 
 	static string sSceneName = null;
 
-    [HideInInspector]
+    //[HideInInspector]
     public float playtime;
 
     [HideInInspector]
@@ -100,8 +100,8 @@ public class GameManager : MonoBehaviour {
 
 	void Start()
     {
-        SetMusic ();
         openEndingDoor = true;
+        SetMusic ();
 	}
 
     public void Caching()
