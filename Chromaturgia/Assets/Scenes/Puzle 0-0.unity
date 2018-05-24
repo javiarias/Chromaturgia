@@ -1665,6 +1665,10 @@ Prefab:
       propertyPath: m_Name
       value: NPCBlue (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 1835411660313160, guid: dad9cab2a84c2d1438980ea453616c63, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dad9cab2a84c2d1438980ea453616c63, type: 2}
   m_IsPrefabParent: 0
@@ -18153,6 +18157,29 @@ Prefab:
     - target: {fileID: 1869714904693614, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 102812279537921172, guid: d16357e3fde558a4ca3418b57044f514,
+        type: 2}
+      propertyPath: m_Text
+      value: "\"Lecci\xF3n 6: Para cambiar el color que dispara\ntu arma, debes usar
+        los botones Q, W y E.\"\n\n\xBFT\xFA sabes lo que significa eso de \"Q, W,
+        E\"?\n"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698244168968984, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.0139
+      objectReference: {fileID: 0}
+    - target: {fileID: 4698244168968984, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 1.7949033
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482839590783958, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0.251
+      objectReference: {fileID: 0}
+    - target: {fileID: 4482839590783958, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0.452
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d16357e3fde558a4ca3418b57044f514, type: 2}
