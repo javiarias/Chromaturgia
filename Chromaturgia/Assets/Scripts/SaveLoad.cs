@@ -19,7 +19,7 @@ public class SaveLoad : MonoBehaviour
 	Animator anim;
 
     [HideInInspector]
-    public string SavePath = "..";
+    public string SavePath = "";
 
     void Awake()
     { 
@@ -47,12 +47,12 @@ public class SaveLoad : MonoBehaviour
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file;
 
-        if (File.Exists(SavePath + "/saveData"))
+        if (File.Exists("saveData"))
         {
-            File.Delete(SavePath + "/saveData");
+            File.Delete("saveData");
         }
 
-        file = File.Create(SavePath + "/saveData");
+        file = File.Create("saveData");
 
         SaveData data = new SaveData();
 
@@ -77,14 +77,14 @@ public class SaveLoad : MonoBehaviour
 		BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file;
 
-        if (!File.Exists(SavePath + "/saveData"))
+        if (!File.Exists("saveData"))
         {
-            file = File.Create(SavePath + "/saveData");
+            file = File.Create("saveData");
         }
 
         else
         {
-            file = File.Open(SavePath + "/saveData", FileMode.Open);
+            file = File.Open("saveData", FileMode.Open);
         }
 
         SaveData data = new SaveData();
@@ -108,7 +108,7 @@ public class SaveLoad : MonoBehaviour
             BinaryFormatter binaryFormatter = new BinaryFormatter();
             FileStream file;
 
-            file = File.Open(SavePath + "/configData", FileMode.Open);
+            file = File.Open("configData", FileMode.Open);
             ConfigData data = new ConfigData();
 
             data.brightness = GameManager.instance.brightness;
@@ -123,12 +123,12 @@ public class SaveLoad : MonoBehaviour
 
     public bool Load()
     {
-        bool exists = File.Exists(SavePath + "/saveData");
+        bool exists = File.Exists("saveData");
 
         if (exists)
         {
             BinaryFormatter binaryFormatter = new BinaryFormatter();
-            FileStream file = File.Open(SavePath + "/saveData", FileMode.Open);
+            FileStream file = File.Open("saveData", FileMode.Open);
 
             SaveData data = (SaveData)binaryFormatter.Deserialize(file);
             file.Close();
@@ -145,13 +145,13 @@ public class SaveLoad : MonoBehaviour
 
     public bool LoadConfig()
     {
-        bool exists = File.Exists(SavePath + "/configData");
+        bool exists = File.Exists("configData");
         BinaryFormatter binaryFormatter = new BinaryFormatter();
         FileStream file;
 
         if (!exists)
         {
-            file = File.Create(SavePath + "/configData");
+            file = File.Create("configData");
             ConfigData dataA = new ConfigData();
 
             dataA.brightness = 0;
@@ -164,7 +164,7 @@ public class SaveLoad : MonoBehaviour
         }
 
         binaryFormatter = new BinaryFormatter();
-        file = File.Open(SavePath + "/configData", FileMode.Open);
+        file = File.Open("configData", FileMode.Open);
 
         ConfigData data = (ConfigData)binaryFormatter.Deserialize(file);
         file.Close();
@@ -184,7 +184,7 @@ public class SaveLoad : MonoBehaviour
 
     public bool saveDataExists()
     {
-        return File.Exists(SavePath + "/saveData");
+        return File.Exists("saveData");
     }
 }
 

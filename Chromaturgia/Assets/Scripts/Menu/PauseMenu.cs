@@ -47,16 +47,24 @@ public class PauseMenu : MonoBehaviour {
 	void Start()
 	{
         sliderBrightnessValue = (GameManager.instance.brightness * 50) + 50;
-        brightnessSlider.value = sliderBrightnessValue;
+        try { brightnessSlider.value = sliderBrightnessValue; }
+        catch { }
 
 		sliderSaturationValue = (GameManager.instance.saturation * 50) + 50;
-        saturationSlider.value = sliderSaturationValue;
+        try { saturationSlider.value = sliderSaturationValue; }
+        catch { }
 
 		soundVolume = GameManager.instance.soundVolume;
-        soundSlider.value = soundVolume;
+        try { soundSlider.value = soundVolume; }
+        catch { }
 
-		musicVolume = GameManager.instance.musicVolume;
-        musicSlider.value = musicVolume;
+        Debug.Log(musicVolume);
+        Debug.Log(GameManager.instance.musicVolume);
+        musicVolume = GameManager.instance.musicVolume;
+        try { musicSlider.value = musicVolume; }
+        catch { }
+        Debug.Log(musicVolume);
+        Debug.Log(GameManager.instance.musicVolume);
     }
 
 	void Update()

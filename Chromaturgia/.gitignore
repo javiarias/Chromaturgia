@@ -28,4 +28,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 
-saveData
+saveData
+configData
